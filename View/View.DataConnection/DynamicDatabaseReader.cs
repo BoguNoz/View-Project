@@ -24,13 +24,13 @@ namespace View.DataConnection
         public abstract Task<List<string>> GetTableNamesAsync();
 
         //Getting colums names from specify table
-        public abstract Task<List<string>> GetColumsNamesAsync(string tableName);
+        public abstract Task<List<string>> GetColumsNamesAsync(string table);
 
         //Getting relations between tables
-        public abstract Task<bool> GetRelationsAsync(string tableName);
+        public abstract Task<Dictionary<string, string>> GetRelationsAsync();
 
         //Getting content from specify table
-        public abstract Task<ResponseModel> GetTableContetAsync(string tableName);
+        public abstract Task<ResponseModel> GetTableContetAsync(string table);
 
     }
 }
