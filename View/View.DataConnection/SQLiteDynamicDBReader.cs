@@ -134,26 +134,13 @@ namespace View.DataConnection
 
                     using (SQLiteDataReader reader = command.ExecuteReader())
                     {
-  
-                        var type = await GetDataType(reader.GetDataTypeName(column));
-
-                        switch (type)
+                        //Fetching all rows in column
+                        while (reader.Read())
                         {
-                            case "INTEGER":
-                                while (reader.Read()) data.Add(!reader.IsDBNull(0) ? reader.GetInt32(0).ToString() : null); break;
-                            case "TEXT":
-                                while (reader.Read()) data.Add(!reader.IsDBNull(0) ? reader.GetString(0) : null);break;
-                            case "BLOB":
-                                while (reader.Read()) data.Add("BLOB data unable to read"); break;
-                            case "DOUBLE":
-                                while (reader.Read()) data.Add(!reader.IsDBNull(0) ? reader.GetDouble(0).ToString() : null); break;
-                            case "FLOAT":
-                                while (reader.Read()) data.Add(!reader.IsDBNull(0) ? reader.GetFloat(0).ToString() : null); break;
-                            case "BOOL":
-                                while (reader.Read()) data.Add(!reader.IsDBNull(0) ? reader.GetBoolean(0).ToString() : null); break;
-                            case "DATE":
-                                while (reader.Read()) data.Add(!reader.IsDBNull(0) ? reader.GetDateTime(0).ToString() : null); break;
+                            //If row contains != null add value else add null
+                            data.Add(!reader.IsDBNull(0) ? reader.GetValue(0).ToString() : null);
                         }
+                  
                     }
                 }
             }
@@ -161,52 +148,5 @@ namespace View.DataConnection
             return data;
         }
 
-
-        private async Task<string> GetDataType(string type)
-        {
-            if (type.Contains("CHARACTER")) type = "CHARACTER";
-            else if (type.Contains("VARCHAR")) type = "VARCHAR";
-            else if (type.Contains("VARYING CHARACTER")) type = "VARYING CHARACTER";
-            else if (type.Contains("NCHAR")) type = "NCHAR";
-            else if (type.Contains("NATIVE CHARACTER")) type = "NATIVE CHARACTER";
-            else if (type.Contains("DECIMAL")) type = "DECIMAL";
-            else if (type.Contains("NUMERIC")) type = "NUMERIC";
-
-            var typeMappings = new Dictionary<string, string>
-            {
-                { "INT", "INTEGER" },
-                { "INTEGER", "INTEGER" },
-                { "TINYINT", "INTEGER" },
-                { "SMALLINT", "INTEGER" },
-                { "MEDIUMINT", "INTEGER" },
-                { "BIGINT", "INTEGER" },
-                { "UNSIGNED BIG INT", "INTEGER" },
-                { "INT2", "INTEGER" },
-                { "INT8", "INTEGER" },
-                { "CHARACTER", "TEXT" },
-                { "VARCHAR", "TEXT" },
-                { "VARYING CHARACTER", "TEXT" },
-                { "NCHAR", "TEXT" },
-                { "NATIVE CHARACTER", "TEXT" },
-                { "NVARCHAR", "TEXT" },
-                { "TEXT", "TEXT" },
-                { "CLOB", "TEXT" },
-                { "BLOB", "BLOB" },
-                { "DOUBLE", "DOUBLE" },
-                { "DOUBLE PRECISION", "DOUBLE" },
-                { "DECIMAL", "DOUBLE" },
-                { "NUMERIC", "DOUBLE" },
-                { "REAL", "FLOAT" },
-                { "FLOAT", "FLOAT" },
-                { "BOOLEAN", "BOOL" },
-                { "DATE", "DATE" },
-                { "DATETIME", "DATE" }
-            };
-
-            if (typeMappings.TryGetValue(type.ToUpper(), out var mappedType))
-                return mappedType;
-
-            return "TEXT"; // Default type
-        }
     }
 }
