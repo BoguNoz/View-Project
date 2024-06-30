@@ -139,47 +139,20 @@ namespace View.DataConnection
 
                         switch (type)
                         {
-                            case "INTEGER": while (reader.Read())
-                                {
-                                    if (!reader.IsDBNull(0)) data.Add(reader.GetInt32(0).ToString());
-                                    else data.Add(null);
-                                }
-                                break;
-                            case "TEXT": while (reader.Read())
-                                {
-                                    if (!reader.IsDBNull(0)) data.Add(reader.GetString(0));
-                                    else data.Add(null);
-                                }
-                                break;
-                            case "BLOB": while (reader.Read())
-                                {
-                                    data.Add("BLOB data unable to read");
-                                }
-                                break;
-                            case "DOUBLE": while (reader.Read())
-                                {
-                                    if (!reader.IsDBNull(0)) data.Add(reader.GetDouble(0).ToString());
-                                    else data.Add(null);
-                                }
-                                break;
-                            case "FLOAT": while (reader.Read())
-                                {
-                                    if (!reader.IsDBNull(0)) data.Add(reader.GetFloat(0).ToString());
-                                    else data.Add(null);
-                                }
-                                break;
-                            case "BOOL": while (reader.Read())
-                                {
-                                    if (!reader.IsDBNull(0)) data.Add(reader.GetBoolean(0).ToString());
-                                    else data.Add(null);
-                                }
-                                break;
-                            case "DATE": while (reader.Read())
-                                {
-                                    if (!reader.IsDBNull(0)) data.Add(reader.GetDateTime(0).ToString());
-                                    else data.Add(null);
-                                }
-                                break;
+                            case "INTEGER":
+                                while (reader.Read()) data.Add(!reader.IsDBNull(0) ? reader.GetInt32(0).ToString() : null); break;
+                            case "TEXT":
+                                while (reader.Read()) data.Add(!reader.IsDBNull(0) ? reader.GetString(0) : null);break;
+                            case "BLOB":
+                                while (reader.Read()) data.Add("BLOB data unable to read"); break;
+                            case "DOUBLE":
+                                while (reader.Read()) data.Add(!reader.IsDBNull(0) ? reader.GetDouble(0).ToString() : null); break;
+                            case "FLOAT":
+                                while (reader.Read()) data.Add(!reader.IsDBNull(0) ? reader.GetFloat(0).ToString() : null); break;
+                            case "BOOL":
+                                while (reader.Read()) data.Add(!reader.IsDBNull(0) ? reader.GetBoolean(0).ToString() : null); break;
+                            case "DATE":
+                                while (reader.Read()) data.Add(!reader.IsDBNull(0) ? reader.GetDateTime(0).ToString() : null); break;
                         }
                     }
                 }
@@ -199,53 +172,41 @@ namespace View.DataConnection
             else if (type.Contains("DECIMAL")) type = "DECIMAL";
             else if (type.Contains("NUMERIC")) type = "NUMERIC";
 
-            switch (type)
+            var typeMappings = new Dictionary<string, string>
             {
-                case "INT":
-                case "INTEGER":
-                case "TINYINT":
-                case "SMALLINT":
-                case "MEDIUMINT":
-                case "BIGINT":
-                case "UNSIGNED BIG INT":
-                case "INT2":
-                case "INT8":
-                    return "INTEGER";
+                { "INT", "INTEGER" },
+                { "INTEGER", "INTEGER" },
+                { "TINYINT", "INTEGER" },
+                { "SMALLINT", "INTEGER" },
+                { "MEDIUMINT", "INTEGER" },
+                { "BIGINT", "INTEGER" },
+                { "UNSIGNED BIG INT", "INTEGER" },
+                { "INT2", "INTEGER" },
+                { "INT8", "INTEGER" },
+                { "CHARACTER", "TEXT" },
+                { "VARCHAR", "TEXT" },
+                { "VARYING CHARACTER", "TEXT" },
+                { "NCHAR", "TEXT" },
+                { "NATIVE CHARACTER", "TEXT" },
+                { "NVARCHAR", "TEXT" },
+                { "TEXT", "TEXT" },
+                { "CLOB", "TEXT" },
+                { "BLOB", "BLOB" },
+                { "DOUBLE", "DOUBLE" },
+                { "DOUBLE PRECISION", "DOUBLE" },
+                { "DECIMAL", "DOUBLE" },
+                { "NUMERIC", "DOUBLE" },
+                { "REAL", "FLOAT" },
+                { "FLOAT", "FLOAT" },
+                { "BOOLEAN", "BOOL" },
+                { "DATE", "DATE" },
+                { "DATETIME", "DATE" }
+            };
 
-                case "CHARACTER":
-                case "VARCHAR":
-                case "VARYING CHARACTER":
-                case "NCHAR":
-                case "NATIVE CHARACTER":
-                case "NVARCHAR":
-                case "TEXT":
-                case "CLOB":
-                    return "TEXT";
+            if (typeMappings.TryGetValue(type.ToUpper(), out var mappedType))
+                return mappedType;
 
-                case "BLOB":
-                    return "BLOB";
-
-                case "DOUBLE":
-                case "DOUBLE PRECISION":
-                case "DECIMAL":
-                case "NUMERIC":
-                    return "DOUBLE";
-
-                case "REAL":
-                case "FLOAT":
-                    return "FLOAT";
-
-                case "BOOLEAN":
-                    return "BOOL";
-
-                case "DATE":
-                case "DATETIME":
-                    return "DATE";
-                default:
-                    return "TEXT";
-            }
-
-            return "";
+            return "TEXT"; // Default type
         }
     }
 }
