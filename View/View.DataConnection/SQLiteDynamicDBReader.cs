@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace View.DataConnection
 {
@@ -109,79 +110,142 @@ namespace View.DataConnection
         }
 
 
-        //public override async Task<List<string>> GetColumsContetAsync(string table, string column)
-        //{
-        //    //Checking if table name is not null 
-        //    if (table == null) return new List<string>();
+        public override async Task<List<string?>> GetColumsContetAsync(string table, string column, string? orderBy)
+        {
+            //Checking if table name is not null 
+            if (table == null || column == null) return new List<string?>();
 
-        //    //Creating Dictionary to hold data from column 
-        //    var data = new List<string>();
+            //If order by column is not specify then data will be order by themself
+            if (orderBy == null) orderBy = column;
 
-        //    using (connection)
-        //    {
-        //        ///SQL query used to fetch data from specific column in specific table
-        //        string query = $"SELECT {column} FROM {table}";
+            //Creating Dictionary to hold data from column 
+            var data = new List<string?>();
 
-        //        //Opening conection to data base
-        //        await connection.OpenAsync();
+            using (connection)
+            {
+                ///SQL query used to fetch data from specific column in specific table
+                string query = $"SELECT {column} FROM {table}  ORDER BY {orderBy}";
 
-        //        using (SQLiteCommand command = new SQLiteCommand(query, connection))
-        //        {
-        //            using (SQLiteDataReader reader = command.ExecuteReader())
-        //            {
-        //                var type = reader.GetDataTypeName(column);
+                //Opening conection to data base
+                await connection.OpenAsync();
 
-        //                if (type.Contains("CHARACTER")) type = "CHARACTER";
-        //                else if (type.Contains("VARCHAR")) type = "VARCHAR";
-        //                else if (type.Contains("VARYING CHARACTER")) type = "VARYING CHARACTER";
-        //                else if (type.Contains("NCHAR")) type = "NCHAR";
-        //                else if (type.Contains("NATIVE CHARACTER")) type = "NATIVE CHARACTER";
+                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                {
+
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+  
+                        var type = await GetDataType(reader.GetDataTypeName(column));
+
+                        switch (type)
+                        {
+                            case "INTEGER": while (reader.Read())
+                                {
+                                    if (!reader.IsDBNull(0)) data.Add(reader.GetInt32(0).ToString());
+                                    else data.Add(null);
+                                }
+                                break;
+                            case "TEXT": while (reader.Read())
+                                {
+                                    if (!reader.IsDBNull(0)) data.Add(reader.GetString(0));
+                                    else data.Add(null);
+                                }
+                                break;
+                            case "BLOB": while (reader.Read())
+                                {
+                                    data.Add("BLOB data unable to read");
+                                }
+                                break;
+                            case "DOUBLE": while (reader.Read())
+                                {
+                                    if (!reader.IsDBNull(0)) data.Add(reader.GetDouble(0).ToString());
+                                    else data.Add(null);
+                                }
+                                break;
+                            case "FLOAT": while (reader.Read())
+                                {
+                                    if (!reader.IsDBNull(0)) data.Add(reader.GetFloat(0).ToString());
+                                    else data.Add(null);
+                                }
+                                break;
+                            case "BOOL": while (reader.Read())
+                                {
+                                    if (!reader.IsDBNull(0)) data.Add(reader.GetBoolean(0).ToString());
+                                    else data.Add(null);
+                                }
+                                break;
+                            case "DATE": while (reader.Read())
+                                {
+                                    if (!reader.IsDBNull(0)) data.Add(reader.GetDateTime(0).ToString());
+                                    else data.Add(null);
+                                }
+                                break;
+                        }
+                    }
+                }
+            }
+
+            return data;
+        }
 
 
-        //                switch (type)
-        //                {
-        //                    case "CHARACTER":
-        //                    case "VARCHAR":
-        //                    case "VARYING CHARACTER":
-        //                    case "NCHAR":
-        //                    case "NATIVE CHARACTER":
-        //                    case "NVARCHAR(100)":
-        //                    case "TEXT":
-        //                    case "CLOB":
-        //                        while (reader.Read()) data.Add(reader.GetString(0));
-        //                        break;
-        //                    case "REAL":
-        //                    case "DOUBLE":
-        //                    case "DECIMAL(10,5)":
-        //                    case "DOUBLE PRECISION":
-        //                        while (reader.Read()) data.Add(reader.GetDouble(0).ToString());
-        //                        break;
-        //                    case "FLOAT": 
-        //                        while (reader.Read()) data.Add(reader.GetFloat(0).ToString()); 
-        //                        break;
-        //                    case "NUMERIC":
-        //                    case "INTEGER":
-        //                        while (reader.Read()) data.Add(reader.GetInt32(0).ToString());
-        //                        break;
-        //                    case "BOOLEAN":
-        //                        while (reader.Read()) data.Add(reader.GetBoolean(0).ToString());
-        //                        break;
-        //                    case "DATE":
-        //                    case "DATETIME":
-        //                        while (reader.Read()) data.Add(reader.GetDateTime(0).ToString());
-        //                        break;
-        //                    default:
-        //                        break;
-        //                }
+        private async Task<string> GetDataType(string type)
+        {
+            if (type.Contains("CHARACTER")) type = "CHARACTER";
+            else if (type.Contains("VARCHAR")) type = "VARCHAR";
+            else if (type.Contains("VARYING CHARACTER")) type = "VARYING CHARACTER";
+            else if (type.Contains("NCHAR")) type = "NCHAR";
+            else if (type.Contains("NATIVE CHARACTER")) type = "NATIVE CHARACTER";
+            else if (type.Contains("DECIMAL")) type = "DECIMAL";
+            else if (type.Contains("NUMERIC")) type = "NUMERIC";
 
+            switch (type)
+            {
+                case "INT":
+                case "INTEGER":
+                case "TINYINT":
+                case "SMALLINT":
+                case "MEDIUMINT":
+                case "BIGINT":
+                case "UNSIGNED BIG INT":
+                case "INT2":
+                case "INT8":
+                    return "INTEGER";
 
-        //            }
-        //        }
+                case "CHARACTER":
+                case "VARCHAR":
+                case "VARYING CHARACTER":
+                case "NCHAR":
+                case "NATIVE CHARACTER":
+                case "NVARCHAR":
+                case "TEXT":
+                case "CLOB":
+                    return "TEXT";
 
-        //    }
+                case "BLOB":
+                    return "BLOB";
 
-        //    return data;
-        //}
+                case "DOUBLE":
+                case "DOUBLE PRECISION":
+                case "DECIMAL":
+                case "NUMERIC":
+                    return "DOUBLE";
 
+                case "REAL":
+                case "FLOAT":
+                    return "FLOAT";
+
+                case "BOOLEAN":
+                    return "BOOL";
+
+                case "DATE":
+                case "DATETIME":
+                    return "DATE";
+                default:
+                    return "TEXT";
+            }
+
+            return "";
+        }
     }
 }
