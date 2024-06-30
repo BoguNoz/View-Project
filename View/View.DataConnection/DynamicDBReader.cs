@@ -10,12 +10,12 @@ using CoreFeatures.ResposeModel;
 
 namespace View.DataConnection
 {
-    public abstract class DynamicDatabaseReader
+    public abstract class DynamicDBReader
     {
         protected SQLiteConnection connection;
 
         //Setting up the connection with SQLite data base 
-        public DynamicDatabaseReader(string connectionString)
+        public DynamicDBReader(string connectionString)
         {
             connection = new SQLiteConnection(connectionString);
         }
@@ -29,8 +29,8 @@ namespace View.DataConnection
         //Getting relations between tables
         public abstract Task<Dictionary<string, string>> GetRelationsAsync();
 
-        //Getting content from specify table
-        public abstract Task<ResponseModel> GetTableContetAsync(string table);
+        //Getting content from specify colums
+        public abstract Task<List<string>> GetColumsContetAsync(string table, string column);
 
     }
 }
