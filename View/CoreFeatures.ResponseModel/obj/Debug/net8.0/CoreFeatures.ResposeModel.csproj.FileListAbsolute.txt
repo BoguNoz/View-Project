@@ -1,0 +1,12 @@
+C:\Users\bnozd\Desktop\View-Project\View\CoreFeatures.ResponseModel\bin\Debug\net8.0\CoreFeatures.ResposeModel.deps.json
+C:\Users\bnozd\Desktop\View-Project\View\CoreFeatures.ResponseModel\bin\Debug\net8.0\CoreFeatures.ResposeModel.dll
+C:\Users\bnozd\Desktop\View-Project\View\CoreFeatures.ResponseModel\bin\Debug\net8.0\CoreFeatures.ResposeModel.pdb
+C:\Users\bnozd\Desktop\View-Project\View\CoreFeatures.ResponseModel\obj\Debug\net8.0\CoreFeatures.ResposeModel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bnozd\Desktop\View-Project\View\CoreFeatures.ResponseModel\obj\Debug\net8.0\CoreFeatures.ResposeModel.AssemblyInfoInputs.cache
+C:\Users\bnozd\Desktop\View-Project\View\CoreFeatures.ResponseModel\obj\Debug\net8.0\CoreFeatures.ResposeModel.AssemblyInfo.cs
+C:\Users\bnozd\Desktop\View-Project\View\CoreFeatures.ResponseModel\obj\Debug\net8.0\CoreFeatures.ResposeModel.csproj.CoreCompileInputs.cache
+C:\Users\bnozd\Desktop\View-Project\View\CoreFeatures.ResponseModel\obj\Debug\net8.0\CoreFeatures.ResposeModel.sourcelink.json
+C:\Users\bnozd\Desktop\View-Project\View\CoreFeatures.ResponseModel\obj\Debug\net8.0\CoreFeatures.ResposeModel.dll
+C:\Users\bnozd\Desktop\View-Project\View\CoreFeatures.ResponseModel\obj\Debug\net8.0\refint\CoreFeatures.ResposeModel.dll
+C:\Users\bnozd\Desktop\View-Project\View\CoreFeatures.ResponseModel\obj\Debug\net8.0\CoreFeatures.ResposeModel.pdb
+C:\Users\bnozd\Desktop\View-Project\View\CoreFeatures.ResponseModel\obj\Debug\net8.0\ref\CoreFeatures.ResposeModel.dll
