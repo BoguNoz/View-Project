@@ -1,0 +1,5 @@
+C:\Users\bnozd\Desktop\View-Project\View\CoreFeatures.ResposeModel\obj\Debug\net8.0\CoreFeatures.ResposeModel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bnozd\Desktop\View-Project\View\CoreFeatures.ResposeModel\obj\Debug\net8.0\CoreFeatures.ResposeModel.AssemblyInfoInputs.cache
+C:\Users\bnozd\Desktop\View-Project\View\CoreFeatures.ResposeModel\obj\Debug\net8.0\CoreFeatures.ResposeModel.AssemblyInfo.cs
+C:\Users\bnozd\Desktop\View-Project\View\CoreFeatures.ResposeModel\obj\Debug\net8.0\CoreFeatures.ResposeModel.csproj.CoreCompileInputs.cache
+C:\Users\bnozd\Desktop\View-Project\View\CoreFeatures.ResposeModel\obj\Debug\net8.0\CoreFeatures.ResposeModel.sourcelink.json
