@@ -11,7 +11,7 @@ using CoreFeatures.ResposeModel;
 namespace View.DataConnection
 {
     /// <summary>
-    /// DynamicDBReader is abstract class used as framework for thier children classes, and contains all necessary methods used for collecting necesary dta from data base.
+    /// DynamicDBReader is abstract class used as framework for thier children classes, and contains all necessary methods used for collecting necesary data from data base.
     /// It was created because the implementation of this class may differ for each type of SQL database
     /// </summary>
     public abstract class DynamicDBReader
@@ -64,7 +64,8 @@ namespace View.DataConnection
         public abstract Task<ResponseModel> GetColumnDataTypeAsync(string table, string column);
 
         /// <summary>
-        /// GetPrimaryKeysAsync gets dictionary of columns as keys with value being thier status as primary keys for specify table
+        /// GetPrimaryKeysAsync gets dictionary of columns as keys with value being thier status as primary keys for specify table.
+        /// Important: While using this task it always should be noted that not all columns that are in table will be included in dictionary
         /// </summary>
         /// <param name="table">Table in use</param>
         /// <returns>Returns Dictionary(string,bool) containing (names of column : is it PK) in specify table. False is not PK, true is PK</returns>
@@ -72,6 +73,7 @@ namespace View.DataConnection
 
         /// <summary>
         /// GetForeignKeysAsync gets dictionary of columns as keys with value being thier status as foregin keys for specify table
+        /// Important: While using this task it always should be noted that not all columns that are in table will be included in dictionary
         /// </summary>
         /// <param name="table">Table in use</param>
         /// <returns>Returns Dictionary(string,bool) containing (names of column : is it PK) in specify table. False is not FK, true is FK</returns>
