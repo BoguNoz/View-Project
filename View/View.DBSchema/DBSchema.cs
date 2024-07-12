@@ -30,7 +30,7 @@ namespace View.DBShema
         }
 
         
-        public async Task<ResponseModel> AcquireColumnData(string tableName)
+        public async Task<ResponseModel<List<ColumnSchema>>> AcquireColumnData(string tableName)
         {
             var colums = new List<ColumnSchema>();
 
@@ -38,27 +38,27 @@ namespace View.DBShema
             {
                 var result = await dBReader.GetColumsNamesAsync(tableName);
 
-                if (result.Status == false)
-                    return new ResponseModel { Status = false, Message = result.Message };
+                if (!result.Status)
+                    return new ResponseModel<List<ColumnSchema>> { Status = false, Message = result.Message };
 
-                var temp = result.Result;
+                var columnList = result.Result as List<string?>;
 
-                //foreach(var column in result.Result)
-                //{
-
-                //}
+                foreach (var column in columnList)
+                {
+                   
+                }
 
             }
             catch (Exception ex)
             {
-                return new ResponseModel { Status = false, Message = $"Acquire column data ended unsuccessful due to error: {ex}" };
+                return new ResponseModel<List<ColumnSchema>> { Status = false, Message = $"Acquire column data ended unsuccessful due to error: {ex}" };
             }
 
-            return new ResponseModel { Status = true, Message = "Acquire column data ended successful", Result = colums };
+            return new ResponseModel<List<ColumnSchema>> { Status = true, Message = "Acquire column data ended successful", Result = colums };
         }
 
 
-        public async Task<ResponseModel> AcquireTableData()
+        public async Task<ResponseModel<List<TableSchema>>> AcquireTableData()
         {
             var tebles = new List<TableSchema>();
 
@@ -66,22 +66,39 @@ namespace View.DBShema
             {
                 var result = await dBReader.GetTableNamesAsync();
 
-                if (result.Status == false)
-                    return new ResponseModel { Status = false, Message = result.Message };
+                if (!result.Status)
+                    return new ResponseModel<List<TableSchema>> { Status = false, Message = result.Message };
+
+                var tableList = result.Result;
+
+                //Creating objects representing tables 
+                foreach (var name in tableList)
+                {
+                    var colums = await AcquireColumnData(name);
+
+                    if (!colums.Status)
+                        return new ResponseModel<List<TableSchema>> { Status = false, Message = colums.Message };
+
+                    var table = new TableSchema
+                    {
+                        TableName = name,
+                        TableColumns = colums.Result,
+                    };
+                }
 
             }
             catch (Exception ex)
             {
-                return new ResponseModel { Status = false, Message = $"Acquire table data ended unsuccessful due to error: {ex}" };
+                return new ResponseModel<List<TableSchema>> { Status = false, Message = $"Acquire table data ended unsuccessful due to error: {ex}" };
             }
 
-            return new ResponseModel { Status = true, Message = "Acquire table data ended successful", Result = tables };
+            return new ResponseModel<List<TableSchema>> { Status = true, Message = "Acquire table data ended successful", Result = tables };
         }
 
 
-        public async Task<ResponseModel> CreateDBSchema()
+        public async Task<ResponseModel<bool>> CreateDBSchema()
         {
-            return new ResponseModel { Status = true, Message = "Creating database schema ended successful" };
+            return new ResponseModel<bool> { Status = true, Message = "Creating database schema ended successful" };
         }
     }
 }

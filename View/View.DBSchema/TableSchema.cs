@@ -12,7 +12,7 @@ namespace View.DBShema
 
     public class TableSchema
     {
-        public string TableName { get; set; }
+        public string? TableName { get; set; } = string.Empty;
 
         public ICollection<ColumnSchema> TableColumns { get; set; }
     }

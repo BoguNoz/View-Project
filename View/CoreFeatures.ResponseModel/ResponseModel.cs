@@ -7,7 +7,7 @@ namespace CoreFeatures.ResposeModel
     /// on this layer
     /// </summary>
 
-    public class ResponseModel
+    public class ResponseModel<T>
     {
         /// <summary>
         /// Status represents whether the operation was successful.
@@ -23,7 +23,7 @@ namespace CoreFeatures.ResposeModel
         /// <summary>
         /// Result carries result of operation 
         /// </summary>
-        public object Result { get; set; } = new object();
+        public T Result { get; set; }
 
     }
 }

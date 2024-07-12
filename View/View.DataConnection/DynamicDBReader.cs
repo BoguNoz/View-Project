@@ -30,21 +30,21 @@ namespace View.DataConnection
         /// <summary>
         /// GetTableNamesAsync gets tables names from database asynchronous 
         /// </summary>
-        /// <returns>Returns List of strings containing table names</returns>
-        public abstract Task<ResponseModel> GetTableNamesAsync();
+        /// <returns>Returns List of strings? containing table names</returns>
+        public abstract Task<ResponseModel<List<string?>>> GetTableNamesAsync();
 
         /// <summary>
         /// GetColumsNamesAsync gets colums names from specify table asynchronous 
         /// </summary>
         /// <param name="table">Table in use</param>
-        /// <returns>Returns List of strings containing columns names</returns>
-        public abstract Task<ResponseModel> GetColumsNamesAsync(string table);
+        /// <returns>Returns List of strings? containing columns names</returns>
+        public abstract Task<ResponseModel<List<string?>>> GetColumsNamesAsync(string table);
 
         /// <summary>
         /// GetRelationsAsync get relations between tables asynchronous 
         /// </summary>
         /// <returns>Returns Dictionary(string,string) containing relations (table : table). All relations are unique and do not repeat</returns>
-        public abstract Task<ResponseModel> GetRelationsAsync();
+        public abstract Task<ResponseModel<Dictionary<string,string>>> GetRelationsAsync();
 
         /// <summary>
         /// GetColumsContetAsync gets content from specify colums asynchronous 
@@ -52,8 +52,8 @@ namespace View.DataConnection
         /// <param name="table">Table in use</param>
         /// <param name="column">Column in use</param>
         /// <param name="orderBy">Column used to order by data</param>
-        /// <returns>Returns List of strings containing content of column</returns>
-        public abstract Task<ResponseModel> GetColumsContetAsync(string table, string column, string? orderBy);
+        /// <returns>Returns List of strings? containing content of column</returns>
+        public abstract Task<ResponseModel<List<string?>>> GetColumsContetAsync(string table, string column, string? orderBy);
 
         /// <summary>
         /// GetColumnDataTypeAsync gets type of data in column asynchronous
@@ -61,7 +61,7 @@ namespace View.DataConnection
         /// <param name="table">Table in use</param>
         /// <param name="column">Column in use</param>
         /// <returns>Returns single string containing corect data type</returns>
-        public abstract Task<ResponseModel> GetColumnDataTypeAsync(string table, string column);
+        public abstract Task<ResponseModel<string>> GetColumnDataTypeAsync(string table, string column);
 
         /// <summary>
         /// GetPrimaryKeysAsync gets dictionary of columns as keys with value being thier status as primary keys for specify table.
@@ -69,7 +69,7 @@ namespace View.DataConnection
         /// </summary>
         /// <param name="table">Table in use</param>
         /// <returns>Returns Dictionary(string,bool) containing (names of column : is it PK) in specify table. False is not PK, true is PK</returns>
-        public abstract Task<ResponseModel> GetPrimaryKeysAsync(string table);
+        public abstract Task<ResponseModel<Dictionary<string, bool>>> GetPrimaryKeysAsync(string table);
 
         /// <summary>
         /// GetForeignKeysAsync gets dictionary of columns as keys with value being thier status as foregin keys for specify table
@@ -77,7 +77,7 @@ namespace View.DataConnection
         /// </summary>
         /// <param name="table">Table in use</param>
         /// <returns>Returns Dictionary(string,bool) containing (names of column : is it PK) in specify table. False is not FK, true is FK</returns>
-        public abstract Task<ResponseModel> GetForeignKeysAsync(string table);
+        public abstract Task<ResponseModel<Dictionary<string, bool>>> GetForeignKeysAsync(string table);
 
     }
 }

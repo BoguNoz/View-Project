@@ -13,9 +13,13 @@ namespace View.DBShema
     
     public class ColumnSchema
     {
-        public string ColumnName { get; set; } = string.Empty; 
+        public string? ColumnName { get; set; } = string.Empty; 
         
-        public string ColumnType { get; set;} = string.Empty;
+        public string? ColumnType { get; set;} = string.Empty;
+
+        public bool IsItPrimaryKey {  get; set; }
+
+        public bool IsItForeignKey { get; set; }
 
         public ICollection<string?> ColumnData { get; set; }
     }

@@ -8,11 +8,11 @@ C:\Users\bnozd\Desktop\View-Project\View\View.DataConnection\bin\Debug\net8.0\Vi
 C:\Users\bnozd\Desktop\View-Project\View\View.DataConnection\bin\Debug\net8.0\View.DataConnection.runtimeconfig.json
 C:\Users\bnozd\Desktop\View-Project\View\View.DataConnection\bin\Debug\net8.0\View.DataConnection.dll
 C:\Users\bnozd\Desktop\View-Project\View\View.DataConnection\bin\Debug\net8.0\View.DataConnection.pdb
-C:\Users\bnozd\Desktop\View-Project\View\View.DataConnection\bin\Debug\net8.0\CoreFeatures.ResposeModel.dll
-C:\Users\bnozd\Desktop\View-Project\View\View.DataConnection\bin\Debug\net8.0\CoreFeatures.ResposeModel.pdb
 C:\Users\bnozd\Desktop\View-Project\View\View.DataConnection\obj\Debug\net8.0\View.DataConnection.csproj.CopyComplete
 C:\Users\bnozd\Desktop\View-Project\View\View.DataConnection\obj\Debug\net8.0\View.DataConnection.dll
 C:\Users\bnozd\Desktop\View-Project\View\View.DataConnection\obj\Debug\net8.0\refint\View.DataConnection.dll
 C:\Users\bnozd\Desktop\View-Project\View\View.DataConnection\obj\Debug\net8.0\View.DataConnection.pdb
 C:\Users\bnozd\Desktop\View-Project\View\View.DataConnection\obj\Debug\net8.0\View.DataConnection.genruntimeconfig.cache
 C:\Users\bnozd\Desktop\View-Project\View\View.DataConnection\obj\Debug\net8.0\ref\View.DataConnection.dll
+C:\Users\bnozd\Desktop\View-Project\View\View.DataConnection\bin\Debug\net8.0\CoreFeatures.ResponseModel.dll
+C:\Users\bnozd\Desktop\View-Project\View\View.DataConnection\bin\Debug\net8.0\CoreFeatures.ResponseModel.pdb
