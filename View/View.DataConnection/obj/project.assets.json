@@ -390,14 +390,14 @@
           }
         }
       },
-      "CoreFeatures.ResposeModel/1.0.0": {
+      "CoreFeatures.ResponseModel/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "compile": {
-          "bin/placeholder/CoreFeatures.ResposeModel.dll": {}
+          "bin/placeholder/CoreFeatures.ResponseModel.dll": {}
         },
         "runtime": {
-          "bin/placeholder/CoreFeatures.ResposeModel.dll": {}
+          "bin/placeholder/CoreFeatures.ResponseModel.dll": {}
         }
       }
     }
@@ -1218,15 +1218,15 @@
         "version.txt"
       ]
     },
-    "CoreFeatures.ResposeModel/1.0.0": {
+    "CoreFeatures.ResponseModel/1.0.0": {
       "type": "project",
-      "path": "../CoreFeatures.ResponseModel/CoreFeatures.ResposeModel.csproj",
-      "msbuildProject": "../CoreFeatures.ResponseModel/CoreFeatures.ResposeModel.csproj"
+      "path": "../CoreFeatures.ResponseModel/CoreFeatures.ResponseModel.csproj",
+      "msbuildProject": "../CoreFeatures.ResponseModel/CoreFeatures.ResponseModel.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "CoreFeatures.ResposeModel >= 1.0.0",
+      "CoreFeatures.ResponseModel >= 1.0.0",
       "System.Data.SQLite >= 1.0.118"
     ]
   },
@@ -1263,8 +1263,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\bnozd\\Desktop\\View-Project\\View\\CoreFeatures.ResponseModel\\CoreFeatures.ResposeModel.csproj": {
-              "projectPath": "C:\\Users\\bnozd\\Desktop\\View-Project\\View\\CoreFeatures.ResponseModel\\CoreFeatures.ResposeModel.csproj"
+            "C:\\Users\\bnozd\\Desktop\\View-Project\\View\\CoreFeatures.ResponseModel\\CoreFeatures.ResponseModel.csproj": {
+              "projectPath": "C:\\Users\\bnozd\\Desktop\\View-Project\\View\\CoreFeatures.ResponseModel\\CoreFeatures.ResponseModel.csproj"
             }
           }
         }

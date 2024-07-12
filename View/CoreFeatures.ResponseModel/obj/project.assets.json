@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bnozd\\Desktop\\View-Project\\View\\CoreFeatures.ResponseModel\\CoreFeatures.ResposeModel.csproj",
-      "projectName": "CoreFeatures.ResposeModel",
-      "projectPath": "C:\\Users\\bnozd\\Desktop\\View-Project\\View\\CoreFeatures.ResponseModel\\CoreFeatures.ResposeModel.csproj",
+      "projectUniqueName": "C:\\Users\\bnozd\\Desktop\\View-Project\\View\\CoreFeatures.ResponseModel\\CoreFeatures.ResponseModel.csproj",
+      "projectName": "CoreFeatures.ResponseModel",
+      "projectPath": "C:\\Users\\bnozd\\Desktop\\View-Project\\View\\CoreFeatures.ResponseModel\\CoreFeatures.ResponseModel.csproj",
       "packagesPath": "C:\\Users\\bnozd\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\bnozd\\Desktop\\View-Project\\View\\CoreFeatures.ResponseModel\\obj\\",
       "projectStyle": "PackageReference",

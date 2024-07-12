@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CoreFeatures.ResponseModel\CoreFeatures.ResposeModel.csproj" />
+    <ProjectReference Include="..\CoreFeatures.ResponseModel\CoreFeatures.ResponseModel.csproj" />
   </ItemGroup>
 
 </Project>

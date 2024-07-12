@@ -20,11 +20,10 @@ namespace CoreFeatures.ResposeModel
         /// </summary>
         public string Message { get; set; } = string.Empty;
 
-
         /// <summary>
         /// Result carries result of operation 
         /// </summary>
-        public object Result { get; set; }
+        public object Result { get; set; } = new object();
 
     }
 }
