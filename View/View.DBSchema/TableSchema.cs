@@ -15,5 +15,8 @@ namespace View.DBShema
         public string? TableName { get; set; } = string.Empty;
 
         public ICollection<ColumnSchema> TableColumns { get; set; }
+
+        //Relationships is List that holds data about relationships between tables current database  
+        public ICollection<string> Relationships { get; set; }
     }
 }

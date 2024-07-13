@@ -15,7 +15,7 @@ namespace View.DBShema
     {
         public string? ColumnName { get; set; } = string.Empty; 
         
-        public string? ColumnType { get; set;} = string.Empty;
+        public string? ColumnDataType { get; set;} = string.Empty;
 
         public bool IsItPrimaryKey {  get; set; }
 

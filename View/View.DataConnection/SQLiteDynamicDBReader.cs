@@ -22,12 +22,13 @@ namespace View.DataConnection
     /// </summary>
     public class SQLiteDynamicDBReader : DynamicDBReader
     {
+
         /// <summary>
         /// Constructor of SQLiteDynamicDBReader class is responsible for initialization of new instance of SQLiteDynamicDatabaseReade
         /// </summary>
-        /// <param name="connectionString">Data base connection string (SQLite only).</param>
-        public SQLiteDynamicDBReader(string connectionString) : base(connectionString) 
-        { 
+        /// <param name="connectionStr">Data base connection string (SQLite only).</param>
+        public SQLiteDynamicDBReader(string connectionStr) : base(connectionStr) 
+        {
         }
 
 
@@ -35,7 +36,7 @@ namespace View.DataConnection
         {
             var tables = new List<string?>();
 
-            using (connection)
+            using (var connection = new SQLiteConnection(connectionString))
             {
 
                 try
@@ -68,7 +69,7 @@ namespace View.DataConnection
 
             var columns = new List<string?>();
 
-            using (connection)
+            using (var connection = new SQLiteConnection(connectionString))
             {
                 try
                 {
@@ -94,11 +95,11 @@ namespace View.DataConnection
         }
 
 
-        public override async Task<ResponseModel<Dictionary<string, string>>> GetRelationsAsync()
+        public override async Task<ResponseModel<Dictionary<string, List<string>>>> GetRelationsAsync()
         {
-            var relations = new Dictionary<string,string>();
+            var relations = new Dictionary<string,List<string>>();
 
-            using (connection)
+            using (var connection = new SQLiteConnection(connectionString))
             {
                 try
                 {
@@ -112,16 +113,22 @@ namespace View.DataConnection
                     {
                         string tableMain = row["TABLE_NAME"].ToString();
                         string tableInRelation = row["FKEY_TO_TABLE"].ToString();
-                        relations.Add(tableMain, tableInRelation);
+
+                        if(relations.ContainsKey(tableMain))
+                            relations[tableMain].Add(tableInRelation);
+                        else
+                            relations.Add(tableMain, new List<string> {  tableInRelation } );
+                        
                     }
                 }
                 catch (Exception ex)
                 {
-                    return new ResponseModel<Dictionary<string, string>> { Status = false, Message = $"Collecting relation between tables ended unsuccessful due to error: {ex}", Result = new Dictionary<string, string>() };
+                    return new ResponseModel<Dictionary<string, List<string>>> { Status = false, Message = $"Collecting relation between tables ended unsuccessful due to error: {ex}", Result = new Dictionary<string, List<string>>() };
+
                 }
             }
 
-            return new ResponseModel<Dictionary<string, string>> { Status = true, Message = "Collecting relation between tables ended successfully", Result = relations }; ;
+            return new ResponseModel<Dictionary<string, List<string>>> { Status = true, Message = "Collecting relation between tables ended successfully", Result = relations }; ;
         }
 
 
@@ -134,8 +141,9 @@ namespace View.DataConnection
 
             var data = new List<string?>();
 
-            using (connection)
+            using (var connection = new SQLiteConnection(connectionString))
             {
+
                 ///SQL query used to fetch data from specific column in specific table
                 string query = $"SELECT {column} FROM {table}  ORDER BY {orderBy}";
 
@@ -171,9 +179,9 @@ namespace View.DataConnection
         {
             if (table == null || column == null) return new ResponseModel<string> { Status = false, Message = "Collecting column data type failed due to null parameter", Result = string.Empty };
 
-            var type = string.Empty;
+            var type = "404";
 
-            using(connection)
+            using(var connection = new SQLiteConnection(connectionString))
             {
                 try
                 {
@@ -185,8 +193,8 @@ namespace View.DataConnection
                     //Iterating over schema content in order to fetch data type of correct column
                     foreach (DataRow row in schema.Rows)
                     {
-                        if (row["COLUMN_NAME"].ToString().ToUpper() == column.ToUpper())
-                            type = row["DATA_TYPE"].ToString().ToUpper();
+                        if (row["COLUMN_NAME"].ToString() == column)
+                            type = row["DATA_TYPE"].ToString();
                     }
                 }
                 catch (Exception ex)
@@ -196,7 +204,7 @@ namespace View.DataConnection
             }
 
             //if the correct column is not found type equals string.Empty, in this case the operation failed
-            if (type == string.Empty) 
+            if (type == "404") 
                 return new ResponseModel<string> { Status = false, Message = $"Collecting column data type failed due column named {column} not existing in data base", Result = string.Empty };
             else 
                 return new ResponseModel<string> { Status = true, Message = "Collecting column data type ended successful", Result = type };
@@ -208,8 +216,8 @@ namespace View.DataConnection
             if (table == null) return new ResponseModel<Dictionary<string, bool>> { Status = false, Message = "Collecting primary keys failed due to null parameter", Result = new Dictionary<string, bool>() };
 
             var keys = new Dictionary<string,bool>();
-
-            using (connection)
+            
+            using (var connection = new SQLiteConnection(connectionString))
             {
                 try
                 {
@@ -242,8 +250,8 @@ namespace View.DataConnection
 
             var keys = new Dictionary<string,bool>();
 
-            using (connection)
-            {
+           using (var connection = new SQLiteConnection(connectionString))
+           {
                 try
                 {
                     await connection.OpenAsync();
@@ -265,7 +273,7 @@ namespace View.DataConnection
                 {
                     return new ResponseModel<Dictionary<string, bool>> { Status = false, Message = $"Collecting column data type ended unsuccessful due to error: {ex}", Result = new Dictionary<string, bool>() };
                 }
-            }
+           }
 
             return new ResponseModel<Dictionary<string, bool>> { Status = true, Message = "Collecting foregin keys ended successful", Result = keys };
         }

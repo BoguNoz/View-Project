@@ -16,15 +16,16 @@ namespace View.DataConnection
     /// </summary>
     public abstract class DynamicDBReader
     {
-        protected SQLiteConnection connection;
+
+        protected string connectionString;
 
         /// <summary>
         /// Base constructor responsible for initialization of new instance of DynamicDatabaseReade
         /// </summary>
         /// <param name="connectionString">Data base connection string must be in correct format in order to work.</param>
-        public DynamicDBReader(string connectionString)
+        public DynamicDBReader(string connectionStr)
         {
-            connection = new SQLiteConnection(connectionString);
+            connectionString = connectionStr;   
         }
 
         /// <summary>
@@ -43,8 +44,8 @@ namespace View.DataConnection
         /// <summary>
         /// GetRelationsAsync get relations between tables asynchronous 
         /// </summary>
-        /// <returns>Returns Dictionary(string,string) containing relations (table : table). All relations are unique and do not repeat</returns>
-        public abstract Task<ResponseModel<Dictionary<string,string>>> GetRelationsAsync();
+        /// <returns>Returns Dictionary(string,List<string></string>) containing relations (table : List(table in relation)). All relations are unique and do not repeat</returns>
+        public abstract Task<ResponseModel<Dictionary<string,List<string>>>> GetRelationsAsync();
 
         /// <summary>
         /// GetColumsContetAsync gets content from specify colums asynchronous 
