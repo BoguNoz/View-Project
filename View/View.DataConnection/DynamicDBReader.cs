@@ -35,7 +35,7 @@ namespace View.DataConnection
         public abstract Task<ResponseModel<List<string?>>> GetTableNamesAsync();
 
         /// <summary>
-        /// GetColumsNamesAsync gets colums names from specify table asynchronous 
+        /// GetColumsNamesAsync gets colums names from specified table asynchronous 
         /// </summary>
         /// <param name="table">Table in use</param>
         /// <returns>Returns List of strings? containing columns names</returns>
@@ -48,11 +48,11 @@ namespace View.DataConnection
         public abstract Task<ResponseModel<Dictionary<string,List<string>>>> GetRelationsAsync();
 
         /// <summary>
-        /// GetColumsContetAsync gets content from specify colums asynchronous 
+        /// GetColumsContetAsync gets content from specified colums asynchronous 
         /// </summary>
         /// <param name="table">Table in use</param>
         /// <param name="column">Column in use</param>
-        /// <param name="orderBy">Column used to order by data</param>
+        /// <param name="orderBy">Column that will be use to order data</param>
         /// <returns>Returns List of strings? containing content of column</returns>
         public abstract Task<ResponseModel<List<string?>>> GetColumsContetAsync(string table, string column, string? orderBy);
 
@@ -65,19 +65,19 @@ namespace View.DataConnection
         public abstract Task<ResponseModel<string>> GetColumnDataTypeAsync(string table, string column);
 
         /// <summary>
-        /// GetPrimaryKeysAsync gets dictionary of columns as keys with value being thier status as primary keys for specify table.
+        /// GetPrimaryKeysAsync gets dictionary of columns as keys with value being thier status as primary keys for specified table.
         /// Important: While using this task it always should be noted that not all columns that are in table will be included in dictionary
         /// </summary>
         /// <param name="table">Table in use</param>
-        /// <returns>Returns Dictionary(string,bool) containing (names of column : is it PK) in specify table. False is not PK, true is PK</returns>
+        /// <returns>Returns Dictionary(string,bool) containing (names of column : is it PK) in specified table. False is not PK, true is PK</returns>
         public abstract Task<ResponseModel<Dictionary<string, bool>>> GetPrimaryKeysAsync(string table);
 
         /// <summary>
-        /// GetForeignKeysAsync gets dictionary of columns as keys with value being thier status as foregin keys for specify table
+        /// GetForeignKeysAsync gets dictionary of columns as keys with value being thier status as foregin keys for specified table
         /// Important: While using this task it always should be noted that not all columns that are in table will be included in dictionary
         /// </summary>
         /// <param name="table">Table in use</param>
-        /// <returns>Returns Dictionary(string,bool) containing (names of column : is it PK) in specify table. False is not FK, true is FK</returns>
+        /// <returns>Returns Dictionary(string,bool) containing (names of column : is it PK) in specified table. False is not FK, true is FK</returns>
         public abstract Task<ResponseModel<Dictionary<string, bool>>> GetForeignKeysAsync(string table);
 
     }

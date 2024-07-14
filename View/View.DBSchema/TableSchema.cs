@@ -12,11 +12,19 @@ namespace View.DBShema
 
     public class TableSchema
     {
+        /// <summary>
+        /// TableName represents table name fetched from database
+        /// </summary>
         public string? TableName { get; set; } = string.Empty;
 
+        /// <summary>
+        /// TableColumns is collection that holds all colums (as objects) owned by that table
+        /// </summary>
         public ICollection<ColumnSchema> TableColumns { get; set; }
 
-        //Relationships is List that holds data about relationships between tables current database  
+        /// <summary>
+        /// Relationships is List that holds data about relationships between tables current database  
+        /// <summary>
         public ICollection<string> Relationships { get; set; }
     }
 }

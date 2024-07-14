@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("View.DataConnection")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8134cb5ac2dd01c851761461f15c17e670a4a8ad")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4eb359a188d147f21f975840df98fa94a2aec275")]
 [assembly: System.Reflection.AssemblyProductAttribute("View.DataConnection")]
 [assembly: System.Reflection.AssemblyTitleAttribute("View.DataConnection")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
