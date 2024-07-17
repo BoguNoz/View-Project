@@ -1,0 +1,15 @@
+C:\Users\bnozd\Desktop\View-Project\View\View.Repository\bin\Debug\net8.0\View.Repository.deps.json
+C:\Users\bnozd\Desktop\View-Project\View\View.Repository\bin\Debug\net8.0\View.Repository.dll
+C:\Users\bnozd\Desktop\View-Project\View\View.Repository\bin\Debug\net8.0\View.Repository.pdb
+C:\Users\bnozd\Desktop\View-Project\View\View.Repository\obj\Debug\net8.0\View.Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bnozd\Desktop\View-Project\View\View.Repository\obj\Debug\net8.0\View.Repository.AssemblyInfoInputs.cache
+C:\Users\bnozd\Desktop\View-Project\View\View.Repository\obj\Debug\net8.0\View.Repository.AssemblyInfo.cs
+C:\Users\bnozd\Desktop\View-Project\View\View.Repository\obj\Debug\net8.0\View.Repository.csproj.CoreCompileInputs.cache
+C:\Users\bnozd\Desktop\View-Project\View\View.Repository\obj\Debug\net8.0\View.Repository.sourcelink.json
+C:\Users\bnozd\Desktop\View-Project\View\View.Repository\obj\Debug\net8.0\View.Repository.dll
+C:\Users\bnozd\Desktop\View-Project\View\View.Repository\obj\Debug\net8.0\refint\View.Repository.dll
+C:\Users\bnozd\Desktop\View-Project\View\View.Repository\obj\Debug\net8.0\View.Repository.pdb
+C:\Users\bnozd\Desktop\View-Project\View\View.Repository\obj\Debug\net8.0\ref\View.Repository.dll
+C:\Users\bnozd\Desktop\View-Project\View\View.Repository\bin\Debug\net8.0\View.Repository.runtimeconfig.json
+C:\Users\bnozd\Desktop\View-Project\View\View.Repository\obj\Debug\net8.0\View.Repository.csproj.AssemblyReference.cache
+C:\Users\bnozd\Desktop\View-Project\View\View.Repository\obj\Debug\net8.0\View.Repository.genruntimeconfig.cache

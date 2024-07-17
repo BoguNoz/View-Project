@@ -1,0 +1,15 @@
+C:\Users\bnozd\Desktop\View-Project\View\View.Model\bin\Debug\net8.0\View.Model.deps.json
+C:\Users\bnozd\Desktop\View-Project\View\View.Model\bin\Debug\net8.0\View.Model.dll
+C:\Users\bnozd\Desktop\View-Project\View\View.Model\bin\Debug\net8.0\View.Model.pdb
+C:\Users\bnozd\Desktop\View-Project\View\View.Model\obj\Debug\net8.0\View.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bnozd\Desktop\View-Project\View\View.Model\obj\Debug\net8.0\View.Model.AssemblyInfoInputs.cache
+C:\Users\bnozd\Desktop\View-Project\View\View.Model\obj\Debug\net8.0\View.Model.AssemblyInfo.cs
+C:\Users\bnozd\Desktop\View-Project\View\View.Model\obj\Debug\net8.0\View.Model.csproj.CoreCompileInputs.cache
+C:\Users\bnozd\Desktop\View-Project\View\View.Model\obj\Debug\net8.0\View.Model.sourcelink.json
+C:\Users\bnozd\Desktop\View-Project\View\View.Model\obj\Debug\net8.0\View.Model.dll
+C:\Users\bnozd\Desktop\View-Project\View\View.Model\obj\Debug\net8.0\refint\View.Model.dll
+C:\Users\bnozd\Desktop\View-Project\View\View.Model\obj\Debug\net8.0\View.Model.pdb
+C:\Users\bnozd\Desktop\View-Project\View\View.Model\obj\Debug\net8.0\ref\View.Model.dll
+C:\Users\bnozd\Desktop\View-Project\View\View.Model\bin\Debug\net8.0\View.Model.runtimeconfig.json
+C:\Users\bnozd\Desktop\View-Project\View\View.Model\obj\Debug\net8.0\View.Model.csproj.AssemblyReference.cache
+C:\Users\bnozd\Desktop\View-Project\View\View.Model\obj\Debug\net8.0\View.Model.genruntimeconfig.cache
