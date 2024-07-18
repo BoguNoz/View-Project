@@ -13,3 +13,8 @@ C:\Users\bnozd\Desktop\View-Project\View\View.Repository\obj\Debug\net8.0\ref\Vi
 C:\Users\bnozd\Desktop\View-Project\View\View.Repository\bin\Debug\net8.0\View.Repository.runtimeconfig.json
 C:\Users\bnozd\Desktop\View-Project\View\View.Repository\obj\Debug\net8.0\View.Repository.csproj.AssemblyReference.cache
 C:\Users\bnozd\Desktop\View-Project\View\View.Repository\obj\Debug\net8.0\View.Repository.genruntimeconfig.cache
+C:\Users\bnozd\Desktop\View-Project\View\View.Repository\bin\Debug\net8.0\CoreFeatures.ResponseModel.dll
+C:\Users\bnozd\Desktop\View-Project\View\View.Repository\bin\Debug\net8.0\View.Model.dll
+C:\Users\bnozd\Desktop\View-Project\View\View.Repository\bin\Debug\net8.0\View.Model.pdb
+C:\Users\bnozd\Desktop\View-Project\View\View.Repository\bin\Debug\net8.0\CoreFeatures.ResponseModel.pdb
+C:\Users\bnozd\Desktop\View-Project\View\View.Repository\obj\Debug\net8.0\View.Repository.csproj.CopyComplete

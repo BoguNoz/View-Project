@@ -17,12 +17,12 @@ namespace View.DBShema
         /// <summary>
         /// ColumnName represents column name fetched from database
         /// </summary>
-        public string? ColumnName { get; set; } = string.Empty;
+        public string ColumnName { get; set; } = string.Empty;
 
         /// <summary>
         /// ColumDataType represents column data type fetched from database
         /// </summary>
-        public string? ColumnDataType { get; set;} = string.Empty;
+        public string ColumnDataType { get; set;} = string.Empty;
 
 
         /// <summary>

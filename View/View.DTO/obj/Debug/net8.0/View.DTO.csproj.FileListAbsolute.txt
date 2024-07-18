@@ -1,0 +1,12 @@
+C:\Users\bnozd\Desktop\View-Project\View\View.DTO\bin\Debug\net8.0\View.DTO.deps.json
+C:\Users\bnozd\Desktop\View-Project\View\View.DTO\bin\Debug\net8.0\View.DTO.dll
+C:\Users\bnozd\Desktop\View-Project\View\View.DTO\bin\Debug\net8.0\View.DTO.pdb
+C:\Users\bnozd\Desktop\View-Project\View\View.DTO\obj\Debug\net8.0\View.DTO.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bnozd\Desktop\View-Project\View\View.DTO\obj\Debug\net8.0\View.DTO.AssemblyInfoInputs.cache
+C:\Users\bnozd\Desktop\View-Project\View\View.DTO\obj\Debug\net8.0\View.DTO.AssemblyInfo.cs
+C:\Users\bnozd\Desktop\View-Project\View\View.DTO\obj\Debug\net8.0\View.DTO.csproj.CoreCompileInputs.cache
+C:\Users\bnozd\Desktop\View-Project\View\View.DTO\obj\Debug\net8.0\View.DTO.sourcelink.json
+C:\Users\bnozd\Desktop\View-Project\View\View.DTO\obj\Debug\net8.0\View.DTO.dll
+C:\Users\bnozd\Desktop\View-Project\View\View.DTO\obj\Debug\net8.0\refint\View.DTO.dll
+C:\Users\bnozd\Desktop\View-Project\View\View.DTO\obj\Debug\net8.0\View.DTO.pdb
+C:\Users\bnozd\Desktop\View-Project\View\View.DTO\obj\Debug\net8.0\ref\View.DTO.dll

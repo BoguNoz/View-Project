@@ -13,10 +13,10 @@ namespace View.Model
 {
     public class AppDbContext : IdentityDbContext<ApplicationUserModel>
     {
-        DbSet<ApplicationUserModel> ApplicationUsers { get; set; }
-        DbSet<DatabaseModel> Databases { get; set; }
-        DbSet<TableModel> Tables { get; set; }  
-        DbSet<ColumnModel> Columns { get; set; }
+        public DbSet<ApplicationUserModel> ApplicationUsers { get; set; }
+        public DbSet<DatabaseModel> Databases { get; set; }
+        public DbSet<TableModel> Tables { get; set; }  
+        public DbSet<ColumnModel> Columns { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 

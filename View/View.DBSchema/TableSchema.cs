@@ -15,7 +15,7 @@ namespace View.DBShema
         /// <summary>
         /// TableName represents table name fetched from database
         /// </summary>
-        public string? TableName { get; set; } = string.Empty;
+        public string TableName { get; set; } = string.Empty;
 
         /// <summary>
         /// TableColumns is collection that holds all colums (as objects) owned by that table

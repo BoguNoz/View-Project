@@ -7,9 +7,7 @@ using System.Threading.Tasks;
 
 namespace View.Model.Enteties
 {
-    /// <summary>
-    /// ApplicationUser class is model that represents structure of user table in database
-    /// </summary>
+
     public class ApplicationUserModel : IdentityUser
     {
         //Relation: One User many schemats

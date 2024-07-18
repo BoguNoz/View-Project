@@ -14,4 +14,9 @@
     </PackageReference>
   </ItemGroup>
 
+    <ItemGroup>
+		<ProjectReference Include="..\View.Model\View.Model.csproj" />
+		<ProjectReference Include="..\CoreFeatures.ResponseModel\CoreFeatures.ResponseModel.csproj" />
+	</ItemGroup>
+
 </Project>

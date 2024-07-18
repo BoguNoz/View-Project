@@ -6,9 +6,6 @@ using System.Threading.Tasks;
 
 namespace View.Model.Enteties
 {
-    /// <summary>
-    /// DataBaseSchema class is model that represents structure of database schema table in database
-    /// </summary>
     public class DatabaseModel
     {
         public int Id { get; set; }
