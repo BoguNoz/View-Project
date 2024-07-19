@@ -19,6 +19,7 @@ namespace View.Repository.Databases
 
         public async Task<DatabaseModel?> GetDatabaseByIdAsync(int id)
         {
+
             var database = await DbContext.Databases.SingleOrDefaultAsync(d => d.Id == id);
 
             return database;

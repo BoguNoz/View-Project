@@ -144,3 +144,12 @@ C:\Users\bnozd\Desktop\View-Project\View\View.API\bin\Debug\net8.0\Microsoft.Ext
 C:\Users\bnozd\Desktop\View-Project\View\View.API\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 C:\Users\bnozd\Desktop\View-Project\View\View.API\bin\Debug\net8.0\View.Model.dll
 C:\Users\bnozd\Desktop\View-Project\View\View.API\bin\Debug\net8.0\View.Model.pdb
+C:\Users\bnozd\Desktop\View-Project\View\View.API\bin\Debug\net8.0\Scrutor.dll
+C:\Users\bnozd\Desktop\View-Project\View\View.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.Filters.dll
+C:\Users\bnozd\Desktop\View-Project\View\View.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
+C:\Users\bnozd\Desktop\View-Project\View\View.API\bin\Debug\net8.0\CoreFeatures.ResponseModel.dll
+C:\Users\bnozd\Desktop\View-Project\View\View.API\bin\Debug\net8.0\View.Repository.dll
+C:\Users\bnozd\Desktop\View-Project\View\View.API\bin\Debug\net8.0\View.Repository.pdb
+C:\Users\bnozd\Desktop\View-Project\View\View.API\bin\Debug\net8.0\CoreFeatures.ResponseModel.pdb
+C:\Users\bnozd\Desktop\View-Project\View\View.API\bin\Debug\net8.0\View.DTO.dll
+C:\Users\bnozd\Desktop\View-Project\View\View.API\bin\Debug\net8.0\View.DTO.pdb

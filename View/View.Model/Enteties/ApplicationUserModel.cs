@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace View.Model.Enteties
@@ -11,6 +12,6 @@ namespace View.Model.Enteties
     public class ApplicationUserModel : IdentityUser
     {
         //Relation: One User many schemats
-        public virtual ICollection<DatabaseModel> UsersShemats { get; set; }
+        [JsonIgnore] public virtual ICollection<DatabaseModel> UsersShemats { get; set; }
     }
 }
