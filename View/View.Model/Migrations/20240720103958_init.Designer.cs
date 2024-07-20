@@ -12,7 +12,7 @@ using View.Model;
 namespace View.Model.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240718114557_init")]
+    [Migration("20240720103958_init")]
     partial class init
     {
         /// <inheritdoc />

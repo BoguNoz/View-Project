@@ -20,6 +20,9 @@ namespace View.Model.Configurations
             builder.Property(field => field.Name).HasMaxLength(50);
             builder.Property(field => field.Description).HasMaxLength(2000);
 
+            //Relation: One Schema many tables
+            builder.HasMany(tables => tables.DatabaseTables).WithOne(schema => schema.Database).HasForeignKey(id => id.Database_ID);
+
             //Relation: One User many schemats
             builder.HasOne(user => user.User).WithMany(schemats => schemats.UsersShemats).HasForeignKey(user => user.User_ID);
         }

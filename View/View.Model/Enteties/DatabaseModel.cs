@@ -21,6 +21,6 @@ namespace View.Model.Enteties
         public virtual ApplicationUserModel User { get; set; }
 
         //Relation: One Schema many tables
-        public virtual ICollection<TableModel> DatabaseTables { get; set; }
+        public virtual ICollection<TableModel> DatabaseTables { get; set; } 
     }
 }

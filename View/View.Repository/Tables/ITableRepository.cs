@@ -30,13 +30,6 @@ namespace View.Repository.Tables
         Task<List<TableModel?>> GetAllTableAsync(int id);
 
         /// <summary>
-        /// AsigRelationshipBetweenTablesAsync is async task that create relation etity in database 
-        /// </summary>
-        /// <param name="baseId">base table id.</param>
-        /// <param name="relationId">id of table that is in relation.</param>
-        Task<ResponseModel<TableModel?>> AsigRelationshipBetweenTablesAsync(int baseId, int relationId);
-
-        /// <summary>
         /// SaveTableAsync is async task that is saving new table entity in database
         /// </summary>
         /// <param name="model">complete model of table entity</param>

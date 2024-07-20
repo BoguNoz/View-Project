@@ -10,16 +10,16 @@ using View.Model.Enteties;
 
 namespace View.Repository.Tables
 {
-    public class TableRepository : BaseRepository, ITableRepository
+    public class MsTableRepository : BaseRepository, ITableRepository
     {
-        public TableRepository(AppDbContext dbContext) : base(dbContext)
+        public MsTableRepository(AppDbContext dbContext) : base(dbContext)
         {
         }
 
       
         public async Task<TableModel?> GetTableByIdAsync(int id)
         {
-            var table = await DbContext.Tables.SingleOrDefaultAsync(t => t.Id == id);
+            var table = await DbContext.Tables.Include(c => c.TableColumns).SingleOrDefaultAsync(t => t.Id == id);
 
             return table;
         }
@@ -41,33 +41,6 @@ namespace View.Repository.Tables
         }
 
 
-        public async Task<ResponseModel<TableModel?>> AsigRelationshipBetweenTablesAsync(int baseId, int relationId)
-        {
-
-            var baseTable = await GetTableByIdAsync(baseId);
-            if (baseTable == null)
-                return new ResponseModel<TableModel?> { Status = false, Message = "Base table is not exist", Result = baseTable };
-
-            var relationTable = await GetTableByIdAsync(relationId);
-            if (relationTable == null)
-                return new ResponseModel<TableModel?> { Status = false, Message = "Relation table is not exist", Result = relationTable };
-
-            try
-            {
-                baseTable.InRelationWith.Add(relationTable);
-
-                DbContext.SaveChanges();
-
-            }
-            catch (Exception ex)
-            {
-                return new ResponseModel<TableModel?> { Status = false, Message = $"Error: {ex.Message}" };
-            }
-
-            return new ResponseModel<TableModel?> { Status = true, Message = "Table relationship saved successfully" };
-        }
-
-
         public async Task<ResponseModel<TableModel?>> SaveTableAsync(TableModel? model)
         {
             if (model == null)
@@ -75,8 +48,13 @@ namespace View.Repository.Tables
 
             DbContext.Entry(model).State = model.Id == default(int) ? EntityState.Added : EntityState.Modified;
 
+            var database = await DbContext.Databases.SingleOrDefaultAsync(d => d.Id == model.Database_ID);
+            if (database == null)
+                return new ResponseModel<TableModel?> { Status = false, Message = "Database does not  exist", Result = model };
+
             try
             {
+               
                 DbContext.SaveChanges();
             }
             catch (Exception ex)

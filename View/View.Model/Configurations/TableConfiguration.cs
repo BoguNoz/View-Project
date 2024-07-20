@@ -19,8 +19,11 @@ namespace View.Model.Configurations
 
             builder.Property(field => field.Name).HasMaxLength(1000);
 
-            //Relation: One Schema many tables
-            builder.HasOne(schema => schema.Database).WithMany(tables => tables.DatabaseTables).HasForeignKey(table => table.Database_ID);
+            //Relation: One Schema many tables --
+            builder.HasOne(schema => schema.Database).WithMany(tables => tables.DatabaseTables).HasForeignKey(table => table.Database_ID).IsRequired();
+
+            //Relation: One table many columns --
+            builder.HasMany(colums => colums.TableColumns).WithOne(table => table.Table).HasForeignKey(table => table.Table_ID);
 
             //Relaton: Many tables many tables
             builder.HasMany(tables => tables.TableRelations).WithMany(tables => tables.InRelationWith);

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 using View.DTO.Databases;
 using View.Model.Enteties;
 using View.Repository.Databases;
@@ -23,7 +24,8 @@ namespace View.API.Controllers
         }
 
 
-        [HttpGet("id={id}"), Authorize]
+        [SwaggerOperation(Summary = "Retrieves data about database schema using id")]
+        [HttpGet("id/{id}"), Authorize]
         public async Task<IActionResult> GetById(int id)
         {
             var database = await _databaseRepository.GetDatabaseByIdAsync(id);
@@ -34,7 +36,8 @@ namespace View.API.Controllers
         }
 
 
-        [HttpGet("name={name}"), Authorize]
+        [SwaggerOperation(Summary = "Retrieves data about database schema using name")]
+        [HttpGet("name/{name}"), Authorize]
         public async Task<IActionResult> GetByName(string name)
         {
             var user = await _userManager.GetUserAsync(User);
@@ -49,6 +52,7 @@ namespace View.API.Controllers
         }
 
 
+        [SwaggerOperation(Summary = "Retrieves data about all database schemats owned by user")]
         [HttpGet, Authorize]
         public async Task<IActionResult> GetAll()
         {
@@ -64,7 +68,8 @@ namespace View.API.Controllers
         }
 
 
-        [HttpPut("id={id}"), Authorize]
+        [SwaggerOperation(Summary = "Allows user to change an existing database schema entity, that is owned by him")]
+        [HttpPut("{id}"), Authorize]
         public async Task<IActionResult> PutById(int id, [FromBody] DatabaseDto newDatabase)
         {
             if (newDatabase == null)
@@ -89,7 +94,8 @@ namespace View.API.Controllers
         }
 
 
-        [HttpPost, Authorize]
+        [SwaggerOperation(Summary = "Post new database schema entity to database")]
+        [HttpPost("items"), Authorize]
         public async Task<IActionResult> PostNewEntity([FromBody] DatabaseDto newDatabase)
         {
             if (newDatabase == null)
@@ -107,10 +113,24 @@ namespace View.API.Controllers
                 Name = newDatabase.Name,
                 Description = newDatabase.Description,
                 CreationDate = DateTime.Now,
-                User_ID = user.Id
+                User_ID = user.Id,
+                DatabaseTables = new List<TableModel>()
             };
 
             var result = await _databaseRepository.SaveDatabaseAsync(database);
+            if (!result.Status)
+                throw new Exception(result.Message);
+
+            return Ok(result);
+        }
+
+
+        [SwaggerOperation(Summary = "Deletes existing database schema entity from database")]
+        [HttpDelete("{id}"), Authorize]
+        public async Task<IActionResult> DeleteExistingEntity(int id)
+        {
+
+            var result = await _databaseRepository.DeleteDatabaseAsync(id);
             if (!result.Status)
                 throw new Exception(result.Message);
 

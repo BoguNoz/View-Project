@@ -5,11 +5,13 @@ using View.Model.Enteties;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
 using View.Repository.Databases;
+using View.Repository.Tables;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddScoped<IDatabaseRepository, MsDatabaseRepository>();
+builder.Services.AddScoped<ITableRepository, MsTableRepository>();
 
 var connectionString = builder.Configuration.GetConnectionString("AppDbContext");
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
@@ -32,6 +34,16 @@ builder.Services.AddSwaggerGen(options =>
 
     options.OperationFilter<SecurityRequirementsOperationFilter>();
 });
+
+builder.Services.AddSwaggerGen(c =>
+{
+    c.EnableAnnotations();
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "View.API", Version = "v1" });
+});
+
+builder.Services.AddControllersWithViews().AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+);
 
 var app = builder.Build();
 

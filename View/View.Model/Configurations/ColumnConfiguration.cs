@@ -20,7 +20,7 @@ namespace View.Model.Configurations
             builder.Property(field => field.DataType).HasMaxLength(100);
 
             //Relation: One table many columns
-            builder.HasOne(table => table.Table).WithMany(columns => columns.TableColumns).HasForeignKey(column => column.Table_ID);
+            builder.HasOne(table => table.Table).WithMany(columns => columns.TableColumns).HasForeignKey(column => column.Table_ID).IsRequired();
 
         }
     }
