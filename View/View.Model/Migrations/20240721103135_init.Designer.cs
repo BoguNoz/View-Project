@@ -12,7 +12,7 @@ using View.Model;
 namespace View.Model.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240720103958_init")]
+    [Migration("20240721103135_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -156,21 +156,6 @@ namespace View.Model.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
-                });
-
-            modelBuilder.Entity("TableModelTableModel", b =>
-                {
-                    b.Property<int>("InRelationWithId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TableRelationsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("InRelationWithId", "TableRelationsId");
-
-                    b.HasIndex("TableRelationsId");
-
-                    b.ToTable("TableModelTableModel");
                 });
 
             modelBuilder.Entity("View.Model.Enteties.ApplicationUserModel", b =>
@@ -327,6 +312,21 @@ namespace View.Model.Migrations
                     b.ToTable("Tables");
                 });
 
+            modelBuilder.Entity("View.Model.Enteties.TableRelationModel", b =>
+                {
+                    b.Property<int>("Table_ID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Relation_ID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Table_ID", "Relation_ID");
+
+                    b.HasIndex("Relation_ID");
+
+                    b.ToTable("TableRelations");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -378,21 +378,6 @@ namespace View.Model.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("TableModelTableModel", b =>
-                {
-                    b.HasOne("View.Model.Enteties.TableModel", null)
-                        .WithMany()
-                        .HasForeignKey("InRelationWithId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("View.Model.Enteties.TableModel", null)
-                        .WithMany()
-                        .HasForeignKey("TableRelationsId")
-                        .OnDelete(DeleteBehavior.ClientCascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("View.Model.Enteties.ColumnModel", b =>
                 {
                     b.HasOne("View.Model.Enteties.TableModel", "Table")
@@ -426,6 +411,25 @@ namespace View.Model.Migrations
                     b.Navigation("Database");
                 });
 
+            modelBuilder.Entity("View.Model.Enteties.TableRelationModel", b =>
+                {
+                    b.HasOne("View.Model.Enteties.TableModel", "Relation")
+                        .WithMany("InRelationWithTable")
+                        .HasForeignKey("Relation_ID")
+                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .IsRequired();
+
+                    b.HasOne("View.Model.Enteties.TableModel", "Table")
+                        .WithMany("TableRelations")
+                        .HasForeignKey("Table_ID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Relation");
+
+                    b.Navigation("Table");
+                });
+
             modelBuilder.Entity("View.Model.Enteties.ApplicationUserModel", b =>
                 {
                     b.Navigation("UsersShemats");
@@ -438,7 +442,11 @@ namespace View.Model.Migrations
 
             modelBuilder.Entity("View.Model.Enteties.TableModel", b =>
                 {
+                    b.Navigation("InRelationWithTable");
+
                     b.Navigation("TableColumns");
+
+                    b.Navigation("TableRelations");
                 });
 #pragma warning restore 612, 618
         }

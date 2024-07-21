@@ -16,12 +16,9 @@ namespace View.API.Controllers
     {
         private readonly ITableRepository _tableRepository;
 
-        private readonly UserManager<ApplicationUserModel> _userManager;
-
-        public TablesController(ITableRepository tableRepository, UserManager<ApplicationUserModel> userManager)
+        public TablesController(ITableRepository tableRepository)
         {
             _tableRepository = tableRepository;
-            _userManager = userManager;
         }
 
 
@@ -100,8 +97,8 @@ namespace View.API.Controllers
                 Name = newTable.Name,
                 Database_ID = id,
                 TableColumns = new List<ColumnModel>(),
-                InRelationWith = new List<TableModel>(),
-                TableRelations = new List <TableModel>()    
+                TableRelations = new List<TableRelationModel>(),
+                InRelationWithTable = new List<TableRelationModel>()
             };
 
             var result = await _tableRepository.SaveTableAsync(table);

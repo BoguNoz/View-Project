@@ -26,7 +26,7 @@ namespace View.Model.Configurations
             builder.HasMany(colums => colums.TableColumns).WithOne(table => table.Table).HasForeignKey(table => table.Table_ID);
 
             //Relaton: Many tables many tables
-            builder.HasMany(tables => tables.TableRelations).WithMany(tables => tables.InRelationWith);
+            
         }
     }
 }

@@ -222,26 +222,26 @@ namespace View.Model.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TableModelTableModel",
+                name: "TableRelations",
                 columns: table => new
                 {
-                    InRelationWithId = table.Column<int>(type: "int", nullable: false),
-                    TableRelationsId = table.Column<int>(type: "int", nullable: false)
+                    Table_ID = table.Column<int>(type: "int", nullable: false),
+                    Relation_ID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TableModelTableModel", x => new { x.InRelationWithId, x.TableRelationsId });
+                    table.PrimaryKey("PK_TableRelations", x => new { x.Table_ID, x.Relation_ID });
                     table.ForeignKey(
-                        name: "FK_TableModelTableModel_Tables_InRelationWithId",
-                        column: x => x.InRelationWithId,
+                        name: "FK_TableRelations_Tables_Relation_ID",
+                        column: x => x.Relation_ID,
+                        principalTable: "Tables",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_TableRelations_Tables_Table_ID",
+                        column: x => x.Table_ID,
                         principalTable: "Tables",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_TableModelTableModel_Tables_TableRelationsId",
-                        column: x => x.TableRelationsId,
-                        principalTable: "Tables",
-                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
@@ -294,9 +294,9 @@ namespace View.Model.Migrations
                 column: "User_ID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TableModelTableModel_TableRelationsId",
-                table: "TableModelTableModel",
-                column: "TableRelationsId");
+                name: "IX_TableRelations_Relation_ID",
+                table: "TableRelations",
+                column: "Relation_ID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Tables_Database_ID",
@@ -326,7 +326,7 @@ namespace View.Model.Migrations
                 name: "Columns");
 
             migrationBuilder.DropTable(
-                name: "TableModelTableModel");
+                name: "TableRelations");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

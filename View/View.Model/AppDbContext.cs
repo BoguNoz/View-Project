@@ -17,6 +17,7 @@ namespace View.Model
         public DbSet<DatabaseModel> Databases { get; set; }
         public DbSet<TableModel> Tables { get; set; }  
         public DbSet<ColumnModel> Columns { get; set; }
+        public DbSet<TableRelationModel> TableRelations { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
@@ -25,6 +26,7 @@ namespace View.Model
             builder.ApplyConfiguration(new DatabaseConfiguration());
             builder.ApplyConfiguration(new TableConfiguration());
             builder.ApplyConfiguration(new ColumnConfiguration());
+            builder.ApplyConfiguration(new TableRelationConfiguration());
 
             base.OnModelCreating(builder);
         }

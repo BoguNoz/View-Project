@@ -19,7 +19,8 @@ namespace View.Repository.Tables
       
         public async Task<TableModel?> GetTableByIdAsync(int id)
         {
-            var table = await DbContext.Tables.Include(c => c.TableColumns).SingleOrDefaultAsync(t => t.Id == id);
+            var table = await DbContext.Tables.Include(c => c.TableColumns).Include(r => r.TableRelations)
+                .SingleOrDefaultAsync(t => t.Id == id);
 
             return table;
         }
@@ -48,14 +49,10 @@ namespace View.Repository.Tables
 
             DbContext.Entry(model).State = model.Id == default(int) ? EntityState.Added : EntityState.Modified;
 
-            var database = await DbContext.Databases.SingleOrDefaultAsync(d => d.Id == model.Database_ID);
-            if (database == null)
-                return new ResponseModel<TableModel?> { Status = false, Message = "Database does not  exist", Result = model };
-
             try
             {
                
-                DbContext.SaveChanges();
+                await DbContext.SaveChangesAsync();
             }
             catch (Exception ex)
             {

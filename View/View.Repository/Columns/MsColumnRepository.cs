@@ -50,7 +50,7 @@ namespace View.Repository.Columns
 
             try
             {
-                DbContext.SaveChanges();
+                await DbContext.SaveChangesAsync();
             }
             catch(Exception ex)
             {

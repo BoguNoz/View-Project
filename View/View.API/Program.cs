@@ -6,12 +6,14 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
 using View.Repository.Databases;
 using View.Repository.Tables;
+using View.Repository.Nowy_folder;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddScoped<IDatabaseRepository, MsDatabaseRepository>();
 builder.Services.AddScoped<ITableRepository, MsTableRepository>();
+builder.Services.AddScoped<ITableReltionRepository, MsTableRealtionRepository>();
 
 var connectionString = builder.Configuration.GetConnectionString("AppDbContext");
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
