@@ -20,8 +20,8 @@ namespace View.Repository.Tables
         /// GetTableByNameAsync is async task that is fetching table from database with corresponding name.
         /// </summary>
         /// <param name="name">table name.</param>
-        /// <param name="id">database id.</param>
-        Task<TableModel?> GetTableByNameAsync(string name, int id);
+        /// <param name="id">database name.</param>
+        Task<TableModel?> GetTableByNameAsync(string name_tab, int id);
 
         /// <summary>
         /// GetAllTableAsync is async task that is fetching all tables owned by user from database.

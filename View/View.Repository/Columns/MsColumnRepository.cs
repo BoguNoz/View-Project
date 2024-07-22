@@ -41,7 +41,7 @@ namespace View.Repository.Columns
         }
 
 
-        public async Task<ResponseModel<ColumnModel?>> SaveEmoteAsync(ColumnModel? model)
+        public async Task<ResponseModel<ColumnModel?>> SaveColumnAsync(ColumnModel? model)
         {
             if(model == null)
                 return new ResponseModel<ColumnModel?> { Status = false, Message = "Null task parameter", Result = model };

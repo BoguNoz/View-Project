@@ -33,7 +33,7 @@ namespace View.Repository.Columns
         /// SaveEmoteAsync is async task that is saving new column entity in database
         /// </summary>
         /// <param name="model">complete model of column entity</param>
-        Task<ResponseModel<ColumnModel?>> SaveEmoteAsync(ColumnModel model);
+        Task<ResponseModel<ColumnModel?>> SaveColumnAsync(ColumnModel model);
 
 
         /// <summary>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using View.DTO.Databases;
@@ -15,9 +16,12 @@ namespace View.API.Controllers
     {
         private readonly ITableReltionRepository _relationRepository;
 
-        public TableRelationsController(ITableReltionRepository tableRelationRepository)
+        private readonly UserManager<ApplicationUserModel> _userManager;
+
+        public TableRelationsController(ITableReltionRepository tableRelationRepository, UserManager<ApplicationUserModel> userManager)
         {
             _relationRepository = tableRelationRepository;
+            _userManager = userManager;
         }
 
 

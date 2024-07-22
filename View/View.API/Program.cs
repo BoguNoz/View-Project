@@ -7,6 +7,7 @@ using Swashbuckle.AspNetCore.Filters;
 using View.Repository.Databases;
 using View.Repository.Tables;
 using View.Repository.Nowy_folder;
+using View.Repository.Columns;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<IDatabaseRepository, MsDatabaseRepository>();
 builder.Services.AddScoped<ITableRepository, MsTableRepository>();
 builder.Services.AddScoped<ITableReltionRepository, MsTableRealtionRepository>();
+builder.Services.AddScoped<IColumnRepository, MsColumnRepository>();
 
 var connectionString = builder.Configuration.GetConnectionString("AppDbContext");
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));

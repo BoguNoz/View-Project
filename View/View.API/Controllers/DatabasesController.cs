@@ -108,6 +108,10 @@ namespace View.API.Controllers
             if (user == null)
                 return Unauthorized();
 
+            var databases = await _databaseRepository.GetAllDatabasesAsync(user.Id);
+            if (databases.Any(n => n.Name.Equals(newDatabase.Name)))
+                throw new Exception("Database of this name already exists");
+
             var database = new DatabaseModel
             {
                 Name = newDatabase.Name,
