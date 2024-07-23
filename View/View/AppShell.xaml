@@ -4,12 +4,72 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:View"
-    Shell.FlyoutBehavior="Disabled"
+     xmlns:helpers="clr-namespace:View.Helpers"
+    Shell.FlyoutBehavior="Locked"
+    FlyoutWidth="65"
+    FlyoutBackgroundColor="#0C0C0C"
     Title="View">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <Shell.Resources>
+        <Style Class="FlyoutItemLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="TextColor" Value="#FEEBC2" />
+        </Style>
+    </Shell.Resources>
 
+
+    <FlyoutItem Title="Home" >
+        <FlyoutItem.FlyoutIcon>
+            <FontImageSource
+                FontFamily="FontSolid"
+                Glyph="{x:Static helpers:FontSolid.House}"
+                Color="#fecd67"/>
+        </FlyoutItem.FlyoutIcon>
+        <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
+    </FlyoutItem>
+
+    
+    <FlyoutItem Title="Logical">
+        <FlyoutItem.FlyoutIcon>
+            <FontImageSource
+                FontFamily="FontSolid"
+                Glyph="{x:Static helpers:FontSolid.Database}"
+                Color="#fecd67"/>
+        </FlyoutItem.FlyoutIcon>
+        <ShellContent ContentTemplate="{DataTemplate local:SchemaPage}"/>
+    </FlyoutItem>
+
+    
+    <FlyoutItem Title="Table">
+        <FlyoutItem.FlyoutIcon>
+            <FontImageSource
+                FontFamily="FontSolid"
+                Glyph="{x:Static helpers:FontSolid.Table}"
+                Color="#fecd67"/>
+        </FlyoutItem.FlyoutIcon>
+        <ShellContent ContentTemplate="{DataTemplate local:TablePage}"/>
+    </FlyoutItem>
+
+
+    <FlyoutItem Title="Statistic">
+        <FlyoutItem.FlyoutIcon>
+            <FontImageSource
+                FontFamily="FontSolid"
+                Glyph="{x:Static helpers:FontSolid.ChartSimple}"
+                Color="#fecd67"/>
+        </FlyoutItem.FlyoutIcon>
+        <ShellContent ContentTemplate="{DataTemplate local:SchemaPage}"/>
+    </FlyoutItem>
+
+
+    <Shell.FlyoutFooter>
+        <Grid Padding="25">
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+            </Grid.GestureRecognizers>
+            <Label x:Name="Expand" FontFamily="FontSolid" FontSize="15" TextColor="#FEC54E" Text="{x:Static helpers:FontSolid.ArrowRight}"/>
+            <Label x:Name="Minimize" FontFamily="FontSolid" FontSize="15"  TextColor="#FEC54E" IsVisible="false" Text="{x:Static helpers:FontSolid.ArrowLeft}"/>
+        </Grid>
+    </Shell.FlyoutFooter>
+    
 </Shell>

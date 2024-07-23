@@ -55,6 +55,15 @@
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-400.png">
       <PackagePath>splashSplashScreen.scale-400.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\f\fa-brands-400.ttf">
+      <PackagePath>fa-brands-400.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\f\fa-regular-400.ttf">
+      <PackagePath>fa-regular-400.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\f\fa-solid-900.ttf">
+      <PackagePath>fa-solid-900.ttf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Regular.ttf">
       <PackagePath>OpenSans-Regular.ttf</PackagePath>
     </AppxPackagedFile>

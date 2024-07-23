@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Microsoft.Maui.Platform;
 
 namespace View
 {
@@ -13,6 +14,9 @@ namespace View
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("fa-brands-400.ttf", "FontBrands");
+                    fonts.AddFont("fa-regular-400.ttf", "FontRegular");
+                    fonts.AddFont("fa-solid-900.ttf", "FontSolid");
                 });
 
 #if DEBUG
@@ -23,3 +27,5 @@ namespace View
         }
     }
 }
+
+
