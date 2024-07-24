@@ -40,12 +40,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreFeatures.ResponseModel"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test-NT", "Test-NT\Test-NT.csproj", "{EAF1F203-EAB0-4C3A-A2FA-0100CFEBE5CE}"
 	ProjectSection(ProjectDependencies) = postProject
+		{4600A612-CA8E-4AC2-8167-799D367D4999} = {4600A612-CA8E-4AC2-8167-799D367D4999}
 		{B2986D6F-160A-4553-9B80-90FF0809EC3E} = {B2986D6F-160A-4553-9B80-90FF0809EC3E}
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "View.DBSchema", "View.DBSchema\View.DBSchema.csproj", "{B366D0EE-143C-4CD7-8280-E2B3A68DAE0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreFeatures.ServerConnection", "CoreFeatures.ServerConnection\CoreFeatures.ServerConnection.csproj", "{B147B7F6-D6BF-419D-A196-A99DA8BB7241}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreFeatures.ServerConnection", "CoreFeatures.ServerConnection\CoreFeatures.ServerConnection.csproj", "{B147B7F6-D6BF-419D-A196-A99DA8BB7241}"
 	ProjectSection(ProjectDependencies) = postProject
 		{275B0ED8-070A-4805-BE8C-C1FEF19C1DB9} = {275B0ED8-070A-4805-BE8C-C1FEF19C1DB9}
 		{27E4C7D5-6135-40BD-B38B-71FDFBF87359} = {27E4C7D5-6135-40BD-B38B-71FDFBF87359}

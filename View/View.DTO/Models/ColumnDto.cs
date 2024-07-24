@@ -10,8 +10,6 @@ namespace View.DTO.Databases
 {
     public class ColumnDto
     {
-        [JsonProperty("id")]
-        public int Id { get; set; }
 
         [JsonProperty("name")]
         [Required] [MaxLength(1000)] public string Name { get; set; }

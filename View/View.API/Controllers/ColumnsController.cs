@@ -9,7 +9,7 @@ using View.Repository.Tables;
 
 namespace View.API.Controllers
 {
-    [Route("/columns")]
+    [Route("/columns/")]
     [ApiController]
     public class ColumnsController : ControllerBase
     {
@@ -46,7 +46,7 @@ namespace View.API.Controllers
 
 
         [SwaggerOperation(Summary = "Retrieves data about all column schemats that are part of one table schema using table id")]
-        [HttpGet("databases/{id}"), Authorize]
+        [HttpGet("tables/{id}"), Authorize]
         public async Task<IActionResult> GetAll(int id)
         {
             var column = await _columnRepository.GetAllColumnsAsync(id);
@@ -85,7 +85,7 @@ namespace View.API.Controllers
 
 
         [SwaggerOperation(Summary = "Post new column schema entity to database, attaching it to table schema using its id")]
-        [HttpPost("items"), Authorize]
+        [HttpPost("items/tables/{id}"), Authorize]
         public async Task<IActionResult> PostNewEntity(int id, [FromBody] ColumnDto newColumn)
         {
             if (newColumn == null)

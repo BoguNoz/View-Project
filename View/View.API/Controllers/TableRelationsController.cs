@@ -10,7 +10,7 @@ using View.Repository.Tables;
 
 namespace View.API.Controllers
 {
-    [Route("/relations")]
+    [Route("/relations/")]
     [ApiController]
     public class TableRelationsController : ControllerBase
     {

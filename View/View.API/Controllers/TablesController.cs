@@ -83,7 +83,7 @@ namespace View.API.Controllers
 
 
         [SwaggerOperation(Summary = "Post new table schema entity to database, attaching it to database schema using its id")]
-        [HttpPost("items"), Authorize]
+        [HttpPost("items/databases/{id}"), Authorize]
         public async Task<IActionResult> PostNewEntity(int id, [FromBody] TablesDto newTable)
         {
             if (newTable == null)
