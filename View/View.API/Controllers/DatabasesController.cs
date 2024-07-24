@@ -9,7 +9,7 @@ using View.Repository.Databases;
 
 namespace View.API.Controllers
 {
-    [Route("api/databases/")]
+    [Route("/databases/")]
     [ApiController]
     public class DatatabasesController : ControllerBase
     {
@@ -25,7 +25,7 @@ namespace View.API.Controllers
 
 
         [SwaggerOperation(Summary = "Retrieves data about database schema using id")]
-        [HttpGet("id/{id}"), Authorize]
+        [HttpGet("id={id}"), Authorize]
         public async Task<IActionResult> GetById(int id)
         {
             var database = await _databaseRepository.GetDatabaseByIdAsync(id);
@@ -37,7 +37,7 @@ namespace View.API.Controllers
 
 
         [SwaggerOperation(Summary = "Retrieves data about database schema using name")]
-        [HttpGet("name/{name}"), Authorize]
+        [HttpGet("name={name}"), Authorize]
         public async Task<IActionResult> GetByName(string name)
         {
             var user = await _userManager.GetUserAsync(User);

@@ -10,11 +10,13 @@ namespace View.Model.Enteties
     public class TableRelationModel
     {
         //Relaton: Many tables many tables
+        [JsonIgnore]
         public int Table_ID { get; set; }
         [JsonIgnore]
         public TableModel Table { get; set; }
 
         public int Relation_ID { get; set; }
+        [JsonIgnore]
         public TableModel Relation { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using CoreFeatures.ResposeModel;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
@@ -18,15 +19,13 @@ namespace View.DBShema
     public class DBSchema
     {
 
-        /// <summary>
-        /// dbReader is object that is link between database in use and rest of application
-        /// <summary>
+     
         private DynamicDBReader dbReader;
 
+        public string Name = string.Empty;
 
-        /// <summary>
-        /// Tables is list that holds all tables that are part of current database  
-        /// <summary>
+        public string Descryption = string.Empty;
+
         public IList<TableSchema> Tables = new List<TableSchema>();
 
 
@@ -183,6 +182,7 @@ namespace View.DBShema
 
         public async Task<ResponseModel<bool>> CreateDBSchemaAsync()
         {
+
             try
             {
                 var result = await AcquireTableDataAsync();

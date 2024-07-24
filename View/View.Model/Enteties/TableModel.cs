@@ -14,7 +14,9 @@ namespace View.Model.Enteties
         public string Name { get; set; } = string.Empty;
 
         //Relation: One Schema many tables
+        [JsonIgnore]
         public int Database_ID { get; set; }
+        [JsonIgnore]
         public virtual DatabaseModel Database { get; set; }
 
         //Relation: One table many columns

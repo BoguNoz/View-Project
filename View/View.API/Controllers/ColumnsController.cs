@@ -9,7 +9,7 @@ using View.Repository.Tables;
 
 namespace View.API.Controllers
 {
-    [Route("api/columns")]
+    [Route("/columns")]
     [ApiController]
     public class ColumnsController : ControllerBase
     {

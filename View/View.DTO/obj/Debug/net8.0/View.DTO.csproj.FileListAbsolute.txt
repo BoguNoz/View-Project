@@ -10,3 +10,4 @@ C:\Users\bnozd\Desktop\View-Project\View\View.DTO\obj\Debug\net8.0\View.DTO.dll
 C:\Users\bnozd\Desktop\View-Project\View\View.DTO\obj\Debug\net8.0\refint\View.DTO.dll
 C:\Users\bnozd\Desktop\View-Project\View\View.DTO\obj\Debug\net8.0\View.DTO.pdb
 C:\Users\bnozd\Desktop\View-Project\View\View.DTO\obj\Debug\net8.0\ref\View.DTO.dll
+C:\Users\bnozd\Desktop\View-Project\View\View.DTO\obj\Debug\net8.0\View.DTO.csproj.AssemblyReference.cache
