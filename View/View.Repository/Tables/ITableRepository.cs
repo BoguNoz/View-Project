@@ -38,7 +38,8 @@ namespace View.Repository.Tables
         /// <summary>
         /// DeleteTableAsync is async task that is deleting existing table entity from database
         /// </summary>
-        /// <param name="id">table id</param>
-        Task<ResponseModel<TableModel?>> DeleteTableAsync(int id);
+        /// <param name="name">table name</param>
+        /// <param name="id">database id</param>
+        Task<ResponseModel<TableModel?>> DeleteTableAsync(string name, int id);
     }
 }

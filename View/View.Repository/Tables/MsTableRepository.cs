@@ -63,9 +63,9 @@ namespace View.Repository.Tables
         }
 
 
-        public async Task<ResponseModel<TableModel?>> DeleteTableAsync(int id)
+        public async Task<ResponseModel<TableModel?>> DeleteTableAsync(string name, int id)
         {
-            var table = await GetTableByIdAsync(id);
+            var table = await GetTableByNameAsync(name,id);
 
             if (table == null)
                 return new ResponseModel<TableModel?> { Status = true, Message = "Table deleted successfully", Result = table };

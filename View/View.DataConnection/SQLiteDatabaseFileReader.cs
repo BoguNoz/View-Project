@@ -17,17 +17,11 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace View.DataConnection
 {
-    /// <summary>
-    /// SQLiteDynamicDBReader class is iplementation of DynamicDBReader abstract class and is responsible for accessing database and retrieving esenciale data from it
-    /// </summary>
-    public class SQLiteDynamicDBReader : DynamicDBReader
+
+    public class SQLiteDatabaseFileReader : DatabaseFileReader
     {
 
-        /// <summary>
-        /// Constructor of SQLiteDynamicDBReader class is responsible for initialization of new instance of SQLiteDynamicDatabaseReade
-        /// </summary>
-        /// <param name="connectionStr">Data base connection string (SQLite only).</param>
-        public SQLiteDynamicDBReader(string connectionStr) : base(connectionStr) 
+        public SQLiteDatabaseFileReader(string connectionStr) : base(connectionStr) 
         {
         }
 

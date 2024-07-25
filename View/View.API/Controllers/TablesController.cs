@@ -21,7 +21,6 @@ namespace View.API.Controllers
             _tableRepository = tableRepository;
         }
 
-
         [SwaggerOperation(Summary = "Retrieves data about table schema using id")]
         [HttpGet("{id}"), Authorize]
         public async Task<IActionResult> GetById(int id)
@@ -32,7 +31,6 @@ namespace View.API.Controllers
 
             return Ok(table);
         }
-
 
         [SwaggerOperation(Summary = "Retrieves data about table schema using name and database schema id")]
         [HttpGet("{name}/databases/{id}"), Authorize]
@@ -97,8 +95,8 @@ namespace View.API.Controllers
                 Name = newTable.Name,
                 Database_ID = id,
                 TableColumns = new List<ColumnModel>(),
-                TableRelations = new List<TableRelationModel>(),
-                InRelationWithTable = new List<TableRelationModel>()
+                TableRelations = new List<TableModel>(),
+                InRelationWithTable = new List<TableModel>()
             };
 
             var result = await _tableRepository.SaveTableAsync(table);
@@ -110,10 +108,10 @@ namespace View.API.Controllers
 
 
         [SwaggerOperation(Summary = "Deletes existing table schema entity from database")]
-        [HttpDelete("{id}"), Authorize]
-        public async Task<IActionResult> DeleteExistingEntity(int id)
+        [HttpDelete("{name}/databases/{id}"), Authorize]
+        public async Task<IActionResult> DeleteExistingEntity(string name, int id)
         {
-            var result = await _tableRepository.DeleteTableAsync(id);
+            var result = await _tableRepository.DeleteTableAsync(name, id);
             if (!result.Status)
                 throw new Exception(result.Message);
 

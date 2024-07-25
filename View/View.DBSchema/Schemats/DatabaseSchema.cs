@@ -14,9 +14,7 @@ namespace View.DBSchema.Schemats
 
     public class DatabaseSchema : IDataReader
     {
-
-
-        private DynamicDBReader dbReader;
+        public bool IsFromService;
 
         public string Name = string.Empty;
 
@@ -25,13 +23,15 @@ namespace View.DBSchema.Schemats
         public IList<TableSchema> Tables = new List<TableSchema>();
 
 
+        private DatabaseFileReader dbReader;
+
         public DatabaseSchema(string connectionString)
         {
-            dbReader = new SQLiteDynamicDBReader(connectionString); 
+            dbReader = new SQLiteDatabaseFileReader(connectionString); 
         }
 
 
-       public async Task<ResponseModel<List<ColumnSchema>>> CreateColumnSchemaAsync(string tableName)
+        public async Task<ResponseModel<List<ColumnSchema>>> CreateColumnSchemaAsync(string tableName)
         {
             var colums = new List<ColumnSchema>();
 
@@ -154,7 +154,7 @@ namespace View.DBSchema.Schemats
             }
             catch (Exception ex)
             {
-                return new ResponseModel<bool> { Status = false, Message = $"Error: {ex}" };
+                return new ResponseModel<bool> { Status = false, Message = ex.Message };
             }
 
             return new ResponseModel<bool> { Status = true, Message = "Data compilation successful" };
@@ -173,7 +173,7 @@ namespace View.DBSchema.Schemats
             }
             catch (Exception ex)
             {
-                return new ResponseModel<bool> { Status = false, Message = $"Creating database schema ended unsuccessful due to error: {ex}" };
+                return new ResponseModel<bool> { Status = false, Message = ex.Message };
             }
 
             return new ResponseModel<bool> { Status = true, Message = "Creating database schema ended successful" };

@@ -411,15 +411,15 @@ namespace View.Model.Migrations
             modelBuilder.Entity("View.Model.Enteties.TableRelationModel", b =>
                 {
                     b.HasOne("View.Model.Enteties.TableModel", "Relation")
-                        .WithMany("InRelationWithTable")
+                        .WithMany()
                         .HasForeignKey("Relation_ID")
-                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("View.Model.Enteties.TableModel", "Table")
-                        .WithMany("TableRelations")
+                        .WithMany()
                         .HasForeignKey("Table_ID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Relation");
@@ -439,11 +439,7 @@ namespace View.Model.Migrations
 
             modelBuilder.Entity("View.Model.Enteties.TableModel", b =>
                 {
-                    b.Navigation("InRelationWithTable");
-
                     b.Navigation("TableColumns");
-
-                    b.Navigation("TableRelations");
                 });
 #pragma warning restore 612, 618
         }

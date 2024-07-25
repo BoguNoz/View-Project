@@ -311,3 +311,6 @@ C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-ios\iossimulator-
 C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-ios\iossimulator-x64\View.UI.pdb
 C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-ios\iossimulator-x64\View.UI.genruntimeconfig.cache
 C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-ios\iossimulator-x64\ref\View.UI.dll
+C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\f\fa-brands-400.ttf
+C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\f\fa-regular-400.ttf
+C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\f\fa-solid-900.ttf

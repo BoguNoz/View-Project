@@ -26,7 +26,6 @@ namespace View.Model
             builder.ApplyConfiguration(new DatabaseConfiguration());
             builder.ApplyConfiguration(new TableConfiguration());
             builder.ApplyConfiguration(new ColumnConfiguration());
-            builder.ApplyConfiguration(new TableRelationConfiguration());
 
             base.OnModelCreating(builder);
         }

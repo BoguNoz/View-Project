@@ -240,8 +240,7 @@ namespace View.Model.Migrations
                         name: "FK_TableRelations_Tables_Table_ID",
                         column: x => x.Table_ID,
                         principalTable: "Tables",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(

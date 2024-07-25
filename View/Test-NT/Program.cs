@@ -1,4 +1,5 @@
-﻿using CoreFeatures.ServerConnection.Connections;
+﻿using CoreFeatures.ResposeModel;
+using CoreFeatures.ServerConnection.Connections;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Data.Common;
@@ -6,6 +7,7 @@ using System.Data.Entity;
 using System.Net.Http.Headers;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Text.Json.Nodes;
 using View.DataConnection;
 using View.DBSchema.Schemats;
 using View.DTO.Databases;
@@ -21,7 +23,7 @@ namespace Test_NT
         {
             var user = new RegisterRequestDto
             {
-                Email = "admin@gmail.com",
+                Email = "testuser_1@gmail.com",
                 Password = "Tu123!",
 
             };
@@ -42,17 +44,32 @@ namespace Test_NT
 
             HttpClient client = new HttpClient();
 
-            var connection = new ServiceOperation(client, @"https://localhost:7166/");
-            //var reg = await connection.RegisterUserAsync(user);
-            var result = await connection.AuthorizeUserAsync(userL);
+            var connection = new ServiceOperation(client, @"https://localhost:7166");
+            var reg = await connection.RegisterUserAsync(user);
+            var login = await connection.AuthorizeUserAsync(userL);
 
+            var result = await connection.DeleteDatabaseAsync("chinook.db");
+
+            //var refresh = await connection.RefreshAutorizationAsync();
 
             
-            var create = await connection.AddDatabaseAsync(schema);
+            //var create = await connection.AddDatabaseAsync(schema);
+
+            //var table = await client.DeleteAsync(@"https://localhost:7166" + $"/relations/tables/{12}/tables/{1}");
+            //var table = await client.DeleteAsync(@"https://localhost:7166" + $"/tables/{12}");
+
+            //var content = await table.Content.ReadAsStringAsync();
+            //var data = JsonConvert.DeserializeObject<List<TablesDto>>(content);
+
+
+            //tableId = data["id"].ToString();
+
+            
 
             return true;
 
         }
+
         static void Main(string[] args)
         {
 

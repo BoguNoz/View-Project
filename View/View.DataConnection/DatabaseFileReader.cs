@@ -14,7 +14,7 @@ namespace View.DataConnection
     /// Abstract class used as a framework for child classes to collect necessary data from a database.
     /// Implementation may differ for each type of SQL database.
     /// </summary>
-    public abstract class DynamicDBReader
+    public abstract class DatabaseFileReader
     {
 
         protected string connectionString;
@@ -24,7 +24,7 @@ namespace View.DataConnection
         /// Initializes a new instance of DynamicDBReader.
         /// </summary>
         /// <param name="connectionString">Database connection string (must be in the correct format).</param>
-        public DynamicDBReader(string connectionStr)
+        public DatabaseFileReader(string connectionStr)
         {
             connectionString = connectionStr;   
         }

@@ -26,14 +26,14 @@ namespace View.API.Controllers
 
 
         [SwaggerOperation(Summary = "Post new table relation entity to database")]
-        [HttpPost("tables/{tableId}/tables{relationId}"), Authorize]
-        public async Task<IActionResult> PostNewEntity(int tableId, int relationId)
+        [HttpPost("tables/{tableId}/tables{relationId}/databases/{databaseId}"), Authorize]
+        public async Task<IActionResult> PostNewEntity(int tableId, int relationId, string databaseId)
         {
 
             var relation = new TableRelationModel
             {
                 Table_ID = tableId,
-                Relation_ID = relationId
+                Relation_ID = relationId,
             };
 
             var result = await _relationRepository.SaveTableRelationAsync(relation);
@@ -45,10 +45,10 @@ namespace View.API.Controllers
 
 
         [SwaggerOperation(Summary = "Deletes existing table relation entity from database")]
-        [HttpDelete("tables/{tableId}/tables{relationId}"), Authorize]
+        [HttpDelete("tables/{tableId}/tables/{relationId}"), Authorize]
         public async Task<IActionResult> DeleteExistingEntity(int tableId, int relationId)
         {
-            var result = await _relationRepository.DeleteTableRelationAsync(tableId, relationId);
+            var result = await _relationRepository.DeleteTableRelationAsync(tableId,relationId);
             if (!result.Status)
                 throw new Exception(result.Message);
 

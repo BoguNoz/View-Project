@@ -5,11 +5,13 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Globalization;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using View.DBSchema.Schemats;
 using View.DTO.Databases;
 using View.DTO.Models;
@@ -30,15 +32,15 @@ namespace CoreFeatures.ServerConnection.Connections
             {
                 string json = JsonConvert.SerializeObject(loginRequest, Formatting.Indented);
 
-                var loginResult = await Client.PostAsync(connectionSting + "login", new StringContent(json, Encoding.UTF8, "application/json"));
+                var loginResult = await Client.PostAsync(connectionSting + "/login", new StringContent(json, Encoding.UTF8, "application/json"));
 
                 if (loginResult.IsSuccessStatusCode)
                 {
                     // Fetching login data
                     var tokenResponse = await loginResult.Content.ReadAsStringAsync();
                     var tokenData = JsonConvert.DeserializeObject<JObject>(tokenResponse);
-                    var accessToken = tokenData["accessToken"].ToString();
-                    var refreshToken = tokenData["refreshToken"].ToString();
+                    accessToken = tokenData["accessToken"].ToString();
+                    refreshToken = tokenData["refreshToken"].ToString();
 
                     Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
                 }
@@ -56,12 +58,52 @@ namespace CoreFeatures.ServerConnection.Connections
         }
 
 
+        public async Task<ResponseModel<string>> RefreshAutorizationAsync()
+        {
+            if (refreshToken == string.Empty)
+                return new ResponseModel<string> { Status = false, Message = "Refresh token error", Result = string.Empty };
+
+            try
+            {
+                var request = new RefreshRequestDto
+                {
+                    RefreshToken = refreshToken 
+
+                };
+
+                string json = JsonConvert.SerializeObject(request, Formatting.Indented);
+                var result = await Client.PostAsync(connectionSting + "/refresh", new StringContent(json, Encoding.UTF8, "application/json"));
+
+                if (result.IsSuccessStatusCode)
+                {
+                    var tokenResponse = await result.Content.ReadAsStringAsync();
+                    var tokenData = JsonConvert.DeserializeObject<JObject>(tokenResponse);
+                    accessToken = tokenData["accessToken"].ToString();
+                    refreshToken = tokenData["refreshToken"].ToString();
+
+                    Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+                }
+                else
+                {
+                    return new ResponseModel<string> { Status = false, Message = result.StatusCode.ToString() };
+                }
+            }
+            catch (Exception ex)
+            {
+                return new ResponseModel<string> { Status = false, Message = ex.Message };
+            }
+
+            return new ResponseModel<string> { Status = true, Message = "User autorization refreshed" };
+        }
+
+
         public async Task<ResponseModel<string>> RegisterUserAsync(RegisterRequestDto registerRequest)
         {
             try
             {
                 string user = JsonConvert.SerializeObject(registerRequest, Formatting.Indented);
-                var result = await Client.PostAsync(connectionSting + "register", new StringContent(user, Encoding.UTF8, "application/json"));
+                var result = await Client.PostAsync(connectionSting + "/register", new StringContent(user, Encoding.UTF8, "application/json"));
 
                 if(!result.IsSuccessStatusCode)
                     return new ResponseModel<string> { Status = false, Message = result.StatusCode.ToString(), Result = registerRequest.Email };
@@ -75,12 +117,6 @@ namespace CoreFeatures.ServerConnection.Connections
         }
 
 
-        public Task<ResponseModel<DatabaseDto>> DeleteDatabaseAsync(DatabaseDto database)
-        {
-            throw new NotImplementedException();
-        }
-
-
         public async Task<ResponseModel<List<DatabaseDto?>>> GetAllUserDatabasesAsync()
         {
             var databases = new List<DatabaseDto>();
@@ -88,7 +124,7 @@ namespace CoreFeatures.ServerConnection.Connections
             try
             { 
 
-                var response = await Client.GetAsync(connectionSting + "databases");
+                var response = await Client.GetAsync(connectionSting + "/databases");
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -140,12 +176,39 @@ namespace CoreFeatures.ServerConnection.Connections
                 return new ResponseModel<DatabaseDto> { Status = false, Message = result_rel.Message };
 
 
-            return new ResponseModel<DatabaseDto>();
+            return new ResponseModel<DatabaseDto> { Status = true, Message = "Database added" };
+        }
+
+
+        public async Task<ResponseModel<string>> DeleteDatabaseAsync(string name)
+        {
+            try
+            {
+
+                var result = await Client.GetAsync(connectionSting + $"/databases/name={name}");
+                if(!result.IsSuccessStatusCode)
+                    return new ResponseModel<string> { Status = false, Message = "Database not found", Result = name };
+
+                var content = await result.Content.ReadAsStringAsync();
+                var json = JsonConvert.DeserializeObject<JObject>(content);
+                var id = json["id"].ToString();
+
+                var delete = await Client.DeleteAsync(connectionSting + $"/databases/{id}");
+                if (!delete.IsSuccessStatusCode)
+                    return new ResponseModel<string> { Status = false, Message = "Database can not be deleted", Result = name };
+
+            }
+            catch (Exception ex)
+            {
+                return new ResponseModel<string> { Status = false, Message = ex.Message, Result = name };
+            }
+
+            return new ResponseModel<string> { Status = true, Message = "Database deleted", Result = name };
         }
 
 
 
-        //Task use in process of adding database schemt 
+        //Tasks use in process of adding database schemt 
         private async Task<ResponseModel<string>> AddDatabaseSchematAsync(DatabaseDto databaseDto)
         {
             try
@@ -153,7 +216,7 @@ namespace CoreFeatures.ServerConnection.Connections
 
                 var databaseJson = JsonConvert.SerializeObject(databaseDto, Formatting.Indented);
 
-                var addDatabase = await Client.PostAsync(connectionSting + "databases/items", new StringContent(databaseJson, Encoding.UTF8, "application/json"));
+                var addDatabase = await Client.PostAsync(connectionSting + "/databases/items", new StringContent(databaseJson, Encoding.UTF8, "application/json"));
                 if (!addDatabase.IsSuccessStatusCode)
                     return new ResponseModel<string> { Status = false, Message = addDatabase.StatusCode.ToString() + ": Databse can not be added" };
 
@@ -173,12 +236,12 @@ namespace CoreFeatures.ServerConnection.Connections
             if (schema == null)
                 return new ResponseModel<Dictionary<string, string>> { Status = false, Message = "Database schema not found", Result = new Dictionary<string, string>() };
 
-            var tables = new Dictionary<string,string>();
+            var tables = new Dictionary<string, string>();
 
             try
             {
                 //Fetching database
-                var database = await Client.GetAsync(connectionSting + $"databases/name={databaseDto.Name}");
+                var database = await Client.GetAsync(connectionSting + $"/databases/name={databaseDto.Name}");
                 if (!database.IsSuccessStatusCode)
                     return new ResponseModel<Dictionary<string, string>> { Status = false, Message = database.StatusCode.ToString() + ": Databse not found", Result = new Dictionary<string, string>() };
 
@@ -195,7 +258,7 @@ namespace CoreFeatures.ServerConnection.Connections
                     };
 
                     var tableJson = JsonConvert.SerializeObject(tempTable, Formatting.Indented);
-                    var addTable = await Client.PostAsync(connectionSting + $"tables/items/databases/{databaseId}", new StringContent(tableJson, Encoding.UTF8, "application/json"));
+                    var addTable = await Client.PostAsync(connectionSting + $"/tables/items/databases/{databaseId}", new StringContent(tableJson, Encoding.UTF8, "application/json"));
 
                     //Ading columns schemats to database
                     var result = await AddColumnsSchematsAsync(tempTable, databaseId, table);
@@ -225,7 +288,7 @@ namespace CoreFeatures.ServerConnection.Connections
             try
             {
                 //Fetching table
-                var table = await Client.GetAsync(connectionSting + $"tables/{tableDto.Name}/databases/{databaseId}");
+                var table = await Client.GetAsync(connectionSting + $"/tables/{tableDto.Name}/databases/{databaseId}");
                 if (!table.IsSuccessStatusCode)
                     return new ResponseModel<string> { Status = false, Message = table.StatusCode.ToString() + ": Table not found", Result = string.Empty };
 
@@ -246,7 +309,7 @@ namespace CoreFeatures.ServerConnection.Connections
                     };
 
                     var columnJson = JsonConvert.SerializeObject(newColumn, Formatting.Indented);
-                    var addColumn = await Client.PostAsync(connectionSting + $"columns/items/tables/{tableId}", new StringContent(columnJson, Encoding.UTF8, "application/json"));
+                    var addColumn = await Client.PostAsync(connectionSting + $"/columns/items/tables/{tableId}", new StringContent(columnJson, Encoding.UTF8, "application/json"));
 
                 }
             }
@@ -259,7 +322,7 @@ namespace CoreFeatures.ServerConnection.Connections
         }
 
 
-        private async Task<ResponseModel<string>> AddRelationshipAsync(Dictionary<string,string> tables, DatabaseSchema schema)
+        private async Task<ResponseModel<string>> AddRelationshipAsync(Dictionary<string, string> tables, DatabaseSchema schema)
         {
             if (schema == null)
                 return new ResponseModel<string> { Status = false, Message = "Database schema not found" };
@@ -280,7 +343,7 @@ namespace CoreFeatures.ServerConnection.Connections
                         if (r == null)
                             return new ResponseModel<string> { Status = false, Message = "Table schema not found" };
 
-                        var result = await Client.PostAsync(connectionSting + $"relations/tables/{t}/tables{r}", new StringContent("", Encoding.UTF8, "application/json"));
+                        var result = await Client.PostAsync(connectionSting + $"/relations/tables/{t}/tables{r}", new StringContent("", Encoding.UTF8, "application/json"));
                     }
                 }
             }
@@ -293,6 +356,10 @@ namespace CoreFeatures.ServerConnection.Connections
             return new ResponseModel<string> { Status = true, Message = "Relationship schema added" };
         }
 
+       
     }
 
+
+
 }
+

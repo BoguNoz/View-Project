@@ -23,8 +23,8 @@ namespace View.Model.Enteties
         public virtual ICollection<ColumnModel> TableColumns { get; set; } 
 
         //Relaton: Many tables many tables
-        public virtual ICollection<TableRelationModel> TableRelations { get; set; }
+        public virtual ICollection<TableModel> TableRelations { get; set; }
         [JsonIgnore]
-        public virtual ICollection<TableRelationModel> InRelationWithTable { get; set; }
+        public virtual ICollection<TableModel> InRelationWithTable { get; set; }
     }
 }

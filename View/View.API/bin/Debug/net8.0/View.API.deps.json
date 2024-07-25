@@ -8,10 +8,8 @@
     ".NETCoreApp,Version=v8.0": {
       "View.API/1.0.0": {
         "dependencies": {
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.7",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "8.0.7",
-          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.7",
-          "Microsoft.EntityFrameworkCore.Tools": "8.0.7",
+          "Microsoft.EntityFrameworkCore.Design": "8.0.7",
           "Swashbuckle.AspNetCore": "6.4.0",
           "Swashbuckle.AspNetCore.Annotations": "6.6.2",
           "Swashbuckle.AspNetCore.Filters": "8.0.2",
@@ -491,11 +489,6 @@
             "assemblyVersion": "8.0.7.0",
             "fileVersion": "8.0.724.31404"
           }
-        }
-      },
-      "Microsoft.EntityFrameworkCore.Tools/8.0.7": {
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.Design": "8.0.7"
         }
       },
       "Microsoft.Extensions.ApiDescription.Server/6.0.5": {},
@@ -1365,13 +1358,6 @@
       "sha512": "sha512-6gwbwmXkCb+IGxTQ81KqwGjN15r3bv7PLlb4Ox/cYDqdPFbHXMsk0zgtKyPCiXqkFH2LG7KpvVYUBlu4PyTKZQ==",
       "path": "microsoft.entityframeworkcore.sqlserver/8.0.7",
       "hashPath": "microsoft.entityframeworkcore.sqlserver.8.0.7.nupkg.sha512"
-    },
-    "Microsoft.EntityFrameworkCore.Tools/8.0.7": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-i85BNsjYGjAkvvga9uALKREHq/hsp/y7QOGuliczDSnUN6YIQXgx989XBg8iSkb5tZJqU/NLev1mU4XmirAvOw==",
-      "path": "microsoft.entityframeworkcore.tools/8.0.7",
-      "hashPath": "microsoft.entityframeworkcore.tools.8.0.7.nupkg.sha512"
     },
     "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
       "type": "package",

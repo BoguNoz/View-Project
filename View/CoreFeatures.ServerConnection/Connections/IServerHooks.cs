@@ -22,6 +22,12 @@ namespace CoreFeatures.ServerConnection.Connections
         /// <returns>Authorization confirmation.</returns>
         Task<ResponseModel<string>> AuthorizeUserAsync(LoginRequestDto loginRequest);
 
+        /// <summary>
+        /// Refreshes user authentication asynchronously.
+        /// </summary>
+        /// <returns>Authorization confirmation.</returns>
+        Task<ResponseModel<string>> RefreshAutorizationAsync();
+
 
         /// <summary>
         /// Registers a new user asynchronously.
@@ -49,9 +55,9 @@ namespace CoreFeatures.ServerConnection.Connections
         /// <summary>
         /// Deletes a database entity from the system asynchronously.
         /// </summary>
-        /// <param name="database">Database DTO model.</param>
+        /// <param name="name">Databases name.</param>
         /// <returns>Delete operation confirmation.</returns>
-        Task<ResponseModel<DatabaseDto>> DeleteDatabaseAsync(DatabaseDto database);
+        Task<ResponseModel<string>> DeleteDatabaseAsync(string name);
 
     }
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CoreFeatures.ServerConnection")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+00edfa5d7b8dc4600cf044804d4f58f1c059d467")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eeddf97f75fdae5338706ea9d0cc4e496f3af802")]
 [assembly: System.Reflection.AssemblyProductAttribute("CoreFeatures.ServerConnection")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CoreFeatures.ServerConnection")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

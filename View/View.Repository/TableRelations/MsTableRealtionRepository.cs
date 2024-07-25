@@ -40,12 +40,13 @@ namespace View.Repository.Nowy_folder
         public async Task<ResponseModel<TableRelationModel?>> DeleteTableRelationAsync(int tableId, int relationId)
         {
 
-            var relation = await DbContext.TableRelations.SingleOrDefaultAsync(r => r.Table_ID == tableId && r.Relation_ID == relationId);
+            var relation = await DbContext.TableRelations.SingleOrDefaultAsync(t => t.Table_ID == tableId && t.Relation_ID == relationId);
 
             if (relation == null)
                 return new ResponseModel<TableRelationModel?> { Status = true, Message = "Table relation deleted successfully", Result = relation };
 
             DbContext.TableRelations.Remove(relation);
+
 
             try
             {

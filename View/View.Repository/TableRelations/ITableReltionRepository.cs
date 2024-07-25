@@ -10,6 +10,8 @@ namespace View.Repository.Nowy_folder
 {
     public interface ITableReltionRepository
     {
+
+  
         /// <summary>
         /// SaveTableRelationAsync is async task that is saving new table relation entity in database
         /// </summary>
