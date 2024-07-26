@@ -26,8 +26,8 @@ namespace View.API.Controllers
 
 
         [SwaggerOperation(Summary = "Post new table relation entity to database")]
-        [HttpPost("tables/{tableId}/tables{relationId}/databases/{databaseId}"), Authorize]
-        public async Task<IActionResult> PostNewEntity(int tableId, int relationId, string databaseId)
+        [HttpPost("tables/{tableId}/tables/{relationId}"), Authorize]
+        public async Task<IActionResult> PostNewEntity(int tableId, int relationId)
         {
 
             var relation = new TableRelationModel

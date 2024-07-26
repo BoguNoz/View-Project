@@ -82,6 +82,10 @@ namespace View.API.Controllers
             if(database == null)
                 return NotFound();
 
+            var databases = await _databaseRepository.GetAllDatabasesAsync(id.ToString());
+            if (databases.Any(n => n.Name.Equals(newDatabase.Name) && database.Id != id))
+                throw new Exception("Database of this name already exists");
+
             database.Name = newDatabase.Name;
             database.Description = newDatabase.Description;
             database.CreationDate = DateTime.Now;

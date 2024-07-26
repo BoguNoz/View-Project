@@ -11,18 +11,17 @@ namespace View.Repository.Nowy_folder
     public interface ITableReltionRepository
     {
 
-  
         /// <summary>
-        /// SaveTableRelationAsync is async task that is saving new table relation entity in database
+        /// Saves a new table relation entity in the database.
         /// </summary>
-        /// <param name="model">complete model of table relation entity</param>
+        /// <param name="model">The complete model of the table relation entity.</param>
         Task<ResponseModel<TableRelationModel?>> SaveTableRelationAsync(TableRelationModel? model);
 
         /// <summary>
-        /// DeleteTableRelationAsync is async task that is deleting existing table relation entity from database
+        /// Deletes an existing table relation entity from the database.
         /// </summary>
-        /// <param name="tableId">table id</param>
-        /// <param name="relationId">second table id</param>
+        /// <param name="tableId">The ID of the first table.</param>
+        /// <param name="relationId">The ID of the second table.</param>
         Task<ResponseModel<TableRelationModel?>> DeleteTableRelationAsync(int tableId, int relationId);
     }
 }

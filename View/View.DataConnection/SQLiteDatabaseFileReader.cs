@@ -48,18 +48,19 @@ namespace View.DataConnection
                 }
                 catch (Exception ex)
                 {
-                    return new ResponseModel<List<string?>> { Status = false, Message = $"Collecting tables names ended unsuccessful due to error: {ex}", Result = new List<string?>() };
+                    return new ResponseModel<List<string?>> { Status = false, Message = $"Error fetching table names: {ex.Message}", Result = new List<string?>() };
                 }
         
             }
 
-            return new ResponseModel<List<string?>> { Status = true, Message = "Collecting tables names ended successful", Result = tables }; 
+            return new ResponseModel<List<string?>> { Status = true, Message = "Table names fetched successfully.", Result = tables }; 
         }
 
 
         public override async Task<ResponseModel<List<string?>>> GetColumsNamesAsync(string table)
         {
-            if(table == null) return new ResponseModel<List<string?>> { Status = false, Message = "Collecting columns names failed due to null parameter", Result = new List<string?>() };
+            if(table == null)
+                return new ResponseModel<List<string?>> { Status = false, Message = "Table parameter cannot be null.", Result = new List<string?>() };
 
             var columns = new List<string?>();
 
@@ -80,11 +81,11 @@ namespace View.DataConnection
                 }
                 catch (Exception ex)
                 {
-                    return new ResponseModel<List<string?>> { Status = false, Message = $"Collecting columns names ended unsuccessful due to error: {ex}", Result = new List<string?>() };
+                    return new ResponseModel<List<string?>> { Status = false, Message = $"Error fetching column names for table '{table}': {ex.Message}", Result = new List<string?>() };
                 }
             }
 
-            return new ResponseModel<List<string?>> { Status = true, Message = "Collecting columns names ended successful", Result = columns }; 
+            return new ResponseModel<List<string?>> { Status = true, Message = "Column names fetched successfully.", Result = columns }; 
 
         }
 
@@ -117,18 +118,20 @@ namespace View.DataConnection
                 }
                 catch (Exception ex)
                 {
-                    return new ResponseModel<Dictionary<string, List<string>>> { Status = false, Message = $"Collecting relation between tables ended unsuccessful due to error: {ex}", Result = new Dictionary<string, List<string>>() };
+                    return new ResponseModel<Dictionary<string, List<string>>> { Status = false, Message = $"Error fetching table relations: {ex.Message}", Result = new Dictionary<string, List<string>>() };
 
                 }
             }
 
-            return new ResponseModel<Dictionary<string, List<string>>> { Status = true, Message = "Collecting relation between tables ended successfully", Result = relations }; ;
+            return new ResponseModel<Dictionary<string, List<string>>> { Status = true, Message = "Table relations fetched successfully.", Result = relations }; ;
         }
 
 
         public override async Task<ResponseModel<List<string?>>> GetColumsContetAsync(string table, string column, string? orderBy)
         {
-            if (table == null || column == null) new ResponseModel<List<string?>> { Status = false, Message = "Collecting data from column failed due to null parameter", Result = new List<string?>() };
+            if (table == null || column == null)
+                return new ResponseModel<List<string?>> { Status = false, Message = "Table and column parameters cannot be null.", Result = new List<string?>() };
+
 
             //If order by column is not specify then data will be order by themself
             if (orderBy == null) orderBy = column;
@@ -161,17 +164,18 @@ namespace View.DataConnection
                 }
                 catch (Exception ex)
                 {
-                    return new ResponseModel<List<string?>> { Status = false, Message = $"Collecting data from column ended unsuccessful due to error: {ex}", Result = new List<string?>() };
+                    return new ResponseModel<List<string?>> { Status = false, Message = $"Error fetching data from column '{column}' in table '{table}': {ex.Message}", Result = new List<string?>() };
                 }
             }
 
-            return new ResponseModel<List<string?>> { Status = true, Message = "Collecting data from column ended successful", Result = data };
+            return new ResponseModel<List<string?>> { Status = true, Message = "Column data fetched successfully.", Result = data };
         }
 
 
         public override async Task<ResponseModel<string>> GetColumnDataTypeAsync(string table, string column)
         {
-            if (table == null || column == null) return new ResponseModel<string> { Status = false, Message = "Collecting column data type failed due to null parameter", Result = string.Empty };
+            if (table == null || column == null) 
+                return new ResponseModel<string> { Status = false, Message = "Table and column parameters cannot be null.", Result = string.Empty };
 
             var type = "404";
 
@@ -193,21 +197,22 @@ namespace View.DataConnection
                 }
                 catch (Exception ex)
                 {
-                    return new ResponseModel<string> { Status = false, Message = $"Collecting column data type ended unsuccessful due to error: {ex}", Result = string.Empty };
+                    return new ResponseModel<string> { Status = false, Message = $"Error fetching data type for column '{column}' in table '{table}': {ex.Message}", Result = string.Empty };
                 }
             }
 
             //if the correct column is not found type equals string.Empty, in this case the operation failed
             if (type == "404") 
-                return new ResponseModel<string> { Status = false, Message = $"Collecting column data type failed due column named {column} not existing in data base", Result = string.Empty };
+                return new ResponseModel<string> { Status = false, Message = $"Column '{column}' does not exist in table '{table}'.", Result = string.Empty };
             else 
-                return new ResponseModel<string> { Status = true, Message = "Collecting column data type ended successful", Result = type };
+                return new ResponseModel<string> { Status = true, Message = "Column data type fetched successfully.", Result = type };
         }
 
 
         public override async Task<ResponseModel<Dictionary<string, bool>>> GetPrimaryKeysAsync(string table)
         {
-            if (table == null) return new ResponseModel<Dictionary<string, bool>> { Status = false, Message = "Collecting primary keys failed due to null parameter", Result = new Dictionary<string, bool>() };
+            if (table == null) 
+                return new ResponseModel<Dictionary<string, bool>> { Status = false, Message = "Table parameter cannot be null.", Result = new Dictionary<string, bool>() };
 
             var keys = new Dictionary<string,bool>();
             
@@ -230,17 +235,18 @@ namespace View.DataConnection
                 }
                 catch (Exception ex)
                 {
-                    return new ResponseModel<Dictionary<string, bool>> { Status = false, Message = $"Collecting column data type ended unsuccessful due to error: {ex}", Result = new Dictionary<string, bool>() };
+                    return new ResponseModel<Dictionary<string, bool>> { Status = false, Message = $"Error fetching primary keys for table '{table}': {ex.Message}", Result = new Dictionary<string, bool>() };
                 }
             }
 
-            return new ResponseModel<Dictionary<string, bool>> { Status = true, Message = "Collecting primary keys ended successful", Result = keys };
+            return new ResponseModel<Dictionary<string, bool>> { Status = true, Message = "Primary keys fetched successfully.", Result = keys };
         }
 
 
         public override async Task<ResponseModel<Dictionary<string, bool>>> GetForeignKeysAsync(string table)
         {
-            if (table == null) return new ResponseModel<Dictionary<string, bool>> { Status = false, Message = "Collecting foregin keys failed due to null parameter", Result = new Dictionary<string, bool>() };
+            if (table == null) 
+                return new ResponseModel<Dictionary<string, bool>> { Status = false, Message = "Table parameter cannot be null.", Result = new Dictionary<string, bool>() };
 
             var keys = new Dictionary<string,bool>();
 
@@ -265,11 +271,11 @@ namespace View.DataConnection
                 }
                 catch (Exception ex)
                 {
-                    return new ResponseModel<Dictionary<string, bool>> { Status = false, Message = $"Collecting column data type ended unsuccessful due to error: {ex}", Result = new Dictionary<string, bool>() };
+                    return new ResponseModel<Dictionary<string, bool>> { Status = false, Message = $"Error fetching foreign keys for table '{table}': {ex.Message}", Result = new Dictionary<string, bool>() };
                 }
            }
 
-            return new ResponseModel<Dictionary<string, bool>> { Status = true, Message = "Collecting foregin keys ended successful", Result = keys };
+            return new ResponseModel<Dictionary<string, bool>> { Status = true, Message = "Foreign keys fetched successfully.", Result = keys };
         }
     }
 }

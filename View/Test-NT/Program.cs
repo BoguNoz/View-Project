@@ -9,6 +9,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Text.Json.Nodes;
 using View.DataConnection;
+using View.DBSchema;
 using View.DBSchema.Schemats;
 using View.DTO.Databases;
 using View.DTO.Models;
@@ -37,34 +38,20 @@ namespace Test_NT
             };
 
 
-            var schema = new DatabaseSchema(@"Data Source=C:\\Users\\bnozd\\Desktop\\chinook.db;Version=3;");
+            var schema = new DatabaseSchemaFileConstructor(@"Data Source=C:\\Users\\bnozd\\Desktop\\chinook.db;Version=3;","chinook.db");
             var db = await schema.CreateDatabaseSchemaAsync();
-            var tables = schema.Tables;
-            schema.Name = "chinook.db";
+            var addContent = schema.GetDatabaseContentAsync();
+            var addContent2 = schema.GetDatabaseContentAsync();
 
             HttpClient client = new HttpClient();
 
             var connection = new ServiceOperation(client, @"https://localhost:7166");
-            var reg = await connection.RegisterUserAsync(user);
-            var login = await connection.AuthorizeUserAsync(userL);
 
-            var result = await connection.DeleteDatabaseAsync("chinook.db");
+            var authorize = await connection.AuthorizeUserAsync(userL);
 
-            //var refresh = await connection.RefreshAutorizationAsync();
+            //var add = await connection.AddDatabaseAsync(db.Result);
 
-            
-            //var create = await connection.AddDatabaseAsync(schema);
-
-            //var table = await client.DeleteAsync(@"https://localhost:7166" + $"/relations/tables/{12}/tables/{1}");
-            //var table = await client.DeleteAsync(@"https://localhost:7166" + $"/tables/{12}");
-
-            //var content = await table.Content.ReadAsStringAsync();
-            //var data = JsonConvert.DeserializeObject<List<TablesDto>>(content);
-
-
-            //tableId = data["id"].ToString();
-
-            
+            var result = await connection.GetDatabaseAsync("chinook.db");
 
             return true;
 

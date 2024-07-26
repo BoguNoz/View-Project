@@ -11,35 +11,35 @@ namespace View.Repository.Tables
     public interface ITableRepository
     {
         /// <summary>
-        /// GetTableByIdAsync is async task that is fetching table from database with corresponding id.
+        /// Retrieves a table from the database based on its ID.
         /// </summary>
-        /// <param name="id">table id.</param>
+        /// <param name="id">The ID of the table.</param>
         Task<TableModel?> GetTableByIdAsync(int id);
 
         /// <summary>
-        /// GetTableByNameAsync is async task that is fetching table from database with corresponding name.
+        /// Retrieves a table from the database based on its name within a specific database.
         /// </summary>
-        /// <param name="name">table name.</param>
-        /// <param name="id">database name.</param>
-        Task<TableModel?> GetTableByNameAsync(string name_tab, int id);
+        /// <param name="name">The name of the table.</param>
+        /// <param name="id">The ID of the database.</param>
+        Task<TableModel?> GetTableByNameAsync(string name, int id);
 
         /// <summary>
-        /// GetAllTableAsync is async task that is fetching all tables owned by user from database.
+        /// Retrieves all tables owned by a user from the database.
         /// </summary>
-        /// <param name="id">database id.</param>
+        /// <param name="id">The ID of the database.</param>
         Task<List<TableModel?>> GetAllTableAsync(int id);
 
         /// <summary>
-        /// SaveTableAsync is async task that is saving new table entity in database
+        /// Saves a new table entity in the database.
         /// </summary>
-        /// <param name="model">complete model of table entity</param>
+        /// <param name="model">The complete model of the table entity.</param>
         Task<ResponseModel<TableModel?>> SaveTableAsync(TableModel? model);
 
         /// <summary>
-        /// DeleteTableAsync is async task that is deleting existing table entity from database
+        /// Deletes an existing table entity from the database.
         /// </summary>
-        /// <param name="name">table name</param>
-        /// <param name="id">database id</param>
+        /// <param name="name">The name of the table to delete.</param>
+        /// <param name="id">The ID of the database.</param>
         Task<ResponseModel<TableModel?>> DeleteTableAsync(string name, int id);
     }
 }

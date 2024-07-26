@@ -10,36 +10,40 @@ namespace View.Repository.Columns
 {
     public interface IColumnRepository
     {
+
         /// <summary>
-        /// GetColumnByIdAsync is async task that is fetching column from database with corresponding id.
+        /// Retrieves a column from the database based on its ID.
         /// </summary>
-        /// <param name="id">column id.</param>
+        /// <param name="id">The ID of the column.</param>
         Task<ColumnModel?> GetColumnByIdAsync(int id);
 
+
         /// <summary>
-        /// GetColumnByNameAsync is async task that is fetching column from database with corresponding name.
+        /// Retrieves a column from the database based on its name within a specific table.
         /// </summary>
-        /// <param name="name">column name.</param>
-        /// <param name="id">table id.</param>
+        /// <param name="name">The name of the column.</param>
+        /// <param name="id">The ID of the table.</param>
         Task<ColumnModel?> GetColumnByNameAsync(string name, int id);
 
-        /// <summary>
-        /// GetAllColumnsAsync is async task that is fetching all table columns from database.
-        /// </summary>
-        /// <param name="id">table id.</param>
-        Task<List<ColumnModel?>> GetAllColumnsAsync(int id);
 
         /// <summary>
-        /// SaveEmoteAsync is async task that is saving new column entity in database
+        /// Retrieves all columns for a specific table from the database.
         /// </summary>
-        /// <param name="model">complete model of column entity</param>
+        /// <param name="id">The ID of the table.</param>
+        Task<List<ColumnModel?>> GetAllColumnsAsync(int id);
+
+
+        /// <summary>
+        /// Saves a new column entity in the database.
+        /// </summary>
+        /// <param name="model">The complete model of the column entity.</param>
         Task<ResponseModel<ColumnModel?>> SaveColumnAsync(ColumnModel model);
 
 
         /// <summary>
-        /// DeleteColumnAsync is async task that is deleting existing column entity from database
+        /// Deletes an existing column entity from the database.
         /// </summary>
-        /// <param name="id">column id</param>
+        /// <param name="id">The ID of the column to delete.</param>
         Task<ResponseModel<ColumnModel?>> DeleteColumnAsync(int id);
     }
 }

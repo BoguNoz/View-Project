@@ -28,7 +28,7 @@ namespace View.Repository.Tables
 
         public async Task<TableModel?> GetTableByNameAsync(string name, int id)
         {
-            var table = await DbContext.Tables.Where(d => d.Database_ID == id).SingleOrDefaultAsync(t => t.Name == name);
+            var table = await DbContext.Tables.Where(d => d.Database_ID == id).Include(c => c.TableColumns).Include(r => r.TableRelations).SingleOrDefaultAsync(t => t.Name == name);
 
             return table;
         }

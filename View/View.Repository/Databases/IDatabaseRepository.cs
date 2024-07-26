@@ -11,35 +11,38 @@ namespace View.Repository.Databases
     public interface IDatabaseRepository
     {
         /// <summary>
-        /// GetDatabaseByIdAsync is async task that is fetching database schema from database with corresponding id.
+        /// Retrieves a database schema from the database based on its ID.
         /// </summary>
-        /// <param name="id">database id.</param>
+        /// <param name="id">The ID of the database.</param>
         Task<DatabaseModel?> GetDatabaseByIdAsync(int id);
 
+
         /// <summary>
-        /// GetDatabaseByNameAsync is async task that is fetching database schema from database with corresponding name.
+        /// Retrieves a database schema from the database based on its name and user ID.
         /// </summary>
-        /// <param name="name">database name.</param>
-        /// <param name="id">user id.</param>
+        /// <param name="name">The name of the database.</param>
+        /// <param name="id">The ID of the user.</param>
         Task<DatabaseModel?> GetDatabaseByNameAsync(string name, string id);
 
-        /// <summary>
-        /// GetAllDatabasesAsync is async task that is fetching all databases owned by user from database.
-        /// </summary>
-        /// <param name="id">user id.</param>
-        Task<List<DatabaseModel?>> GetAllDatabasesAsync(string id);
 
         /// <summary>
-        /// SaveDatabaseAsync is async task that is saving new database entity in database
+        /// Retrieves all databases owned by a user from the database.
         /// </summary>
-        /// <param name="model">complete model of database entity</param>
+        /// <param name="id">The ID of the user.</param>
+        Task<List<DatabaseModel?>> GetAllDatabasesAsync(string id);
+
+
+        /// <summary>
+        /// Saves a new database entity in the database.
+        /// </summary>
+        /// <param name="model">The complete model of the database entity.</param>
         Task<ResponseModel<DatabaseModel?>> SaveDatabaseAsync(DatabaseModel? model);
 
 
         /// <summary>
-        /// DeleteDatabaseAsync is async task that is deleting existing database entity from database
+        /// Deletes an existing database entity from the database.
         /// </summary>
-        /// <param name="id">dtabase id</param>
+        /// <param name="id">The ID of the database to delete.</param>
         Task<ResponseModel<DatabaseModel?>> DeleteDatabaseAsync(int id);
     }
 }

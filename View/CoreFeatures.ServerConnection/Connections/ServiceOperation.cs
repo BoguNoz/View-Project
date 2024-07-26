@@ -9,6 +9,7 @@ using System.Globalization;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -30,22 +31,26 @@ namespace CoreFeatures.ServerConnection.Connections
         {
             try
             {
+                // Serialize login request to JSON
                 string json = JsonConvert.SerializeObject(loginRequest, Formatting.Indented);
 
+                // Send login request
                 var loginResult = await Client.PostAsync(connectionSting + "/login", new StringContent(json, Encoding.UTF8, "application/json"));
 
                 if (loginResult.IsSuccessStatusCode)
                 {
-                    // Fetching login data
+                    // Fetch access token and refresh token
                     var tokenResponse = await loginResult.Content.ReadAsStringAsync();
                     var tokenData = JsonConvert.DeserializeObject<JObject>(tokenResponse);
                     accessToken = tokenData["accessToken"].ToString();
                     refreshToken = tokenData["refreshToken"].ToString();
 
+                    // Set authorization header
                     Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
                 }
                 else
                 {
+
                     return new ResponseModel<string> { Status = false, Message = loginResult.StatusCode.ToString(), Result = loginRequest.Email };
                 }
             }
@@ -54,47 +59,55 @@ namespace CoreFeatures.ServerConnection.Connections
                 return new ResponseModel<string> { Status = false, Message = ex.Message, Result = loginRequest.Email };
             }
 
+            // User logged successfully
             return new ResponseModel<string> { Status = true, Message = $"User logged" };
         }
 
 
-        public async Task<ResponseModel<string>> RefreshAutorizationAsync()
+        public async Task<ResponseModel<string>> RefreshAuthorizationAsync()
         {
-            if (refreshToken == string.Empty)
+            if (string.IsNullOrEmpty(refreshToken))
                 return new ResponseModel<string> { Status = false, Message = "Refresh token error", Result = string.Empty };
 
             try
             {
+                // Create a refresh request
                 var request = new RefreshRequestDto
                 {
-                    RefreshToken = refreshToken 
-
+                    RefreshToken = refreshToken
                 };
 
+                // Serialize request to JSON
                 string json = JsonConvert.SerializeObject(request, Formatting.Indented);
+
+                // Send refresh request
                 var result = await Client.PostAsync(connectionSting + "/refresh", new StringContent(json, Encoding.UTF8, "application/json"));
 
                 if (result.IsSuccessStatusCode)
                 {
+                    // Parse token response
                     var tokenResponse = await result.Content.ReadAsStringAsync();
                     var tokenData = JsonConvert.DeserializeObject<JObject>(tokenResponse);
                     accessToken = tokenData["accessToken"].ToString();
                     refreshToken = tokenData["refreshToken"].ToString();
 
+                    // Set authorization header
                     Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-
                 }
                 else
                 {
+
                     return new ResponseModel<string> { Status = false, Message = result.StatusCode.ToString() };
                 }
             }
             catch (Exception ex)
             {
+
                 return new ResponseModel<string> { Status = false, Message = ex.Message };
             }
 
-            return new ResponseModel<string> { Status = true, Message = "User autorization refreshed" };
+            // User authorization refreshed successfully
+            return new ResponseModel<string> { Status = true, Message = "User authorization refreshed" };
         }
 
 
@@ -102,17 +115,25 @@ namespace CoreFeatures.ServerConnection.Connections
         {
             try
             {
+                // Serialize register request to JSON
                 string user = JsonConvert.SerializeObject(registerRequest, Formatting.Indented);
+
+                // Send registration request
                 var result = await Client.PostAsync(connectionSting + "/register", new StringContent(user, Encoding.UTF8, "application/json"));
 
-                if(!result.IsSuccessStatusCode)
+                if (!result.IsSuccessStatusCode)
+                {
+                    // Handle unsuccessful registration
                     return new ResponseModel<string> { Status = false, Message = result.StatusCode.ToString(), Result = registerRequest.Email };
+                }
             }
             catch (Exception ex)
             {
+
                 return new ResponseModel<string> { Status = false, Message = ex.Message, Result = registerRequest.Email };
             }
 
+            // User registered successfully
             return new ResponseModel<string> { Status = true, Message = $"User registered" };
         }
 
@@ -122,27 +143,30 @@ namespace CoreFeatures.ServerConnection.Connections
             var databases = new List<DatabaseDto>();
 
             try
-            { 
-
+            {
+                // Send request to retrieve databases
                 var response = await Client.GetAsync(connectionSting + "/databases");
 
                 if (response.IsSuccessStatusCode)
                 {
+                    // Read content from response
                     var content = await response.Content.ReadAsStringAsync();
 
+                    // Deserialize database models
                     databases = JsonConvert.DeserializeObject<List<DatabaseDto>>(content);
                 }
                 else
                 {
-                    return new ResponseModel<List<DatabaseDto?>> { Status = false, Message = response.StatusCode.ToString(), Result = new List<DatabaseDto?>() };
+                    // Handle unsuccessful response
+                    return new ResponseModel<List<DatabaseDto>> { Status = false, Message = response.StatusCode.ToString(), Result = new List<DatabaseDto>() };
                 }
             }
             catch (Exception ex)
             {
-                return new ResponseModel<List<DatabaseDto?>> { Status = false, Message = ex.Message, Result = new List<DatabaseDto?>() };
+                return new ResponseModel<List<DatabaseDto>> { Status = false, Message = ex.Message, Result = new List<DatabaseDto>() };
             }
 
-            return new ResponseModel<List<DatabaseDto?>> { Status = false, Message = "Database models acquired successfully", Result = databases };
+            return new ResponseModel<List<DatabaseDto>> { Status = true, Message = "Database models acquired successfully", Result = databases };
         }
 
 
@@ -184,18 +208,23 @@ namespace CoreFeatures.ServerConnection.Connections
         {
             try
             {
-
+                // Send a GET request to check if the database exists
                 var result = await Client.GetAsync(connectionSting + $"/databases/name={name}");
-                if(!result.IsSuccessStatusCode)
+                if (!result.IsSuccessStatusCode)
                     return new ResponseModel<string> { Status = false, Message = "Database not found", Result = name };
 
+                // Read the response content
                 var content = await result.Content.ReadAsStringAsync();
                 var json = JsonConvert.DeserializeObject<JObject>(content);
                 var id = json["id"].ToString();
 
+                // Send a DELETE request to delete the database
                 var delete = await Client.DeleteAsync(connectionSting + $"/databases/{id}");
+
                 if (!delete.IsSuccessStatusCode)
-                    return new ResponseModel<string> { Status = false, Message = "Database can not be deleted", Result = name };
+                {
+                    return new ResponseModel<string> { Status = false, Message = "Database cannot be deleted", Result = name };
+                }
 
             }
             catch (Exception ex)
@@ -207,8 +236,63 @@ namespace CoreFeatures.ServerConnection.Connections
         }
 
 
+        public async Task<ResponseModel<string>> UpdateDatabaseAsync(string name, DatabaseDto databaseDto)
+        {
+            try
+            {
+                //Fetching database
+                var database = await Client.GetAsync(connectionSting + $"/databases/name={name}");
+                if (!database.IsSuccessStatusCode)
+                    return new ResponseModel<string> { Status = false, Message = "Orginal database can not be found", Result = name };
 
-        //Tasks use in process of adding database schemt 
+                var content = await database.Content.ReadAsStringAsync();
+                var data = JsonConvert.DeserializeObject<JObject>(content);
+                var id = data["id"].ToString();
+
+                // Serialize dto model to JSON
+                string json = JsonConvert.SerializeObject(databaseDto, Formatting.Indented);
+
+                //Udatate database
+                var update = await Client.PutAsync(connectionSting + $"/databases/{id}", new StringContent(json, Encoding.UTF8, "application/json"));
+
+                if (!update.IsSuccessStatusCode)
+                {
+                    return new ResponseModel<string> { Status = false, Message = "Orginal database can not be updated", Result = name };
+                }
+
+               
+            }
+            catch(Exception ex)
+            {
+                new ResponseModel<string> { Status = false, Message = ex.Message, Result = name };
+            }
+
+            return new ResponseModel<string> { Status = true, Message = "Database updated succesfully", Result = name };
+        }
+
+
+        public async Task<ResponseModel<DatabaseSchema>> GetDatabaseAsync(string name)
+        {
+            var database = new DatabaseSchema();
+
+            //Convert database schema
+            var result_db = await GetDatabaseSchema(name, database);
+            if(!result_db.Status)
+                return new ResponseModel<DatabaseSchema> { Status = false, Message = $"Error converting to database schema: {result_db.Message}", Result = database };
+
+            //Convert table schemats
+            var result_tab = await GetTableSchemats(result_db.Result, database);
+            if (!result_tab.Status)
+                return new ResponseModel<DatabaseSchema> { Status = false, Message = $"Error converting to table schemats: {result_tab.Message}", Result = database };
+
+
+            return new ResponseModel<DatabaseSchema> { Status = true, Message = "Database aquired", Result = database };
+        }
+
+
+
+
+        //Tasks used in process of adding database schemt 
         private async Task<ResponseModel<string>> AddDatabaseSchematAsync(DatabaseDto databaseDto)
         {
             try
@@ -343,7 +427,7 @@ namespace CoreFeatures.ServerConnection.Connections
                         if (r == null)
                             return new ResponseModel<string> { Status = false, Message = "Table schema not found" };
 
-                        var result = await Client.PostAsync(connectionSting + $"/relations/tables/{t}/tables{r}", new StringContent("", Encoding.UTF8, "application/json"));
+                        var result = await Client.PostAsync(connectionSting + $"/relations/tables/{t}/tables/{r}", new StringContent("", Encoding.UTF8, "application/json"));
                     }
                 }
             }
@@ -357,6 +441,166 @@ namespace CoreFeatures.ServerConnection.Connections
         }
 
        
+        //Task used in process od convertin database entity to database schema
+        private async Task<ResponseModel<string>> GetDatabaseSchema(string name, DatabaseSchema schema)
+        {
+            string id = string.Empty;
+
+            try
+            {
+                //Fetching database
+                var response = await Client.GetAsync(connectionSting + $"/databases/name={name}");
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return new ResponseModel<string> { Status = false, Message = $"Database {name} can not be found", Result = string.Empty };
+                }
+
+                //Converting respose do dto model
+                var content = await response.Content.ReadAsStringAsync();
+                var database = JsonConvert.DeserializeObject<DatabaseDto>(content);
+
+                schema.Name = database.Name;
+                schema.Descryption = database.Description;
+                
+                //Fetching database id
+                var json = JsonConvert.DeserializeObject<JObject>(content);
+                id = json["id"].ToString();
+
+            }
+            catch(Exception ex) 
+            {
+                return new ResponseModel<string> { Status = false, Message = ex.Message, Result = string.Empty };
+            }
+
+            return new ResponseModel<string> {Status = true, Message = "Database data aquired succesfully", Result = id };
+        }
+
+
+        private async Task<ResponseModel<string>> GetTableSchemats(string id, DatabaseSchema schema)
+        {
+            try
+            {
+                var response = await Client.GetAsync(connectionSting + $"/tables/databases/{id}");
+                if (!response.IsSuccessStatusCode)
+                {
+                    return new ResponseModel<string> { Status = false, Message = $"Tables can not be found", Result = string.Empty };
+                }
+
+                var content = await response.Content.ReadAsStringAsync();
+                var tables = JsonConvert.DeserializeObject<List<TablesDto>>(content);
+
+                //Adding tables schemats with columns
+                foreach(var table in tables)
+                {
+
+                    var columns = await GetColumnSchemats(table.Name, id);
+                    if (!columns.Status)
+                    {
+                        return new ResponseModel<string> { Status = false, Message = $"Table columns not found", Result = string.Empty };
+                    }
+
+                    var relations = await GetRelationsSchemats(table.Name, id);
+                    if (!relations.Status)
+                    {
+                        return new ResponseModel<string> { Status = false, Message = $"Table relations not found", Result = string.Empty };
+                    }
+
+                    var newTable = new TableSchema
+                    {
+                        TableName = table.Name,
+                        TableColumns = columns.Result,
+                        Relationships = relations.Result
+                    };
+
+                    schema.Tables.Add(newTable);
+                }
+
+
+
+            }
+            catch( Exception ex ) 
+            {
+                return new ResponseModel<string> { Status = false, Message = ex.Message, Result = string.Empty };
+            }
+
+            return new ResponseModel<string> { Status = true, Message = "Tables data aquired succesfully" };
+        }
+
+
+        private async Task<ResponseModel<List<ColumnSchema>>> GetColumnSchemats(string name, string id)
+        {
+            var columns = new List<ColumnSchema>();
+
+            try
+            {
+                var response = await Client.GetAsync(connectionSting + $"/tables/{name}/databases/{id}");
+                if (!response.IsSuccessStatusCode)
+                {
+                    return new ResponseModel<List<ColumnSchema>> { Status = false, Message = $"Tables can not be found", Result = columns };
+                }
+
+                var content = await response.Content.ReadAsStringAsync();
+                var json = JsonConvert.DeserializeObject<JObject>(content);
+                var tableColumns = json["tableColumns"].ToString();
+
+                var columnsDto = JsonConvert.DeserializeObject<List<ColumnDto>>(tableColumns);
+
+                foreach(var dto in columnsDto)
+                {
+                    var column = new ColumnSchema
+                    {
+                        ColumnName = dto.Name,
+                        ColumnDataType = dto.DataType,
+                        IsItForeignKey = dto.ForeignKeyStatus,
+                        IsItPrimaryKey = dto.PrimaryKeyStatus
+                    };
+
+                    columns.Add(column);
+                }
+
+            }
+            catch(Exception ex) 
+            {
+                return new ResponseModel<List<ColumnSchema>> { Status = false, Message = ex.Message, Result = columns };
+            }
+
+            return new ResponseModel<List<ColumnSchema>> { Status = true, Message = "Coumns data aquired succesfully", Result = columns };
+        }
+
+
+        private async Task<ResponseModel<List<string>>> GetRelationsSchemats(string name, string id)
+        {
+            var tables = new List<string>();
+
+            try
+            {
+                var response = await Client.GetAsync(connectionSting + $"/tables/{name}/databases/{id}");
+                if (!response.IsSuccessStatusCode)
+                {
+                    return new ResponseModel<List<string>> { Status = false, Message = $"Tables can not be found", Result = tables };
+                }
+
+                var content = await response.Content.ReadAsStringAsync();
+                var json = JsonConvert.DeserializeObject<JObject>(content);
+                var tableRelations= json["tableRelations"].ToString();
+
+                var tablesDto = JsonConvert.DeserializeObject<List<TablesDto>>(tableRelations);
+
+                foreach (var dto in tablesDto)
+                {
+
+                    tables.Add(dto.Name);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return new ResponseModel<List<string>> { Status = false, Message = ex.Message, Result = tables };
+            }
+
+            return new ResponseModel<List<string>> { Status = true, Message = "Coumns data aquired succesfully", Result = tables };
+        }
     }
 
 

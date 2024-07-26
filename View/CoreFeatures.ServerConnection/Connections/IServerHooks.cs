@@ -26,7 +26,7 @@ namespace CoreFeatures.ServerConnection.Connections
         /// Refreshes user authentication asynchronously.
         /// </summary>
         /// <returns>Authorization confirmation.</returns>
-        Task<ResponseModel<string>> RefreshAutorizationAsync();
+        Task<ResponseModel<string>> RefreshAuthorizationAsync();
 
 
         /// <summary>
@@ -58,6 +58,22 @@ namespace CoreFeatures.ServerConnection.Connections
         /// <param name="name">Databases name.</param>
         /// <returns>Delete operation confirmation.</returns>
         Task<ResponseModel<string>> DeleteDatabaseAsync(string name);
+
+        /// <summary>
+        /// Udate a database entity in the system asynchronously.
+        /// </summary>
+        /// <param name="name">Databases name.</param>
+        /// <param name="database">Database schema.</param>
+        /// <returns>Udate operation confirmation.</returns>
+        Task<ResponseModel<string>> UpdateDatabaseAsync(string name, DatabaseDto database);
+
+
+        /// <summary>
+        /// Converts a database entity to database schemat asynchronously.
+        /// </summary>
+        /// <param name="name">Databases name.</param>
+        /// <returns>Database schema model.</returns>
+        Task<ResponseModel<DatabaseSchema>> GetDatabaseAsync(string name);
 
     }
 }
