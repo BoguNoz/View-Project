@@ -70,6 +70,7 @@ namespace View.Repository.Tables
             if (table == null)
                 return new ResponseModel<TableModel?> { Status = true, Message = "Table deleted successfully", Result = table };
 
+
             DbContext.Tables.Remove(table);
 
             try

@@ -30,9 +30,9 @@ namespace View.Model.Configurations
             builder.HasMany(relations => relations.InRelationWithTable).WithMany(tables => tables.TableRelations)
                 .UsingEntity<TableRelationModel>(
                     inter => inter.HasOne(table => table.Table).WithMany().HasForeignKey(key => key.Table_ID)
-                        .OnDelete(DeleteBehavior.NoAction),
+                        .OnDelete(DeleteBehavior.Cascade),
                     inter => inter.HasOne(relation => relation.Relation).WithMany().HasForeignKey(key => key.Relation_ID)
-                        .OnDelete(DeleteBehavior.NoAction),
+                        .OnDelete(DeleteBehavior.Restrict),
                     inter =>
                     {
                         inter.HasKey(key => new { key.Table_ID, key.Relation_ID });

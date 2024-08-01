@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Maui.Platform;
+using View.AppServices;
 
 namespace View
 {
@@ -7,6 +8,7 @@ namespace View
     {
         public static MauiApp CreateMauiApp()
         {
+
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
@@ -22,6 +24,8 @@ namespace View
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+
+
 
             return builder.Build();
         }

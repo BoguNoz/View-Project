@@ -68,6 +68,17 @@ namespace View.Repository.Databases
             if (database == null)
                 return new ResponseModel<DatabaseModel?> { Status = true, Message = "Database schema deleted successfully", Result = database };
 
+            var tables = await DbContext.Tables.Where(d => d.Database_ID == id).ToListAsync();
+            foreach (var table in tables)
+            {
+                var relations = await DbContext.TableRelations.Where(t => t.Table_ID == table.Id).ToListAsync();
+                
+                foreach(var rel in relations)
+                {
+                    DbContext.Remove(rel);
+                }
+            }
+
             DbContext.Databases.Remove(database);
 
             try

@@ -29,277 +29,277 @@
     <AppXManifest Include="C:\Users\bnozd\Desktop\View-Project\View\View\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-07-23T14:56:50.642</Modified>
+      <Modified>2024-08-01T15:40:43.119</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2024-07-23T13:56:55.620</Modified>
+      <Modified>2024-08-01T14:58:58.683</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\View.UI.runtimeconfig.json">
       <PackagePath>View.UI.runtimeconfig.json</PackagePath>
-      <Modified>2024-07-18T11:40:56.305</Modified>
+      <Modified>2024-08-01T14:46:59.345</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\View.UI.dll">
       <PackagePath>View.UI.dll</PackagePath>
-      <Modified>2024-07-23T14:56:49.522</Modified>
+      <Modified>2024-08-01T15:40:42.459</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>View.UI.exe</PackagePath>
-      <Modified>2024-07-23T14:56:49.614</Modified>
+      <Modified>2024-08-01T15:40:42.467</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
-      <Modified>2024-07-17T07:43:50.000</Modified>
+      <Modified>2024-07-30T12:51:26.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-100.png">
       <PackagePath>splashSplashScreen.scale-100.png</PackagePath>
-      <Modified>2024-07-18T11:39:42.499</Modified>
+      <Modified>2024-08-01T08:53:54.273</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-125.png">
       <PackagePath>splashSplashScreen.scale-125.png</PackagePath>
-      <Modified>2024-07-18T11:39:42.563</Modified>
+      <Modified>2024-08-01T08:53:54.288</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-150.png">
       <PackagePath>splashSplashScreen.scale-150.png</PackagePath>
-      <Modified>2024-07-18T11:39:42.605</Modified>
+      <Modified>2024-08-01T08:53:54.320</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-200.png">
       <PackagePath>splashSplashScreen.scale-200.png</PackagePath>
-      <Modified>2024-07-18T11:39:42.647</Modified>
+      <Modified>2024-08-01T08:53:54.354</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-400.png">
       <PackagePath>splashSplashScreen.scale-400.png</PackagePath>
-      <Modified>2024-07-18T11:39:42.790</Modified>
+      <Modified>2024-08-01T08:53:54.497</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\f\fa-brands-400.ttf">
       <PackagePath>fa-brands-400.ttf</PackagePath>
-      <Modified>2024-07-15T13:28:02.000</Modified>
+      <Modified>2024-07-30T12:51:26.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\f\fa-regular-400.ttf">
       <PackagePath>fa-regular-400.ttf</PackagePath>
-      <Modified>2024-07-15T13:28:02.000</Modified>
+      <Modified>2024-07-30T12:51:26.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\f\fa-solid-900.ttf">
       <PackagePath>fa-solid-900.ttf</PackagePath>
-      <Modified>2024-07-15T13:28:02.000</Modified>
+      <Modified>2024-07-30T12:51:26.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Regular.ttf">
       <PackagePath>OpenSans-Regular.ttf</PackagePath>
-      <Modified>2024-07-17T07:43:50.000</Modified>
+      <Modified>2024-07-30T12:51:26.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Semibold.ttf">
       <PackagePath>OpenSans-Semibold.ttf</PackagePath>
-      <Modified>2024-07-17T07:43:50.000</Modified>
+      <Modified>2024-07-30T12:51:28.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon.ico">
       <PackagePath>appicon.ico</PackagePath>
-      <Modified>2024-07-18T11:39:42.846</Modified>
+      <Modified>2024-07-30T12:59:44.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-100.png">
       <PackagePath>appiconLargeTile.scale-100.png</PackagePath>
-      <Modified>2024-07-18T11:39:43.594</Modified>
+      <Modified>2024-07-30T12:59:44.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-125.png">
       <PackagePath>appiconLargeTile.scale-125.png</PackagePath>
-      <Modified>2024-07-18T11:39:43.639</Modified>
+      <Modified>2024-07-30T12:59:44.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-150.png">
       <PackagePath>appiconLargeTile.scale-150.png</PackagePath>
-      <Modified>2024-07-18T11:39:43.677</Modified>
+      <Modified>2024-07-30T12:59:44.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-200.png">
       <PackagePath>appiconLargeTile.scale-200.png</PackagePath>
-      <Modified>2024-07-18T11:39:43.731</Modified>
+      <Modified>2024-07-30T12:59:44.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-400.png">
       <PackagePath>appiconLargeTile.scale-400.png</PackagePath>
-      <Modified>2024-07-18T11:39:43.919</Modified>
+      <Modified>2024-07-30T12:59:44.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-16.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-16.png</PackagePath>
-      <Modified>2024-07-18T11:39:43.032</Modified>
+      <Modified>2024-07-30T12:59:46.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-24.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-24.png</PackagePath>
-      <Modified>2024-07-18T11:39:43.038</Modified>
+      <Modified>2024-07-30T12:59:48.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-256.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-256.png</PackagePath>
-      <Modified>2024-07-18T11:39:43.075</Modified>
+      <Modified>2024-07-30T12:59:48.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-32.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-32.png</PackagePath>
-      <Modified>2024-07-18T11:39:43.046</Modified>
+      <Modified>2024-07-30T12:59:46.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-48.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-48.png</PackagePath>
-      <Modified>2024-07-18T11:39:43.055</Modified>
+      <Modified>2024-07-30T12:59:46.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-16.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-16.png</PackagePath>
-      <Modified>2024-07-18T11:39:42.970</Modified>
+      <Modified>2024-07-30T12:59:46.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-24.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-24.png</PackagePath>
-      <Modified>2024-07-18T11:39:42.978</Modified>
+      <Modified>2024-07-30T12:59:48.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-256.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-256.png</PackagePath>
-      <Modified>2024-07-18T11:39:43.025</Modified>
+      <Modified>2024-07-30T12:59:46.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-32.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-32.png</PackagePath>
-      <Modified>2024-07-18T11:39:42.987</Modified>
+      <Modified>2024-07-30T12:59:48.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-48.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-48.png</PackagePath>
-      <Modified>2024-07-18T11:39:42.996</Modified>
+      <Modified>2024-07-30T12:59:48.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-100.png">
       <PackagePath>appiconLogo.scale-100.png</PackagePath>
-      <Modified>2024-07-18T11:39:42.864</Modified>
+      <Modified>2024-07-30T12:59:48.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-125.png">
       <PackagePath>appiconLogo.scale-125.png</PackagePath>
-      <Modified>2024-07-18T11:39:42.873</Modified>
+      <Modified>2024-07-30T12:59:48.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-150.png">
       <PackagePath>appiconLogo.scale-150.png</PackagePath>
-      <Modified>2024-07-18T11:39:42.884</Modified>
+      <Modified>2024-07-30T12:59:48.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-200.png">
       <PackagePath>appiconLogo.scale-200.png</PackagePath>
-      <Modified>2024-07-18T11:39:42.894</Modified>
+      <Modified>2024-07-30T12:59:48.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-400.png">
       <PackagePath>appiconLogo.scale-400.png</PackagePath>
-      <Modified>2024-07-18T11:39:42.909</Modified>
+      <Modified>2024-07-30T12:59:48.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-16.png">
       <PackagePath>appiconLogo.targetsize-16.png</PackagePath>
-      <Modified>2024-07-18T11:39:42.918</Modified>
+      <Modified>2024-07-30T12:59:48.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-24.png">
       <PackagePath>appiconLogo.targetsize-24.png</PackagePath>
-      <Modified>2024-07-18T11:39:42.926</Modified>
+      <Modified>2024-07-30T12:59:48.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-256.png">
       <PackagePath>appiconLogo.targetsize-256.png</PackagePath>
-      <Modified>2024-07-18T11:39:42.963</Modified>
+      <Modified>2024-07-30T12:59:50.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-32.png">
       <PackagePath>appiconLogo.targetsize-32.png</PackagePath>
-      <Modified>2024-07-18T11:39:42.934</Modified>
+      <Modified>2024-07-30T12:59:52.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-48.png">
       <PackagePath>appiconLogo.targetsize-48.png</PackagePath>
-      <Modified>2024-07-18T11:39:42.942</Modified>
+      <Modified>2024-07-30T12:59:50.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-100.png">
       <PackagePath>appiconMediumTile.scale-100.png</PackagePath>
-      <Modified>2024-07-18T11:39:43.213</Modified>
+      <Modified>2024-07-30T12:59:50.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-125.png">
       <PackagePath>appiconMediumTile.scale-125.png</PackagePath>
-      <Modified>2024-07-18T11:39:43.230</Modified>
+      <Modified>2024-07-30T12:59:52.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-150.png">
       <PackagePath>appiconMediumTile.scale-150.png</PackagePath>
-      <Modified>2024-07-18T11:39:43.250</Modified>
+      <Modified>2024-07-30T12:59:50.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-200.png">
       <PackagePath>appiconMediumTile.scale-200.png</PackagePath>
-      <Modified>2024-07-18T11:39:43.278</Modified>
+      <Modified>2024-07-30T12:59:50.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-400.png">
       <PackagePath>appiconMediumTile.scale-400.png</PackagePath>
-      <Modified>2024-07-18T11:39:43.327</Modified>
+      <Modified>2024-07-30T12:59:52.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-100.png">
       <PackagePath>appiconSmallTile.scale-100.png</PackagePath>
-      <Modified>2024-07-18T11:39:43.137</Modified>
+      <Modified>2024-07-30T12:59:52.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-125.png">
       <PackagePath>appiconSmallTile.scale-125.png</PackagePath>
-      <Modified>2024-07-18T11:39:43.148</Modified>
+      <Modified>2024-07-30T12:59:54.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-150.png">
       <PackagePath>appiconSmallTile.scale-150.png</PackagePath>
-      <Modified>2024-07-18T11:39:43.160</Modified>
+      <Modified>2024-07-30T12:59:52.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-200.png">
       <PackagePath>appiconSmallTile.scale-200.png</PackagePath>
-      <Modified>2024-07-18T11:39:43.173</Modified>
+      <Modified>2024-07-30T12:59:52.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-400.png">
       <PackagePath>appiconSmallTile.scale-400.png</PackagePath>
-      <Modified>2024-07-18T11:39:43.199</Modified>
+      <Modified>2024-07-30T12:59:52.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-100.png">
       <PackagePath>appiconStoreLogo.scale-100.png</PackagePath>
-      <Modified>2024-07-18T11:39:43.082</Modified>
+      <Modified>2024-07-30T12:59:52.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-125.png">
       <PackagePath>appiconStoreLogo.scale-125.png</PackagePath>
-      <Modified>2024-07-18T11:39:43.090</Modified>
+      <Modified>2024-07-30T12:59:52.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-150.png">
       <PackagePath>appiconStoreLogo.scale-150.png</PackagePath>
-      <Modified>2024-07-18T11:39:43.100</Modified>
+      <Modified>2024-07-30T12:59:54.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-200.png">
       <PackagePath>appiconStoreLogo.scale-200.png</PackagePath>
-      <Modified>2024-07-18T11:39:43.110</Modified>
+      <Modified>2024-07-30T12:59:54.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-400.png">
       <PackagePath>appiconStoreLogo.scale-400.png</PackagePath>
-      <Modified>2024-07-18T11:39:43.127</Modified>
+      <Modified>2024-07-30T12:59:54.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-100.png">
       <PackagePath>appiconWideTile.scale-100.png</PackagePath>
-      <Modified>2024-07-18T11:39:43.344</Modified>
+      <Modified>2024-07-30T12:59:54.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-125.png">
       <PackagePath>appiconWideTile.scale-125.png</PackagePath>
-      <Modified>2024-07-18T11:39:43.366</Modified>
+      <Modified>2024-07-30T12:59:54.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-150.png">
       <PackagePath>appiconWideTile.scale-150.png</PackagePath>
-      <Modified>2024-07-18T11:39:43.397</Modified>
+      <Modified>2024-07-30T12:59:54.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-200.png">
       <PackagePath>appiconWideTile.scale-200.png</PackagePath>
-      <Modified>2024-07-18T11:39:43.439</Modified>
+      <Modified>2024-07-30T12:59:54.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-400.png">
       <PackagePath>appiconWideTile.scale-400.png</PackagePath>
-      <Modified>2024-07-18T11:39:43.561</Modified>
+      <Modified>2024-07-30T12:59:54.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-100.png">
       <PackagePath>dotnet_bot.scale-100.png</PackagePath>
-      <Modified>2024-07-18T11:39:42.846</Modified>
+      <Modified>2024-07-30T12:59:56.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-125.png">
       <PackagePath>dotnet_bot.scale-125.png</PackagePath>
-      <Modified>2024-07-18T11:39:42.860</Modified>
+      <Modified>2024-07-30T12:59:56.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-150.png">
       <PackagePath>dotnet_bot.scale-150.png</PackagePath>
-      <Modified>2024-07-18T11:39:42.879</Modified>
+      <Modified>2024-07-30T12:59:56.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-200.png">
       <PackagePath>dotnet_bot.scale-200.png</PackagePath>
-      <Modified>2024-07-18T11:39:42.908</Modified>
+      <Modified>2024-07-30T12:59:58.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-400.png">
       <PackagePath>dotnet_bot.scale-400.png</PackagePath>
-      <Modified>2024-07-18T11:39:43.018</Modified>
+      <Modified>2024-07-30T12:59:56.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\View.UI.deps.json">
       <PackagePath>View.UI.deps.json</PackagePath>
-      <Modified>2024-07-23T12:29:22.179</Modified>
+      <Modified>2024-08-01T14:46:59.191</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.31\lib\net6.0\Microsoft.Windows.SDK.NET.dll">
       <PackagePath>Microsoft.Windows.SDK.NET.dll</PackagePath>
@@ -309,6 +309,14 @@
       <PackagePath>WinRT.Runtime.dll</PackagePath>
       <Modified>2023-10-16T19:41:06.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\entityframework\6.4.4\lib\netstandard2.1\EntityFramework.SqlServer.dll">
+      <PackagePath>EntityFramework.SqlServer.dll</PackagePath>
+      <Modified>2020-04-16T20:39:00.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\entityframework\6.4.4\lib\netstandard2.1\EntityFramework.dll">
+      <PackagePath>EntityFramework.dll</PackagePath>
+      <Modified>2020-04-16T20:38:44.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\microsoft.extensions.configuration\8.0.0\lib\net8.0\Microsoft.Extensions.Configuration.dll">
       <PackagePath>Microsoft.Extensions.Configuration.dll</PackagePath>
       <Modified>2023-10-31T14:59:20.000</Modified>
@@ -317,6 +325,10 @@
       <PackagePath>Microsoft.Extensions.Configuration.Abstractions.dll</PackagePath>
       <Modified>2023-10-31T14:59:08.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\microsoft.extensions.configuration.binder\8.0.0\lib\net8.0\Microsoft.Extensions.Configuration.Binder.dll">
+      <PackagePath>Microsoft.Extensions.Configuration.Binder.dll</PackagePath>
+      <Modified>2023-10-31T14:59:26.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\microsoft.extensions.dependencyinjection\8.0.0\lib\net8.0\Microsoft.Extensions.DependencyInjection.dll">
       <PackagePath>Microsoft.Extensions.DependencyInjection.dll</PackagePath>
       <Modified>2023-10-31T14:59:00.000</Modified>
@@ -324,6 +336,18 @@
     <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\microsoft.extensions.dependencyinjection.abstractions\8.0.0\lib\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll">
       <PackagePath>Microsoft.Extensions.DependencyInjection.Abstractions.dll</PackagePath>
       <Modified>2023-10-31T14:58:56.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\microsoft.extensions.diagnostics\8.0.0\lib\net8.0\Microsoft.Extensions.Diagnostics.dll">
+      <PackagePath>Microsoft.Extensions.Diagnostics.dll</PackagePath>
+      <Modified>2023-10-31T14:59:42.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\microsoft.extensions.diagnostics.abstractions\8.0.0\lib\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll">
+      <PackagePath>Microsoft.Extensions.Diagnostics.Abstractions.dll</PackagePath>
+      <Modified>2023-10-31T14:59:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\microsoft.extensions.http\8.0.0\lib\net8.0\Microsoft.Extensions.Http.dll">
+      <PackagePath>Microsoft.Extensions.Http.dll</PackagePath>
+      <Modified>2023-10-31T14:59:44.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\microsoft.extensions.logging\8.0.0\lib\net8.0\Microsoft.Extensions.Logging.dll">
       <PackagePath>Microsoft.Extensions.Logging.dll</PackagePath>
@@ -340,6 +364,10 @@
     <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\microsoft.extensions.options\8.0.0\lib\net8.0\Microsoft.Extensions.Options.dll">
       <PackagePath>Microsoft.Extensions.Options.dll</PackagePath>
       <Modified>2023-10-31T14:59:06.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\microsoft.extensions.options.configurationextensions\8.0.0\lib\net8.0\Microsoft.Extensions.Options.ConfigurationExtensions.dll">
+      <PackagePath>Microsoft.Extensions.Options.ConfigurationExtensions.dll</PackagePath>
+      <Modified>2023-10-31T14:59:38.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\microsoft.extensions.primitives\8.0.0\lib\net8.0\Microsoft.Extensions.Primitives.dll">
       <PackagePath>Microsoft.Extensions.Primitives.dll</PackagePath>
@@ -376,6 +404,10 @@
     <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\microsoft.maui.graphics.win2d.winui.desktop\8.0.3\lib\net8.0-windows10.0.19041\Microsoft.Maui.Graphics.Win2D.WinUI.Desktop.dll">
       <PackagePath>Microsoft.Maui.Graphics.Win2D.WinUI.Desktop.dll</PackagePath>
       <Modified>2023-11-07T20:47:42.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\microsoft.win32.systemevents\4.7.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll">
+      <PackagePath>Microsoft.Win32.SystemEvents.dll</PackagePath>
+      <Modified>2019-11-15T08:54:18.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\microsoft.windowsappsdk\1.3.230724000\lib\net6.0-windows10.0.18362.0\Microsoft.InteractiveExperiences.Projection.dll">
       <PackagePath>Microsoft.InteractiveExperiences.Projection.dll</PackagePath>
@@ -436,6 +468,78 @@
     <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\microsoft.windowsappsdk\1.3.230724000\lib\net6.0-windows10.0.18362.0\Microsoft.WindowsAppRuntime.Release.Net.dll">
       <PackagePath>Microsoft.WindowsAppRuntime.Release.Net.dll</PackagePath>
       <Modified>2023-07-24T19:10:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\newtonsoft.json\13.0.3\lib\net6.0\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
+      <Modified>2023-03-08T07:09:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\stub.system.data.sqlite.core.netstandard\1.0.118\lib\netstandard2.1\System.Data.SQLite.dll">
+      <PackagePath>System.Data.SQLite.dll</PackagePath>
+      <Modified>2023-06-10T21:02:42.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\syncfusion.licensing\26.2.7\lib\net8.0\Syncfusion.Licensing.dll">
+      <PackagePath>Syncfusion.Licensing.dll</PackagePath>
+      <Modified>2024-07-29T08:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\syncfusion.maui.core\26.2.7\lib\net8.0-windows10.0.19041.0\Syncfusion.Maui.Core.dll">
+      <PackagePath>Syncfusion.Maui.Core.dll</PackagePath>
+      <Modified>2024-07-29T07:47:52.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\syncfusion.maui.data\26.2.7\lib\net8.0-windows10.0.19041.0\Syncfusion.Maui.Data.dll">
+      <PackagePath>Syncfusion.Maui.Data.dll</PackagePath>
+      <Modified>2024-07-29T08:03:56.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\syncfusion.maui.datagrid\26.2.7\lib\net8.0-windows10.0.19041.0\Syncfusion.Maui.DataGrid.dll">
+      <PackagePath>Syncfusion.Maui.DataGrid.dll</PackagePath>
+      <Modified>2024-07-29T08:16:38.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\syncfusion.maui.datasource\26.2.7\lib\net8.0-windows10.0.19041.0\Syncfusion.Maui.DataSource.dll">
+      <PackagePath>Syncfusion.Maui.DataSource.dll</PackagePath>
+      <Modified>2024-07-29T07:58:24.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\syncfusion.maui.gridcommon\26.2.7\lib\net8.0-windows10.0.19041.0\Syncfusion.Maui.GridCommon.dll">
+      <PackagePath>Syncfusion.Maui.GridCommon.dll</PackagePath>
+      <Modified>2024-07-29T07:59:24.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\syncfusion.maui.inputs\26.2.7\lib\net8.0-windows10.0.19041.0\Syncfusion.Maui.Inputs.dll">
+      <PackagePath>Syncfusion.Maui.Inputs.dll</PackagePath>
+      <Modified>2024-07-29T08:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\syncfusion.maui.listview\26.2.7\lib\net8.0-windows10.0.19041.0\Syncfusion.Maui.ListView.dll">
+      <PackagePath>Syncfusion.Maui.ListView.dll</PackagePath>
+      <Modified>2024-07-29T08:00:36.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\system.codedom\4.7.0\lib\netstandard2.0\System.CodeDom.dll">
+      <PackagePath>System.CodeDom.dll</PackagePath>
+      <Modified>2019-11-15T08:36:56.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\system.configuration.configurationmanager\4.7.0\lib\netstandard2.0\System.Configuration.ConfigurationManager.dll">
+      <PackagePath>System.Configuration.ConfigurationManager.dll</PackagePath>
+      <Modified>2019-11-15T08:37:04.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\system.data.sqlclient\4.8.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll">
+      <PackagePath>System.Data.SqlClient.dll</PackagePath>
+      <Modified>2020-01-17T18:41:44.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\system.data.sqlite.ef6\1.0.118\lib\netstandard2.1\System.Data.SQLite.EF6.dll">
+      <PackagePath>System.Data.SQLite.EF6.dll</PackagePath>
+      <Modified>2023-06-10T21:00:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\system.drawing.common\4.7.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll">
+      <PackagePath>System.Drawing.Common.dll</PackagePath>
+      <Modified>2019-11-15T08:54:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\system.security.cryptography.protecteddata\4.7.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll">
+      <PackagePath>System.Security.Cryptography.ProtectedData.dll</PackagePath>
+      <Modified>2019-11-15T08:53:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\system.security.permissions\4.7.0\lib\netcoreapp3.0\System.Security.Permissions.dll">
+      <PackagePath>System.Security.Permissions.dll</PackagePath>
+      <Modified>2019-11-15T08:56:44.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\system.windows.extensions\4.7.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll">
+      <PackagePath>System.Windows.Extensions.dll</PackagePath>
+      <Modified>2019-11-15T08:54:30.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\microsoft.maui.controls.core\8.0.3\lib\net8.0-windows10.0.19041\ar\Microsoft.Maui.Controls.resources.dll">
       <PackagePath>ar\Microsoft.Maui.Controls.resources.dll</PackagePath>
@@ -573,6 +677,10 @@
       <PackagePath>zh-Hant\Microsoft.Maui.Controls.resources.dll</PackagePath>
       <Modified>2023-11-07T20:45:40.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\syncfusion.maui.datagrid\26.2.7\lib\net8.0-windows10.0.19041.0\en-US\Syncfusion.Maui.DataGrid.resources.dll">
+      <PackagePath>en-US\Syncfusion.Maui.DataGrid.resources.dll</PackagePath>
+      <Modified>2024-07-29T08:16:38.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\microsoft.graphics.win2d\1.0.5.1\runtimes\win10-x64\native\Microsoft.Graphics.Canvas.dll">
       <PackagePath>Microsoft.Graphics.Canvas.dll</PackagePath>
       <Modified>2023-05-31T20:12:36.000</Modified>
@@ -580,6 +688,34 @@
     <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\microsoft.windowsappsdk\1.3.230724000\runtimes\win10-x64\native\Microsoft.WindowsAppRuntime.Bootstrap.dll">
       <PackagePath>Microsoft.WindowsAppRuntime.Bootstrap.dll</PackagePath>
       <Modified>2023-04-28T12:58:40.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\runtime.win-x64.runtime.native.system.data.sqlclient.sni\4.4.0\runtimes\win-x64\native\sni.dll">
+      <PackagePath>sni.dll</PackagePath>
+      <Modified>2017-07-12T11:24:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\stub.system.data.sqlite.core.netstandard\1.0.118\runtimes\win-x64\native\SQLite.Interop.dll">
+      <PackagePath>SQLite.Interop.dll</PackagePath>
+      <Modified>2023-06-10T20:57:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\CoreFeatures.ResponseModel\bin\Debug\net8.0\CoreFeatures.ResponseModel.dll">
+      <PackagePath>CoreFeatures.ResponseModel.dll</PackagePath>
+      <Modified>2024-07-18T11:40:42.944</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\CoreFeatures.ServerConnection\bin\Debug\net8.0\CoreFeatures.ServerConnection.dll">
+      <PackagePath>CoreFeatures.ServerConnection.dll</PackagePath>
+      <Modified>2024-08-01T08:54:55.304</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View.DataConnection\bin\Debug\net8.0\View.DataConnection.dll">
+      <PackagePath>View.DataConnection.dll</PackagePath>
+      <Modified>2024-07-31T14:35:17.051</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View.DBSchema\bin\Debug\net8.0\View.DBSchema.dll">
+      <PackagePath>View.DBSchema.dll</PackagePath>
+      <Modified>2024-07-31T14:35:17.589</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View.DTO\bin\Debug\net8.0\View.DTO.dll">
+      <PackagePath>View.DTO.dll</PackagePath>
+      <Modified>2024-07-25T14:41:59.141</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\microsoft.maui.controls.compatibility\8.0.3\lib\net8.0-windows10.0.19041\Microsoft.Maui.Controls.Compatibility.pri">
       <PackagePath>Microsoft.Maui.Controls.Compatibility.pri</PackagePath>
@@ -592,6 +728,10 @@
     <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\microsoft.maui.core\8.0.3\lib\net8.0-windows10.0.19041\Microsoft.Maui.pri">
       <PackagePath>Microsoft.Maui.pri</PackagePath>
       <Modified>2023-11-07T20:31:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bnozd\.nuget\packages\syncfusion.maui.core\26.2.7\lib\net8.0-windows10.0.19041.0\Syncfusion.Maui.Core.pri">
+      <PackagePath>Syncfusion.Maui.Core.pri</PackagePath>
+      <Modified>2024-07-29T07:47:52.000</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

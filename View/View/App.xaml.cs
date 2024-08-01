@@ -15,12 +15,14 @@ namespace View
 
             MainPage = new AppShell();
 
+
+
             //App window size and position configuration
             WindowHandler.Mapper.AppendToMapping(nameof(IWindow), (handler, view) =>
             {
 #if WINDOWS
-            var windowWidth = 1200;
-            var windowHeight = 700;
+            var windowWidth = 1350;
+            var windowHeight = 900;
             var nativeWindow = handler.PlatformView;
             var appWindow = nativeWindow.GetAppWindow();
 

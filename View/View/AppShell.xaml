@@ -7,13 +7,13 @@
      xmlns:helpers="clr-namespace:View.Helpers"
     Shell.FlyoutBehavior="Locked"
     FlyoutWidth="65"
-    FlyoutBackgroundColor="#0C0C0C"
+    FlyoutBackgroundColor="#030009"
     Title="View">
 
     <Shell.Resources>
         <Style Class="FlyoutItemLabelStyle" TargetType="Label">
-            <Setter Property="FontSize" Value="15"/>
-            <Setter Property="TextColor" Value="#FEEBC2" />
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="TextColor" Value="#99FFFFFF" />
         </Style>
     </Shell.Resources>
 
@@ -23,42 +23,42 @@
             <FontImageSource
                 FontFamily="FontSolid"
                 Glyph="{x:Static helpers:FontSolid.House}"
-                Color="#fecd67"/>
+                Color="#3700B3"/>
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
     </FlyoutItem>
 
     
-    <FlyoutItem Title="Logical">
+    <FlyoutItem Title="Model">
         <FlyoutItem.FlyoutIcon>
             <FontImageSource
                 FontFamily="FontSolid"
                 Glyph="{x:Static helpers:FontSolid.Database}"
-                Color="#fecd67"/>
+                Color="#E6FFFFFF"/>
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate local:SchemaPage}"/>
     </FlyoutItem>
 
     
-    <FlyoutItem Title="Table">
+    <FlyoutItem Title="Data">
         <FlyoutItem.FlyoutIcon>
             <FontImageSource
                 FontFamily="FontSolid"
                 Glyph="{x:Static helpers:FontSolid.Table}"
-                Color="#fecd67"/>
+                Color="#E6FFFFFF"/>
         </FlyoutItem.FlyoutIcon>
         <ShellContent ContentTemplate="{DataTemplate local:TablePage}"/>
     </FlyoutItem>
 
 
-    <FlyoutItem Title="Statistic">
+    <FlyoutItem Title="Analytics">
         <FlyoutItem.FlyoutIcon>
             <FontImageSource
                 FontFamily="FontSolid"
                 Glyph="{x:Static helpers:FontSolid.ChartSimple}"
-                Color="#fecd67"/>
+                Color="#E6FFFFFF"/>
         </FlyoutItem.FlyoutIcon>
-        <ShellContent ContentTemplate="{DataTemplate local:SchemaPage}"/>
+        <ShellContent ContentTemplate="{DataTemplate local:StatisticPage}"/>
     </FlyoutItem>
 
 
@@ -67,8 +67,8 @@
             <Grid.GestureRecognizers>
                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
             </Grid.GestureRecognizers>
-            <Label x:Name="Expand" FontFamily="FontSolid" FontSize="15" TextColor="#FEC54E" Text="{x:Static helpers:FontSolid.ArrowRight}"/>
-            <Label x:Name="Minimize" FontFamily="FontSolid" FontSize="15"  TextColor="#FEC54E" IsVisible="false" Text="{x:Static helpers:FontSolid.ArrowLeft}"/>
+            <Label x:Name="Expand" FontFamily="FontSolid" FontSize="15" TextColor="#E6FFFFFF" Text="{x:Static helpers:FontSolid.ArrowRight}"/>
+            <Label x:Name="Minimize" FontFamily="FontSolid" FontSize="15"  TextColor="#E6FFFFFF" IsVisible="false" Text="{x:Static helpers:FontSolid.ArrowLeft}"/>
         </Grid>
     </Shell.FlyoutFooter>
     

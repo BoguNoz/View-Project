@@ -19,7 +19,7 @@ using View.DTO.Models;
 
 namespace CoreFeatures.ServerConnection.Connections
 {
-    public class ServiceOperation : BaseConnection, IServerHooks
+    public class ServiceOperation : BaseConnection, IServerOperation
     {
 
         public ServiceOperation(HttpClient httpClient, string serverOptions) : base(httpClient, serverOptions)
@@ -36,6 +36,7 @@ namespace CoreFeatures.ServerConnection.Connections
 
                 // Send login request
                 var loginResult = await Client.PostAsync(connectionSting + "/login", new StringContent(json, Encoding.UTF8, "application/json"));
+                    
 
                 if (loginResult.IsSuccessStatusCode)
                 {
@@ -50,8 +51,7 @@ namespace CoreFeatures.ServerConnection.Connections
                 }
                 else
                 {
-
-                    return new ResponseModel<string> { Status = false, Message = loginResult.StatusCode.ToString(), Result = loginRequest.Email };
+                    return new ResponseModel<string> { Status = false, Message = "Wrong password or login", Result = loginRequest.Email };
                 }
             }
             catch (Exception ex)
@@ -170,7 +170,7 @@ namespace CoreFeatures.ServerConnection.Connections
         }
 
 
-        public async Task<ResponseModel<DatabaseDto>> AddDatabaseAsync(DatabaseSchema schema)
+        public async Task<ResponseModel<DatabaseDto>> PostDatabaseAsync(DatabaseSchema schema)
         {
             if (schema == null)
                 return new ResponseModel<DatabaseDto> { Status = false, Message = "Database schema not found" };

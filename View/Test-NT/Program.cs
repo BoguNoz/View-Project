@@ -47,11 +47,12 @@ namespace Test_NT
 
             var connection = new ServiceOperation(client, @"https://localhost:7166");
 
+            var register = await connection.RegisterUserAsync(user);
             var authorize = await connection.AuthorizeUserAsync(userL);
 
-            //var add = await connection.AddDatabaseAsync(db.Result);
+      
 
-            var result = await connection.GetDatabaseAsync("chinook.db");
+            var result = await connection.DeleteDatabaseAsync("chinook.db");
 
             return true;
 

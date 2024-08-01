@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("View.DBSchema")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d1f8467413fdb8fc0ea4dc236781e2e6d5204af6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7c217b7323dc4c0a831a64fcc386c5a20f4a0fce")]
 [assembly: System.Reflection.AssemblyProductAttribute("View.DBSchema")]
 [assembly: System.Reflection.AssemblyTitleAttribute("View.DBSchema")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

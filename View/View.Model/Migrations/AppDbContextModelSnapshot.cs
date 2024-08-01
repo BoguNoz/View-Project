@@ -311,10 +311,10 @@ namespace View.Model.Migrations
 
             modelBuilder.Entity("View.Model.Enteties.TableRelationModel", b =>
                 {
-                    b.Property<int>("Table_ID")
+                    b.Property<int?>("Table_ID")
                         .HasColumnType("int");
 
-                    b.Property<int>("Relation_ID")
+                    b.Property<int?>("Relation_ID")
                         .HasColumnType("int");
 
                     b.HasKey("Table_ID", "Relation_ID");
@@ -413,13 +413,13 @@ namespace View.Model.Migrations
                     b.HasOne("View.Model.Enteties.TableModel", "Relation")
                         .WithMany()
                         .HasForeignKey("Relation_ID")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("View.Model.Enteties.TableModel", "Table")
                         .WithMany()
                         .HasForeignKey("Table_ID")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Relation");

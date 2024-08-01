@@ -585,6 +585,8 @@ namespace View.View_UI_XamlTypeInfo
                     otherProviders.Add(provider); 
                     provider = new global::Microsoft.UI.Xaml.XamlTypeInfo.XamlControlsXamlMetaDataProvider() as global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider;
                     otherProviders.Add(provider); 
+                    provider = new global::Syncfusion.Maui.Core.Syncfusion_Maui_Core_XamlTypeInfo.XamlMetaDataProvider() as global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider;
+                    otherProviders.Add(provider); 
                     _otherProviders = otherProviders;
                 }
                 return _otherProviders;
