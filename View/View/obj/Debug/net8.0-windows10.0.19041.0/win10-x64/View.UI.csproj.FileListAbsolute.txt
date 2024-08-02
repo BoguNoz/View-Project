@@ -37,7 +37,6 @@ C:\Users\bnozd\Desktop\View-Project\View\View\bin\Debug\net8.0-windows10.0.19041
 C:\Users\bnozd\Desktop\View-Project\View\View\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.System.Projection.dll
 C:\Users\bnozd\Desktop\View-Project\View\View\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.Widgets.Projection.dll
 C:\Users\bnozd\Desktop\View-Project\View\View\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.WindowsAppRuntime.Bootstrap.Net.dll
-C:\Users\bnozd\Desktop\View-Project\View\View\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.WindowsAppRuntime.Release.Net.dll
 C:\Users\bnozd\Desktop\View-Project\View\View\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\ar\Microsoft.Maui.Controls.resources.dll
 C:\Users\bnozd\Desktop\View-Project\View\View\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\ca\Microsoft.Maui.Controls.resources.dll
 C:\Users\bnozd\Desktop\View-Project\View\View\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\cs\Microsoft.Maui.Controls.resources.dll
@@ -420,12 +419,6 @@ C:\Users\bnozd\Desktop\View-Project\View\View\bin\Debug\net8.0-windows10.0.19041
 C:\Users\bnozd\Desktop\View-Project\View\View\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\View.DataConnection.pdb
 C:\Users\bnozd\Desktop\View-Project\View\View\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\View.DBSchema.pdb
 C:\Users\bnozd\Desktop\View-Project\View\View\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\View.DTO.pdb
-C:\Users\bnozd\Desktop\View-Project\View\View\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Syncfusion.Licensing.dll
-C:\Users\bnozd\Desktop\View-Project\View\View\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Syncfusion.Maui.Core.dll
-C:\Users\bnozd\Desktop\View-Project\View\View\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Syncfusion.Maui.Data.dll
-C:\Users\bnozd\Desktop\View-Project\View\View\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Syncfusion.Maui.DataGrid.dll
-C:\Users\bnozd\Desktop\View-Project\View\View\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Syncfusion.Maui.DataSource.dll
-C:\Users\bnozd\Desktop\View-Project\View\View\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Syncfusion.Maui.GridCommon.dll
-C:\Users\bnozd\Desktop\View-Project\View\View\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Syncfusion.Maui.Inputs.dll
-C:\Users\bnozd\Desktop\View-Project\View\View\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Syncfusion.Maui.ListView.dll
-C:\Users\bnozd\Desktop\View-Project\View\View\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\en-US\Syncfusion.Maui.DataGrid.resources.dll
+C:\Users\bnozd\Desktop\View-Project\View\View\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Maui.DataGrid.dll
+C:\Users\bnozd\Desktop\View-Project\View\View\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.Management.Deployment.Projection.dll
+C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\mauiimage.outputs

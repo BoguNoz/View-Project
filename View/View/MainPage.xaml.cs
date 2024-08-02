@@ -170,8 +170,10 @@ namespace View
                         await DisplayAlert("Error", response.Message, "OK");
 
                     UserContext.Shemats.Remove(context);
-                    if (UserContext.Shemats.Any(n => n == context))
-                        UserContext.Shemats.Remove(context);
+                    if (UserContext.Databases.Any(n => n == context))
+                        UserContext.Databases.Remove(context);
+
+
                 }
             }
         }

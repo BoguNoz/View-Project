@@ -405,15 +405,15 @@
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[8.0.3, )"
+              "version": "[8.0.71, )"
             },
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
-              "version": "[8.0.3, )"
+              "version": "[8.0.71, )"
             },
-            "Syncfusion.Maui.DataGrid": {
+            "akgul.Maui.DataGrid": {
               "target": "Package",
-              "version": "[26.2.7, )"
+              "version": "[4.0.4, )"
             }
           },
           "imports": [

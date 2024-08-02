@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
              xmlns:helpers="clr-namespace:View.Helpers" 
+             xmlns:datagrid="clr-namespace:Maui.DataGrid;assembly=Maui.DataGrid"
              x:Class="View.TablePage"
              BackgroundColor="#121212">
 
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="5"/>
@@ -21,7 +19,7 @@
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
 
-        <CollectionView x:Name="BookmarksCollectionView" VerticalOptions="FillAndExpand" Grid.Row="1" Grid.Column="1"
+        <CollectionView x:Name="BookmarksCollectionView" VerticalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0"
                 SelectionMode="Single" SelectionChanged="OnSelectionChanged">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout Orientation="Horizontal" ItemSpacing="1"/>
@@ -59,37 +57,85 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <Border Grid.Row="2" Grid.Column="1" Background="#1d1d1d"/>
+        <Border Grid.Row="2" Grid.Column="0" Background="#1d1d1d"/>
 
 
 
-        <Border Grid.Row="3" Grid.Column="1"
+        <Border Grid.Row="3" Grid.Column="0" 
                 BackgroundColor="#191919" StrokeShape="RoundRectangle 0,20,20,20" Stroke="#000000" StrokeThickness="0">
 
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="10"/>
-                    <ColumnDefinition Width="50"/>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="50"/>
                     <ColumnDefinition Width="1"/>
                     <ColumnDefinition Width="15"/>
+                    <ColumnDefinition Width="15"/>
+                    <ColumnDefinition Width="30"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="15"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="15"/>
+                    <ColumnDefinition Width="30"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="15"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="10"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="10"/>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="10" />
                 </Grid.RowDefinitions>
 
-                <CollectionView x:Name="TablesCollectionView" VerticalOptions="FillAndExpand" Grid.Row="1" Grid.Column="2"
+
+                <!--Db panel-->
+                <Border  Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="4"
+                        BackgroundColor="#1d1d1d" StrokeShape="RoundRectangle 20,20,20,20" Stroke="#3700B3" StrokeThickness="0">
+                    <Border.Shadow>
+                        <Shadow Brush="#121212"
+                                Offset="5,5"
+                                Radius="8"
+                                Opacity="0.8"/>
+                    </Border.Shadow>
+
+                </Border>
+
+                <Label Grid.Row="1" Grid.Column="5" 
+                        FontFamily="FontSolid" Text="{x:Static helpers:FontSolid.Database}" FontSize="15" FontAttributes="Bold" TextColor="#ebe9fc"  
+                       VerticalOptions="Center" HorizontalOptions="Center"/>
+
+                <Label x:Name="NavigationLabel" Grid.Row="1" Grid.Column="6"
+                        Text="{Binding Navigation}" FontSize="15" FontAttributes="Bold" TextColor="#ebe9fc"  VerticalOptions="Center" HorizontalOptions="Center"/>
+                <!--end-->
+
+                <!--table panel-->
+                <Border  Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="4"
+                        BackgroundColor="#1d1d1d" StrokeShape="RoundRectangle 20,20,20,20" Stroke="#3700B3" StrokeThickness="0">
+                    <Border.Shadow>
+                        <Shadow Brush="#121212"
+                             Offset="5,5"
+                             Radius="8"
+                             Opacity="0.8"/>
+                    </Border.Shadow>
+
+                </Border>
+
+                <Label Grid.Row="1" Grid.Column="10" 
+                         FontFamily="FontSolid" Text="{x:Static helpers:FontSolid.Table}" FontSize="15" FontAttributes="Bold" TextColor="#ebe9fc"  
+                        VerticalOptions="Center" HorizontalOptions="Center"/>
+
+                <Label x:Name="TableLabel" Grid.Row="1" Grid.Column="11"
+                        Text="{Binding TableNavigation}" FontSize="15" FontAttributes="Bold" TextColor="#ebe9fc"  VerticalOptions="Center" HorizontalOptions="Center"/>
+                <!---end-->
+
+                <CollectionView x:Name="TablesCollectionView" VerticalOptions="FillAndExpand" Grid.Row="1" Grid.Column="1" Grid.RowSpan="4"
                                 SelectionMode="Single">
                     <CollectionView.ItemsLayout>
-                        <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
+                        <LinearItemsLayout Orientation="Vertical" ItemSpacing="2"/>
                     </CollectionView.ItemsLayout>
                     <CollectionView.Header>
                         <Border VerticalOptions="FillAndExpand" Padding="10" WidthRequest="90"
@@ -108,14 +154,8 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
 
-                            <Border VerticalOptions="FillAndExpand" Padding="30"
-                                    BackgroundColor="#292929" StrokeShape="RoundRectangle 10,10,10,10" Stroke="#000000" StrokeThickness="0">
-                                <Border.Shadow>
-                                    <Shadow Brush="#121212"
-                                        Offset="5,5"
-                                        Radius="8"
-                                        Opacity="0.8"/>
-                                </Border.Shadow>
+                            <Border VerticalOptions="Center" Padding="30" HorizontalOptions="Center"
+                                    BackgroundColor="#292929" StrokeShape="RoundRectangle 4,4,4,4" Stroke="#000000" StrokeThickness="0">
 
                                 <Border.GestureRecognizers>
                                     <PointerGestureRecognizer PointerEntered="OnPointerEntered" PointerExited="OnPointerExited"/>
@@ -138,7 +178,7 @@
                                     </VisualStateGroup>
                                 </VisualStateManager.VisualStateGroups>
 
-                                <Label x:Name="ItemLabel" Text="{Binding .}" FontSize="12" FontAttributes="Bold" TextColor="#ebe9fc" VerticalOptions="Center" HorizontalOptions="Center" />
+                                <Label x:Name="ItemLabel" Text="{Binding .}" FontSize="12" FontAttributes="Bold" TextColor="#ebe9fc"  VerticalOptions="Center" HorizontalOptions="Center" />
                             </Border>
                             
 
@@ -148,7 +188,18 @@
                 </CollectionView>
 
 
-                <Border Grid.Row="1" Grid.Column="4" Background="#1d1d1d"/>
+                <Border Grid.Row="1" Grid.Column="2" Grid.RowSpan="3" Background="#1d1d1d"/>
+
+
+                <ScrollView Orientation="Horizontal" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="11" BackgroundColor="#1d1d1d">
+                    <datagrid:DataGrid x:Name="dataGrid" 
+                               BackgroundColor="#1d1d1d"
+                               BorderColor="#ebe9fc"
+                               HeaderBackground="#1d1d1d"
+                               />
+                </ScrollView>
+
+
 
             </Grid>
 

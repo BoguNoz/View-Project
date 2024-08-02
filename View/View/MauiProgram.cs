@@ -2,6 +2,7 @@
 using Microsoft.Maui.Platform;
 using View.AppServices;
 
+
 namespace View
 {
     public static class MauiProgram
@@ -10,6 +11,8 @@ namespace View
         {
 
             var builder = MauiApp.CreateBuilder();
+
+
             builder
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
@@ -21,9 +24,11 @@ namespace View
                     fonts.AddFont("fa-solid-900.ttf", "FontSolid");
                 });
 
+
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
+
 
 
 
