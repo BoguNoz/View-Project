@@ -29,7 +29,7 @@
     <AppXManifest Include="C:\Users\bnozd\Desktop\View-Project\View\View\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-08-02T15:31:04.671</Modified>
+      <Modified>2024-08-03T15:51:18.580</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -43,11 +43,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\View.UI.dll">
       <PackagePath>View.UI.dll</PackagePath>
-      <Modified>2024-08-02T15:31:04.061</Modified>
+      <Modified>2024-08-03T15:51:17.903</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>View.UI.exe</PackagePath>
-      <Modified>2024-08-02T15:31:04.066</Modified>
+      <Modified>2024-08-03T15:51:17.908</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
@@ -671,7 +671,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\CoreFeatures.ServerConnection\bin\Debug\net8.0\CoreFeatures.ServerConnection.dll">
       <PackagePath>CoreFeatures.ServerConnection.dll</PackagePath>
-      <Modified>2024-08-02T15:05:58.197</Modified>
+      <Modified>2024-08-03T14:15:21.928</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View.DataConnection\bin\Debug\net8.0\View.DataConnection.dll">
       <PackagePath>View.DataConnection.dll</PackagePath>
@@ -679,7 +679,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View.DBSchema\bin\Debug\net8.0\View.DBSchema.dll">
       <PackagePath>View.DBSchema.dll</PackagePath>
-      <Modified>2024-08-02T15:05:57.462</Modified>
+      <Modified>2024-08-03T14:15:21.410</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View.DTO\bin\Debug\net8.0\View.DTO.dll">
       <PackagePath>View.DTO.dll</PackagePath>

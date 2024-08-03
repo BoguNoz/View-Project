@@ -133,6 +133,7 @@ namespace View.DBSchema
                         return new ResponseModel<bool> { Status = false, Message = $"Failed to fetch content for column '{column.ColumnName}' in table '{tableName}': {result.Message}" };
 
                     column.ColumnData = result.Result;
+
                 }
             }
             catch (Exception ex)

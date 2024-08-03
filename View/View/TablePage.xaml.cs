@@ -9,64 +9,35 @@ using System.Runtime.CompilerServices;
 using Maui.DataGrid;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Reflection.PortableExecutable;
-
+using System.Windows.Input;
+using System.Collections.Concurrent;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace View;
 
+
 public partial class TablePage : ContentPage, INotifyPropertyChanged
 {
-    private string openDatabase;
-    private string tableNavigation;
-    private string navigation;
 
-    public string Navigation
-    {
-        get => navigation;
-        set
-        {
-            if (navigation != value)
-            {
-                navigation = value;
-                OnPropertyChanged();
-            }
-        }
-    }
+    private ObservableCollection<string> tables;
 
-    public string TableNavigation
-    {
-        get => tableNavigation;
-        set
-        {
-            if (tableNavigation != value)
-            {
-                tableNavigation = value;
-                OnPropertyChanged();
-            }
-        }
-    }
-
-    public event PropertyChangedEventHandler PropertyChanged;
-
-
-    public ObservableCollection<string> DatabaseTables { get; set; }
+    private ObservableCollection<ColumnModel> tableColumns;
+    private DatabaseSchema openDatabase;
+    private TableSchema openTable;
+    private CancellationTokenSource cancellationTokenSource;
 
     public TablePage()
     {
         InitializeComponent();
 
+        tables = new ObservableCollection<string>();
+        TableList.ItemsSource = tables;
 
-        DatabaseTables = new ObservableCollection<string>();
-
+        tableColumns = new ObservableCollection<ColumnModel>();
+        TableView.ItemsSource = tableColumns;
         BookmarksCollectionView.ItemsSource = UserContext.Databases;
-
-        TablesCollectionView.ItemsSource = DatabaseTables;
-
         BindingContext = this;
-    }
-
-    protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 
     private void OnPointerEntered(object sender, PointerEventArgs e)
@@ -82,27 +53,91 @@ public partial class TablePage : ContentPage, INotifyPropertyChanged
     private async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         var selectedItem = e.CurrentSelection.FirstOrDefault() as string;
-
         if (selectedItem != null)
         {
-            var database = UserContext.User.Databases.FirstOrDefault(key => key.Key.Name == selectedItem);
-            if (database.Key == null)
-                await DisplayAlert("Error", "Database can not be open", "OK");
-
-            DatabaseTables.Clear();
-            openDatabase = selectedItem;
-
-            foreach (var table in database.Key.Tables)
+            var gatherData = await UserContext.User.File_GetDatabseContentAsync(selectedItem);
+            if (!gatherData.Status)
             {
-                DatabaseTables.Add(table.TableName);
+                await DisplayAlert("Error", gatherData.Message, "OK");
+                return;
             }
 
-            Navigation = selectedItem.ToUpper();
+            openDatabase = UserContext.User.Databases.FirstOrDefault(key => key.Key.Name == selectedItem).Key;
+            if (openDatabase == null)
+            {
+                await DisplayAlert("Error", "Database can not be open", "OK");
+                return;
+            }
 
-            var response = await UserContext.User.File_GetDatabseContentAsync(selectedItem);
-            if (!response.Status)
-                await DisplayAlert("Error", response.Message, "OK");
+            tableColumns.Clear();
+
+            tables.Clear();
+            foreach (var table in openDatabase.Tables)
+                tables.Add(table.TableName);
+
         }
+    }
+
+    private async Task<ColumnSchema> CreateColumnFrame(string columnName)
+    {
+        var column = openTable.TableColumns.FirstOrDefault(n => n.ColumnName == columnName);
+        if (column == null)
+        {
+            await DisplayAlert("Error", "Table can not be found", "OK");
+        }
+
+        var model = new ColumnModel
+        {
+            ColumnName = column.ColumnName,
+            IsItForeignKey = column.IsItForeignKey,
+            IsItPrimaryKey = column.IsItPrimaryKey,
+            ColumnData = new ObservableCollection<string>(),
+            ColumnDataType = column.ColumnDataType
+        };
+
+        tableColumns.Add(model);
+
+        return column;
+    }
+
+    private async Task LoadDataAsync(CancellationToken cancellationToken)
+    {
+        int batchSize = 2;
+        bool dataRemaining;
+
+        do
+        {
+            dataRemaining = false;
+
+            foreach (var column in openTable.TableColumns)
+            {
+                if (cancellationToken.IsCancellationRequested)
+                {
+                    return;
+                }
+
+                var model = tableColumns.FirstOrDefault(c => c.ColumnName == column.ColumnName);
+                if (model != null)
+                {
+                    var columnDataList = column.ColumnData.ToList();
+                    int currentCount = model.ColumnData.Count;
+
+                    if (currentCount < columnDataList.Count)
+                    {
+                        dataRemaining = true;
+                        int itemsToLoad = Math.Min(batchSize, columnDataList.Count - currentCount);
+
+                        for (int i = 0; i < itemsToLoad; i++)
+                        {
+                            model.ColumnData.Add(columnDataList[currentCount + i] == null ? "  " : columnDataList[currentCount + i]);
+                        }
+                    }
+                }
+            }
+
+            await Task.Delay(150);
+
+        } while (dataRemaining);
     }
 
     private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
@@ -112,66 +147,57 @@ public partial class TablePage : ContentPage, INotifyPropertyChanged
         if (border != null)
         {
             var context = border.BindingContext as string;
+
+            if (cancellationTokenSource != null)
+            {
+                cancellationTokenSource.Cancel();
+            }
+
+            cancellationTokenSource = new CancellationTokenSource();
+
             if (context != null)
             {
-                if (!UserContext.Databases.Any(n => n == openDatabase))
-                {
-                    await DisplayAlert("Error", "Table can not be open", "OK");
-                    openDatabase = string.Empty;
-                    DatabaseTables.Clear();
-                    return;
-                }
-
-                TableNavigation = context.ToUpper();
-
-                var database = UserContext.User.Databases.FirstOrDefault(d => d.Key.Name == openDatabase).Key;
-
-                var table = database.Tables.FirstOrDefault(t => t.TableName == context);
-
+                var table = openDatabase.Tables.FirstOrDefault(n => n.TableName == context);
                 if (table == null)
                 {
-                    await DisplayAlert("Error", "Table not found", "OK");
+                    await DisplayAlert("Error", "Table can not be found", "OK");
                     return;
                 }
 
-                dataGrid.Columns.Clear(); // Czyœcimy istniej¹ce kolumny
+                openTable = table;
 
-                var rowData = await AddTable(table);
+                tableColumns.Clear();
 
-                // Ustawienie Ÿród³a danych
-                dataGrid.ItemsSource = rowData;
+                if (cancellationTokenSource != null)
+                {
+                    cancellationTokenSource.Cancel();
+                }
+
+                cancellationTokenSource = new CancellationTokenSource();
+
+                foreach (var column in openTable.TableColumns)
+                {
+                    await CreateColumnFrame(column.ColumnName);
+                }
+
+                await LoadDataAsync(cancellationTokenSource.Token);
             }
         }
-    }
-
-    private async Task<List<Dictionary<string, string>>> AddTable(TableSchema? table)
-    {
-        var rowData = new List<Dictionary<string, string>>();
-        var columnCount = table.TableColumns.Count;
-        var rowCount = table.TableColumns.First().ColumnData.Count;
-
-        foreach (var column in table.TableColumns)
-        {
-            dataGrid.Columns.Add(new DataGridColumn
-            {
-                Title = column.ColumnName,
-                PropertyName = column.ColumnName
-            });
-        }
-
-        for (int i = 0; i < rowCount; i++)
-        {
-            var rowDict = new Dictionary<string, string>();
-            foreach (var column in table.TableColumns)
-            {
-                rowDict[column.ColumnName] = column.ColumnData.ElementAt(i) ?? string.Empty;
-            }
-            rowData.Add(rowDict);
-        }
-
-        return rowData;
     }
 }
+
+public class ColumnModel
+{
+    public string ColumnName { get; set; }
+    public ObservableCollection<string> ColumnData { get; set; }
+    public string ColumnDataType { get; set; }
+    public bool IsItPrimaryKey { get; set; }
+    public bool IsItForeignKey { get; set; }
+    public bool isLoading { get; set; }
+    public int itemsLoaded { get; set; }
+}
+
+
 
 
 

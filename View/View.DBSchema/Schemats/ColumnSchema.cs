@@ -35,6 +35,7 @@ namespace View.DBSchema.Schemats
         /// <summary>
         /// ColumnData is collection that holds all data owned by that column
         /// </summary>
-        public ICollection<string?> ColumnData { get; set; }
+        public List<string?> ColumnData { get; set; }
+
     }
 }
