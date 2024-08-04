@@ -48,12 +48,6 @@ build_metadata.AdditionalFiles.ManifestResourceName = View.SchemaPage.xaml
 build_metadata.AdditionalFiles.TargetPath = SchemaPage.xaml
 build_metadata.AdditionalFiles.RelativePath = SchemaPage.xaml
 
-[C:/Users/bnozd/Desktop/View-Project/View/View/StatisticPage.xaml]
-build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = View.StatisticPage.xaml
-build_metadata.AdditionalFiles.TargetPath = StatisticPage.xaml
-build_metadata.AdditionalFiles.RelativePath = StatisticPage.xaml
-
 [C:/Users/bnozd/Desktop/View-Project/View/View/TablePage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = View.TablePage.xaml

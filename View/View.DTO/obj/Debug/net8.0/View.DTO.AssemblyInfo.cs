@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("View.DTO")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+94f13af83de381e4c9cac06cd750fde588f0e9b5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f5ee3fb15cf118ca9de1a921ea95f0da81b3cfe0")]
 [assembly: System.Reflection.AssemblyProductAttribute("View.DTO")]
 [assembly: System.Reflection.AssemblyTitleAttribute("View.DTO")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

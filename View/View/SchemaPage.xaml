@@ -1,12 +1,173 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helpers="clr-namespace:View.Helpers" 
              x:Class="View.SchemaPage"
-             Title="SchemaPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             BackgroundColor="#121212">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="1" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="5" />
+        </Grid.RowDefinitions>
+
+        <!--Bookmark bar-->
+        <CollectionView x:Name="BookmarksCollectionView" VerticalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0"
+         SelectionMode="Single" SelectionChanged="OnSelectionChanged">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal" ItemSpacing="1"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border x:Name="ItemBorder"
+                     WidthRequest="100"
+                     VerticalOptions="FillAndExpand" Padding="10"
+                     BackgroundColor="#191919" StrokeShape="RoundRectangle 10,10,0,0" Stroke="#000000" StrokeThickness="0">
+
+                        <Border.GestureRecognizers>
+                            <PointerGestureRecognizer PointerEntered="OnPointerEntered" PointerExited="OnPointerExited"/>
+                        </Border.GestureRecognizers>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup Name="CommonStates">
+                                <VisualState Name="Normal">
+                                    <VisualState.Setters>
+                                        <Setter Property="Scale" Value="1"/>
+                                        <Setter Property="BackgroundColor" Value="#191919" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState Name="MouseOver">
+                                    <VisualState.Setters>
+                                        <Setter Property="Scale" Value="1.05"/>
+                                        <Setter Property="BackgroundColor" Value="#1d1d1d" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                        <Label Text="{Binding .}" FontSize="10" FontAttributes="Bold" TextColor="#ebe9fc" VerticalOptions="Center" HorizontalOptions="Center" />
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Border Grid.Row="2" Grid.Column="0" Background="#1d1d1d"/>
+
+        <Border x:Name="Tables" Grid.Row="3" Grid.Column="0" 
+        BackgroundColor="#191919" StrokeShape="RoundRectangle 0,20,20,20" StrokeThickness="0">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+
+
+                <VerticalStackLayout Grid.Row="1" Grid.Column="1">
+                    <!-- Slider for resizing items -->
+                    <Slider x:Name="SizeSlider"
+                            Minimum="100"
+                            Maximum="200" 
+                            Value="200"
+                            ValueChanged="OnSliderValueChanged"
+                            Margin="10,10,10,0"
+                            ThumbColor="#3700B3"/>
+
+                </VerticalStackLayout>
+
+                <ScrollView  Grid.Column="1" Grid.Row="3">
+                    <!-- CollectionView with items -->
+                    <CollectionView x:Name="LogicalSchema" VerticalOptions="FillAndExpand" VerticalScrollBarVisibility="Always">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" 
+                                             Span="4" VerticalItemSpacing="40" 
+                                             HorizontalItemSpacing="40" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Border BackgroundColor="#1d1d1d"
+                                         StrokeShape="RoundRectangle 5,5,5,5"
+                                         StrokeThickness="0"
+                                         HeightRequest="{Binding Source={x:Reference SizeSlider}, Path=Value}"
+                                         WidthRequest="{Binding Source={x:Reference SizeSlider}, Path=Value}">
+
+
+                                    <CollectionView ItemsSource="{Binding TableColumns}" >
+                                        
+                                        <CollectionView.Header>
+                                            <Border BackgroundColor="#3700B3" StrokeShape="RoundRectangle 2,2,2,2"  StrokeThickness="0" HeightRequest="30">
+                                                <Label Text="{Binding TableName}" TextColor="#ebe9fc" FontSize="12" FontAutoScalingEnabled="True"
+                                                    HorizontalOptions="Center" VerticalOptions="Center" />
+                                                <Border.Shadow>
+                                                    <Shadow Brush="#121212" Offset="5,5" Radius="8" Opacity="0.8"/>
+                                                </Border.Shadow>
+                                            </Border>
+                                        </CollectionView.Header>
+                                        <CollectionView.ItemsLayout>
+                                            <LinearItemsLayout Orientation="Vertical" ItemSpacing="3"/>
+                                        </CollectionView.ItemsLayout>
+
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate>
+
+                                                <Border x:Name="Tables" Grid.Row="3" Grid.Column="0" 
+                                                        BackgroundColor="#292929" StrokeShape="RoundRectangle 2,2,2,2" StrokeThickness="0"
+                                                        HeightRequest="20">
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="10"/>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="10"/>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="10"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="*"/>
+                                                        </Grid.RowDefinitions>
+
+                                                        <Label  Text="{Binding ColumnName}" TextColor="#ebe9fc" FontAutoScalingEnabled="True"
+                                                               Grid.Row="0" Grid.Column="1" VerticalOptions="Center"/>
+
+                                                        <Label Grid.Row="0" Grid.Column="3" HorizontalOptions="Center" VerticalOptions="Center"
+                                                                FontFamily="FontSolid" Text="{x:Static helpers:FontSolid.Key}" 
+                                                               TextColor="#ebe9fc" IsVisible="{Binding IsItPrimaryKey}"/>
+
+                                                        <Label Grid.Row="0" Grid.Column="3" HorizontalOptions="Center" VerticalOptions="Center"
+                                                                FontFamily="FontBrands" Text="{x:Static helpers:FontBrands.Keycdn}" 
+                                                               TextColor="#ebe9fc" IsVisible="{Binding IsItForeignKey}"/>
+
+                                                    </Grid>
+                                                </Border>
+
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+
+                                    </CollectionView>
+
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </ScrollView>
+                
+
+
+            </Grid>
+
+
+        </Border>
+    </Grid>
 </ContentPage>

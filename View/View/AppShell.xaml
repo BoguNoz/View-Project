@@ -51,15 +51,6 @@
     </FlyoutItem>
 
 
-    <FlyoutItem Title="Analytics">
-        <FlyoutItem.FlyoutIcon>
-            <FontImageSource
-                FontFamily="FontSolid"
-                Glyph="{x:Static helpers:FontSolid.ChartSimple}"
-                Color="#E6FFFFFF"/>
-        </FlyoutItem.FlyoutIcon>
-        <ShellContent ContentTemplate="{DataTemplate local:StatisticPage}"/>
-    </FlyoutItem>
 
 
     <Shell.FlyoutFooter>

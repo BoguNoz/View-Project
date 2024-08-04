@@ -151,7 +151,7 @@ namespace View
                     if (!response.Status)
                         await DisplayAlert("Error", response.Message, "OK");
 
-                    SavedDatabases.Add(context);
+                    SavedDatabases.Add(context + " (schema)");
 
                 }
             }

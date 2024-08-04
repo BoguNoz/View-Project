@@ -221,6 +221,8 @@ namespace View.AppServices
 
             var database = Databases.FirstOrDefault(d => d.Key.Name == name);
 
+            database.Key.Name += " (schema)";
+
             var response = await connection.PostDatabaseAsync(database.Key);
             if (!response.Status)
                 return new ResponseModel<string> { Status = false, Message = response.Message, Result = name };

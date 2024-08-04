@@ -117,7 +117,7 @@
                                     <Border x:Name="BorderUser" BackgroundColor="#1B1B1B" StrokeThickness="2" Stroke="#191919" StrokeShape="RoundRectangle 20,20,20,20" 
                                             HeightRequest="70"
                                             Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3">
-                                        <Label x:Name="NameLabel" Text="{Binding}" HorizontalOptions="Center" FontSize="15" VerticalOptions="Center" TextColor="#CCFFFFFF" />
+                                        <Label x:Name="NameLabel" Text="{Binding}" HorizontalOptions="Center" FontSize="12" FontAutoScalingEnabled="True" VerticalOptions="Center" TextColor="#CCFFFFFF" />
 
                                     </Border>
 

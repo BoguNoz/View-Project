@@ -9,9 +9,6 @@
     <MauiXaml Update="SchemaPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="StatisticPage.xaml">
-      <SubType>Designer</SubType>
-    </MauiXaml>
     <MauiXaml Update="TablePage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

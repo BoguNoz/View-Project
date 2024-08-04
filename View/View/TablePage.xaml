@@ -2,7 +2,6 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:helpers="clr-namespace:View.Helpers" 
-             xmlns:datagrid="clr-namespace:Maui.DataGrid;assembly=Maui.DataGrid"
              x:Class="View.TablePage"
              BackgroundColor="#121212">
 
@@ -111,7 +110,7 @@
                                             <RowDefinition Height="50" />
                                         </Grid.RowDefinitions>
 
-                                        <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4"
+                                   <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4"
                                                 BackgroundColor="#3700B3" StrokeShape="RoundRectangle 20,20,20,20"  StrokeThickness="0">
                                             <Border.Shadow>
                                                 <Shadow Brush="#121212" Offset="5,5" Radius="8" Opacity="0.8"/>
@@ -138,7 +137,7 @@
                                         </Border>
 
                                         <Label Grid.Row="1" Grid.Column="1"  Text="{Binding ColumnName}" TextColor="#ebe9fc" FontSize="12" 
-                                               HorizontalOptions="Center" VerticalOptions="Center" />
+                                               HorizontalOptions="Center" VerticalOptions="Center" />     
 
 
                                         <Label Grid.Row="1" Grid.Column="3" HorizontalOptions="Center" VerticalOptions="Center"
