@@ -83,8 +83,7 @@
                             Maximum="200" 
                             Value="200"
                             ValueChanged="OnSliderValueChanged"
-                            Margin="10,10,10,0"
-                            ThumbColor="#3700B3"/>
+                            Margin="10,10,10,0"/>
 
                 </VerticalStackLayout>
 
@@ -94,26 +93,27 @@
                         <CollectionView.ItemsLayout>
                             <GridItemsLayout Orientation="Vertical" 
                                              Span="4" VerticalItemSpacing="40" 
-                                             HorizontalItemSpacing="40" />
+                                             HorizontalItemSpacing="40"/>
                         </CollectionView.ItemsLayout>
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <Border BackgroundColor="#1d1d1d"
-                                         StrokeShape="RoundRectangle 5,5,5,5"
-                                         StrokeThickness="0"
-                                         HeightRequest="{Binding Source={x:Reference SizeSlider}, Path=Value}"
-                                         WidthRequest="{Binding Source={x:Reference SizeSlider}, Path=Value}">
+                                        StrokeShape="RoundRectangle 5,5,5,5"
+                                        StrokeThickness="0"
+                                        HeightRequest="{Binding Source={x:Reference SizeSlider}, Path=Value}"
+                                        WidthRequest="{Binding Source={x:Reference SizeSlider}, Path=Value}">
+                                    <Border.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                                    </Border.GestureRecognizers>
 
 
-                                    <CollectionView ItemsSource="{Binding TableColumns}" >
+
+                                    <CollectionView ItemsSource="{Binding TableColumns}"  IsVisible="{Binding IsVisible}" >
                                         
                                         <CollectionView.Header>
-                                            <Border BackgroundColor="#3700B3" StrokeShape="RoundRectangle 2,2,2,2"  StrokeThickness="0" HeightRequest="30">
+                                            <Border BackgroundColor="{Binding PointColor}" StrokeShape="RoundRectangle 2,2,2,2"  StrokeThickness="0" HeightRequest="30">
                                                 <Label Text="{Binding TableName}" TextColor="#ebe9fc" FontSize="12" FontAutoScalingEnabled="True"
                                                     HorizontalOptions="Center" VerticalOptions="Center" />
-                                                <Border.Shadow>
-                                                    <Shadow Brush="#121212" Offset="5,5" Radius="8" Opacity="0.8"/>
-                                                </Border.Shadow>
                                             </Border>
                                         </CollectionView.Header>
                                         <CollectionView.ItemsLayout>
@@ -126,11 +126,15 @@
                                                 <Border x:Name="Tables" Grid.Row="3" Grid.Column="0" 
                                                         BackgroundColor="#292929" StrokeShape="RoundRectangle 2,2,2,2" StrokeThickness="0"
                                                         HeightRequest="20">
+
+
                                                     <Grid>
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition Width="10"/>
                                                             <ColumnDefinition Width="*"/>
                                                             <ColumnDefinition Width="10"/>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="5"/>
                                                             <ColumnDefinition Width="*"/>
                                                             <ColumnDefinition Width="10"/>
                                                         </Grid.ColumnDefinitions>
@@ -145,7 +149,7 @@
                                                                 FontFamily="FontSolid" Text="{x:Static helpers:FontSolid.Key}" 
                                                                TextColor="#ebe9fc" IsVisible="{Binding IsItPrimaryKey}"/>
 
-                                                        <Label Grid.Row="0" Grid.Column="3" HorizontalOptions="Center" VerticalOptions="Center"
+                                                        <Label Grid.Row="0" Grid.Column="5" HorizontalOptions="Center" VerticalOptions="Center"
                                                                 FontFamily="FontBrands" Text="{x:Static helpers:FontBrands.Keycdn}" 
                                                                TextColor="#ebe9fc" IsVisible="{Binding IsItForeignKey}"/>
 

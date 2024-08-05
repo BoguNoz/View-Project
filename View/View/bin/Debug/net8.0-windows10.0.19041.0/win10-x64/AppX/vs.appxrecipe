@@ -29,7 +29,7 @@
     <AppXManifest Include="C:\Users\bnozd\Desktop\View-Project\View\View\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-08-04T18:28:11.096</Modified>
+      <Modified>2024-08-05T09:25:55.139</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -43,11 +43,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\View.UI.dll">
       <PackagePath>View.UI.dll</PackagePath>
-      <Modified>2024-08-04T18:28:10.374</Modified>
+      <Modified>2024-08-05T09:25:54.459</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>View.UI.exe</PackagePath>
-      <Modified>2024-08-04T18:28:10.380</Modified>
+      <Modified>2024-08-05T09:25:54.464</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bnozd\Desktop\View-Project\View\View\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
